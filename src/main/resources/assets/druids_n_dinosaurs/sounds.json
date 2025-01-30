@@ -1,0 +1,11 @@
+{
+  "wicker_idol.use": {
+    "subtitle": "druids_n_dinosaurs.wicker_idol.use",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:wicker_idol/use",
+        "stream": true
+      }
+    ]
+  }
+}

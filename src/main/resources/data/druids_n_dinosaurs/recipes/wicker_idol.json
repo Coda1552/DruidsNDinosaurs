@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "###",
+    "#E#",
+    "###"
+  ],
+  "result": {
+    "item": "druids_n_dinosaurs:wicker_idol"
+  },
+  "show_notification": true
+}

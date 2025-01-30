@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "druids_n_dinosaurs:item/wicker_idol_inactive"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "druids_n_dinosaurs:full": 1.0
+      },
+      "model": "druids_n_dinosaurs:item/wicker_idol_active"
+    }
+  ]
+}
