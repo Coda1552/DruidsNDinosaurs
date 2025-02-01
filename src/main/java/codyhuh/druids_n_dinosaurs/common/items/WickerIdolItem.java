@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -18,6 +19,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.warden.Warden;
@@ -75,6 +77,7 @@ public class WickerIdolItem extends Item {
         targetTag.putString("OwnerName", player.getName().getString());
         CompoundTag tag = stack1.getOrCreateTag();
         tag.put(DATA_CREATURE, targetTag);
+        tag.putUUID("UUID", target.getUUID());
         stack1.setTag(tag);
 
         /*if (more) {
@@ -166,9 +169,9 @@ public class WickerIdolItem extends Item {
         }
 
         if (!level.isClientSide) {
-            UUID id = entity.getUUID();
+            Tag id = tag.get("UUID");
+            entity.setUUID(UUID.fromString(id.getAsString()));
             entity.deserializeNBT(tag);
-            entity.setUUID(id);
             entity.moveTo(pos.getX(), pos.getY() + direction.getStepY() + 1.0, pos.getZ(), player.getYRot(), 0f);
 
             if (stack.hasCustomHoverName()) entity.setCustomName(stack.getHoverName());
@@ -204,9 +207,10 @@ public class WickerIdolItem extends Item {
             LivingEntity entity = (LivingEntity) type.create(context.getLevel());
             if (entity == null) return InteractionResult.FAIL;
 
-            UUID id = entity.getUUID();
-            entity.deserializeNBT(tag);
+            UUID id = tag.getUUID("UUID");
             entity.setUUID(id);
+
+            entity.deserializeNBT(tag);
 
             entity.moveTo(blockpos1.getX() + 0.5, blockpos1.getY(), blockpos1.getZ() + 0.5, context.getPlayer().getYRot(), 0f);
 

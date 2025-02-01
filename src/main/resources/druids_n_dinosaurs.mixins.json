@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "codyhuh.druids_n_dinosaurs.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "druids_n_dinosaurs.refmap.json",
+  "mixins": [
+    "MobMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
