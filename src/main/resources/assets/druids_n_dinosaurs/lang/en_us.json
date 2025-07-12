@@ -1,4 +1,36 @@
 {
+  "creativetab.druids_n_dinosaurs": "Druids n Dinosaurs",
+
   "item.druids_n_dinosaurs.wicker_idol": "Wicker Idol",
-  "druids_n_dinosaurs.wicker_idol.use": "Something swooshes"
+  "druids_n_dinosaurs.wicker_idol.use": "Something swooshes",
+
+  "block.druids_n_dinosaurs.aloewood_planks": "Aloewood Planks",
+  "block.druids_n_dinosaurs.aloewood_stairs": "Aloewood Stairs",
+  "block.druids_n_dinosaurs.aloewood_slab": "Aloewood Slab",
+  "block.druids_n_dinosaurs.aloewood_button": "Aloewood Button",
+  "block.druids_n_dinosaurs.aloewood_pressure_plate": "Aloewood Pressure Plate",
+  "block.druids_n_dinosaurs.aloewood_fence": "Aloewood Fence",
+  "block.druids_n_dinosaurs.aloewood_fence_gate": "Aloewood Fence Gate",
+
+  "block.druids_n_dinosaurs.aloewood_door": "Aloewood Door",
+  "block.druids_n_dinosaurs.aloewood_trapdoor": "Aloewood Trapdoor",
+
+  "block.druids_n_dinosaurs.aloewood_log": "Aloewood Log",
+  "block.druids_n_dinosaurs.stripped_aloewood_log": "Stripped Aloewood Log",
+  "block.druids_n_dinosaurs.aloewood_wood": "Aloewood Wood",
+  "block.druids_n_dinosaurs.stripped_aloewood_wood": "Stripped Aloewood Wood",
+
+  "block.druids_n_dinosaurs.aloewood_sign": "Aloewood Sign",
+  "block.druids_n_dinosaurs.aloewood_wall_sign": "Aloewood Sign",
+  "block.druids_n_dinosaurs.aloewood_wall_hanging_sign": "Aloewood Hanging Sign",
+  "block.druids_n_dinosaurs.aloewood_hanging_sign": "Aloewood Hanging Sign",
+
+  "block.druids_n_dinosaurs.aloewood_leaves": "Aloewood Leaves",
+  "block.druids_n_dinosaurs.aloewood_sapling": "Aloewood Sapling",
+  "block.druids_n_dinosaurs.potted_aloewood_sapling": "Potted Aloewood Sapling",
+
+  "item.druids_n_dinosaurs.aloewood_boat": "Aloewood Boat",
+  "item.druids_n_dinosaurs.aloewood_chest_boat": "Aloewood Boat with Chest",
+  "entity.druids_n_dinosaurs.mod_boat": "Boat",
+  "entity.druids_n_dinosaurs.mod_chest_boat": "Boat with Chest"
 }
