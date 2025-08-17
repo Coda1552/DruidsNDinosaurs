@@ -23,7 +23,7 @@ public class ModBlocks {
 
     // PLANTS
     public static final RegistryObject<Block> BOUNCESHROOM = registerBlock("bounceshroom",
-            () -> new BounceshroomBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).lightLevel(value -> 1)));
+            () -> new BounceshroomBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).lightLevel(value -> 1).randomTicks()));
     public static final RegistryObject<Block> YELLOW_IRONWEED = registerBlock("yellow_ironweed",
             () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
 
@@ -39,7 +39,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> GOLD_DOOR = registerBlock("gold_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
     public static final RegistryObject<Block> GOLD_TRAPDOOR = registerBlock("gold_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).noCollission().noOcclusion(), ModBlockSetTypes.DND_GOLD));
 
     //Aloewood plank blocks
     public static final RegistryObject<Block> ALOEWOOD_PLANKS = registerBlock("aloewood_planks",

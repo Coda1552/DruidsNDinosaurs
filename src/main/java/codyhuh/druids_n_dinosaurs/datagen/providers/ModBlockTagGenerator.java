@@ -59,7 +59,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         ;
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
-                ModBlocks.ALOEWOOD_LEAVES.get()
+                ModBlocks.ALOEWOOD_LEAVES.get(),
+                ModBlocks.BOUNCESHROOM.get()
         );
 
         this.tag(BlockTags.LEAVES).add(

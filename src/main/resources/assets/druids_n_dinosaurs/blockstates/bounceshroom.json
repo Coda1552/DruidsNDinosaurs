@@ -1,10 +1,34 @@
 {
   "variants": {
-    "waterlogged=true": {
+    "waterlogged=true,bounces=4": {
       "model": "druids_n_dinosaurs:block/bounceshroom"
     },
-    "waterlogged=false": {
+    "waterlogged=false,bounces=4": {
       "model": "druids_n_dinosaurs:block/bounceshroom"
+    },
+    "waterlogged=true,bounces=3": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_3"
+    },
+    "waterlogged=false,bounces=3": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_3"
+    },
+    "waterlogged=true,bounces=2": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_2"
+    },
+    "waterlogged=false,bounces=2": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_2"
+    },
+    "waterlogged=true,bounces=1": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_1"
+    },
+    "waterlogged=false,bounces=1": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_1"
+    },
+    "waterlogged=true,bounces=03": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_0"
+    },
+    "waterlogged=false,bounces=0": {
+      "model": "druids_n_dinosaurs:block/bounceshroom_0"
     }
   }
 }

@@ -3,7 +3,7 @@
 	"ambientocclusion": false,
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "druids_n_dinosaurs:block/bounceshroom_4",
+		"0": "druids_n_dinosaurs:block/bounceshroom_0",
 		"particle": "druids_n_dinosaurs:block/bounceshroom_particle"
 	},
 	"elements": [
