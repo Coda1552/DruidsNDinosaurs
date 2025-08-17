@@ -22,6 +22,13 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
+        // GOLD
+        simpleBlockItem(ModBlocks.GOLD_DOOR);
+        trapdoorItem(ModBlocks.GOLD_TRAPDOOR);
+        evenSimplerBlockItem(ModBlocks.CUT_GOLD_STAIRS);
+        evenSimplerBlockItem(ModBlocks.CUT_GOLD_SLAB);
+
+        // ALOEWOOD
         simpleBlockItem(ModBlocks.ALOEWOOD_DOOR);
 
         simpleBlockItem(ModBlocks.ALOEWOOD_SAPLING);

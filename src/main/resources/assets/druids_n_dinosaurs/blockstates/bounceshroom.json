@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=true": {
+      "model": "druids_n_dinosaurs:block/bounceshroom"
+    },
+    "waterlogged=false": {
+      "model": "druids_n_dinosaurs:block/bounceshroom"
+    }
+  }
+}

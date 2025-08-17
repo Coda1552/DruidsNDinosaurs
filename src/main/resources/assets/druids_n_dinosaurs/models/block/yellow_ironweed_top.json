@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "druids_n_dinosaurs:block/yellow_ironweed"
+  },
+  "render_type": "cutout"
+}

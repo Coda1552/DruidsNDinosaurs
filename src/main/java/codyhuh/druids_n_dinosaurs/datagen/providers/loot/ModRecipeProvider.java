@@ -40,7 +40,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         makeTrapdoor(ModBlocks.ALOEWOOD_TRAPDOOR, ModBlocks.ALOEWOOD_PLANKS).save(consumer);
         makeButton(ModBlocks.ALOEWOOD_BUTTON, ModBlocks.ALOEWOOD_PLANKS).save(consumer);
         makePressurePlate(ModBlocks.ALOEWOOD_PRESSURE_PLATE, ModBlocks.ALOEWOOD_PLANKS).save(consumer);
-        
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.GOLD_DOOR.get(), 3)
+                .pattern("SS")
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', Items.GOLD_INGOT)
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.GOLD_TRAPDOOR.get(), 3)
+                .pattern("SSS")
+                .pattern("SSS")
+                .define('S', Items.GOLD_INGOT)
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .save(consumer);
+
         //Sigillaria sign
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.ALOEWOOD_SIGN.get(), 3)
                 .pattern("SSS")

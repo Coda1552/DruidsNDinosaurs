@@ -21,6 +21,26 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, DruidsNDinosaurs.MOD_ID);
 
+    // PLANTS
+    public static final RegistryObject<Block> BOUNCESHROOM = registerBlock("bounceshroom",
+            () -> new BounceshroomBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).lightLevel(value -> 1)));
+    public static final RegistryObject<Block> YELLOW_IRONWEED = registerBlock("yellow_ironweed",
+            () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
+
+    // GOLD
+    public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
+    public static final RegistryObject<Block> CUT_GOLD_SLAB = registerBlock("cut_gold_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
+    public static final RegistryObject<Block> CUT_GOLD_STAIRS = registerBlock("cut_gold_stairs",
+            () -> new StairBlock(() -> CUT_GOLD.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
+    public static final RegistryObject<Block> CHISELED_GOLD = registerBlock("chiseled_gold",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
+    public static final RegistryObject<Block> GOLD_DOOR = registerBlock("gold_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
+    public static final RegistryObject<Block> GOLD_TRAPDOOR = registerBlock("gold_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
+
     //Aloewood plank blocks
     public static final RegistryObject<Block> ALOEWOOD_PLANKS = registerBlock("aloewood_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).ignitedByLava()));
@@ -50,13 +70,13 @@ public class ModBlocks {
 
     //Aloewood signs
     public static final RegistryObject<Block> ALOEWOOD_SIGN = BLOCKS.register("aloewood_sign",
-            () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), ModWoodTypes.ALOEWOOD));
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), ModBlockSetTypes.ALOEWOOD));
     public static final RegistryObject<Block> ALOEWOOD_WALL_SIGN = BLOCKS.register("aloewood_wall_sign",
-            () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WALL_SIGN), ModWoodTypes.ALOEWOOD));
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WALL_SIGN), ModBlockSetTypes.ALOEWOOD));
     public static final RegistryObject<Block> ALOEWOOD_HANGING_SIGN = BLOCKS.register("aloewood_hanging_sign",
-            () -> new ModHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_HANGING_SIGN), ModWoodTypes.ALOEWOOD));
+            () -> new ModHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_HANGING_SIGN), ModBlockSetTypes.ALOEWOOD));
     public static final RegistryObject<Block> ALOEWOOD_WALL_HANGING_SIGN = BLOCKS.register("aloewood_wall_hanging_sign",
-            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WALL_HANGING_SIGN), ModWoodTypes.ALOEWOOD));
+            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WALL_HANGING_SIGN), ModBlockSetTypes.ALOEWOOD));
 
     //Aloewood logs and wood
     public static final RegistryObject<Block> ALOEWOOD_LOG = registerBlock("aloewood_log",

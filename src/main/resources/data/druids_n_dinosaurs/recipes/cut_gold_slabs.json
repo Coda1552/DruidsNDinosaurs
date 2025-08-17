@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "druids_n_dinosaurs:cut_gold"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "item": "druids_n_dinosaurs:cut_gold_slab",
+    "count": 6
+  },
+  "show_notification": false
+}

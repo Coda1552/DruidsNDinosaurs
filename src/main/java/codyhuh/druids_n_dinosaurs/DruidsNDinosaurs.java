@@ -39,23 +39,18 @@ public class DruidsNDinosaurs {
         ModConfiguredFeatures.register(bus);
         ModCreativeTab.register(bus);
 
-        //bus.addListener(this::buildTabs);
         bus.addListener(this::commonSetup);
     }
 
-//    private void buildTabs(BuildCreativeModeTabContentsEvent e) {
-//        if (e.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-//            e.accept(ModItems.WICKER_IDOL.get());
-//        }
-//    }
-    
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(()->{
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ALOEWOOD_SAPLING.getId(), ModBlocks.POTTED_ALOEWOOD_SAPLING);
+
             ComposterBlock.COMPOSTABLES.put(ModBlocks.ALOEWOOD_SAPLING.get().asItem(), 0.4F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.ALOEWOOD_LEAVES.get().asItem(), 0.4F);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BOUNCESHROOM.get().asItem(), 0.65F);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.YELLOW_IRONWEED.get().asItem(), 0.65F);
 
         });
     }

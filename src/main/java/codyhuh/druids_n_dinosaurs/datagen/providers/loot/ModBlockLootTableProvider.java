@@ -24,6 +24,17 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ALOEWOOD_BUTTON.get());
         this.dropSelf(ModBlocks.ALOEWOOD_PRESSURE_PLATE.get());
         this.dropSelf(ModBlocks.ALOEWOOD_TRAPDOOR.get());
+        this.dropSelf(ModBlocks.BOUNCESHROOM.get());
+        this.dropSelf(ModBlocks.GOLD_TRAPDOOR.get());
+        this.dropSelf(ModBlocks.CUT_GOLD.get());
+        this.dropSelf(ModBlocks.CUT_GOLD_SLAB.get());
+        this.dropSelf(ModBlocks.CUT_GOLD_STAIRS.get());
+        this.dropSelf(ModBlocks.CHISELED_GOLD.get());
+        this.add(ModBlocks.GOLD_DOOR.get(),
+                block -> createDoorTable(ModBlocks.GOLD_DOOR.get()));
+
+        this.add(ModBlocks.YELLOW_IRONWEED.get(),
+                block -> createDoublePlantShearsDrop(ModBlocks.YELLOW_IRONWEED.get()));
 
         this.add(ModBlocks.ALOEWOOD_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.ALOEWOOD_SLAB.get()));

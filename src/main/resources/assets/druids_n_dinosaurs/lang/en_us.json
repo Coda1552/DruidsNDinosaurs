@@ -4,6 +4,16 @@
   "item.druids_n_dinosaurs.wicker_idol": "Wicker Idol",
   "druids_n_dinosaurs.wicker_idol.use": "Something swooshes",
 
+  "block.druids_n_dinosaurs.bounceshroom": "Bounceshroom",
+  "block.druids_n_dinosaurs.yellow_ironweed": "Yellow Ironweed",
+
+  "block.druids_n_dinosaurs.cut_gold": "Cut Gold",
+  "block.druids_n_dinosaurs.chiseled_gold": "Chiseled Gold",
+  "block.druids_n_dinosaurs.cut_gold_stairs": "Cut Gold Stairs",
+  "block.druids_n_dinosaurs.cut_gold_slab": "Cut Gold Slab",
+  "block.druids_n_dinosaurs.gold_door": "Gold Door",
+  "block.druids_n_dinosaurs.gold_trapdoor": "Gold Trapdoor",
+
   "block.druids_n_dinosaurs.aloewood_planks": "Aloewood Planks",
   "block.druids_n_dinosaurs.aloewood_stairs": "Aloewood Stairs",
   "block.druids_n_dinosaurs.aloewood_slab": "Aloewood Slab",

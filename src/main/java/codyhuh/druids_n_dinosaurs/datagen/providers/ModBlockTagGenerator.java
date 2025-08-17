@@ -73,11 +73,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.WOODEN_DOORS).add(
-                ModBlocks.ALOEWOOD_DOOR.get()
+                ModBlocks.ALOEWOOD_DOOR.get(),
+                ModBlocks.GOLD_DOOR.get()
         );
 
         this.tag(BlockTags.WOODEN_TRAPDOORS).add(
-                ModBlocks.ALOEWOOD_TRAPDOOR.get()
+                ModBlocks.ALOEWOOD_TRAPDOOR.get(),
+                ModBlocks.GOLD_TRAPDOOR.get()
         );
 
         this.tag(BlockTags.WOODEN_STAIRS).add(

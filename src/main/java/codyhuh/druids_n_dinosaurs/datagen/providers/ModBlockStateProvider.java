@@ -20,6 +20,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
+        // misc
+        blockItem(ModBlocks.BOUNCESHROOM);
+
+        // gold
+        doorBlockWithRenderType(((DoorBlock) ModBlocks.GOLD_DOOR.get()), modLoc("block/gold_door_bottom"), modLoc("block/gold_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.GOLD_TRAPDOOR.get()), modLoc("block/gold_trapdoor"), true, "cutout");
+        blockWithItem(ModBlocks.CUT_GOLD);
+        blockWithItem(ModBlocks.CHISELED_GOLD);
+        stairsBlock((StairBlock)ModBlocks.CUT_GOLD_STAIRS.get(), blockTexture(ModBlocks.CUT_GOLD.get()));
+        slabBlock(((SlabBlock) ModBlocks.CUT_GOLD_SLAB.get()), blockTexture(ModBlocks.CUT_GOLD.get()), blockTexture(ModBlocks.CUT_GOLD.get()));
+
         //aloewood woodset
         blockWithItem(ModBlocks.ALOEWOOD_PLANKS);
         stairsBlock(((StairBlock) ModBlocks.ALOEWOOD_STAIRS.get()), blockTexture(ModBlocks.ALOEWOOD_PLANKS.get()));

@@ -19,6 +19,9 @@ public class ModCreativeTab {public static final DeferredRegister<CreativeModeTa
 
                         output.accept(ModItems.WICKER_IDOL.get());
 
+                        output.accept(ModBlocks.YELLOW_IRONWEED.get());
+                        output.accept(ModBlocks.BOUNCESHROOM.get());
+
                         output.accept(ModBlocks.ALOEWOOD_PLANKS.get());
 
                         output.accept(ModBlocks.ALOEWOOD_LOG.get());
@@ -42,6 +45,14 @@ public class ModCreativeTab {public static final DeferredRegister<CreativeModeTa
 
                         output.accept(ModBlocks.ALOEWOOD_LEAVES.get());
                         output.accept(ModBlocks.ALOEWOOD_SAPLING.get());
+
+                        output.accept(ModBlocks.CUT_GOLD.get());
+                        output.accept(ModBlocks.CUT_GOLD_SLAB.get());
+                        output.accept(ModBlocks.CUT_GOLD_STAIRS.get());
+                        output.accept(ModBlocks.CHISELED_GOLD.get());
+                        output.accept(ModBlocks.GOLD_DOOR.get());
+                        output.accept(ModBlocks.GOLD_TRAPDOOR.get());
+
 
                     })
                     .build());

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "druids_n_dinosaurs:cut_gold_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "druids_n_dinosaurs:chiseled_gold"
+  },
+  "show_notification": true
+}

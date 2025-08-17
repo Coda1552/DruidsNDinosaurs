@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "druids_n_dinosaurs:block/yellow_ironweed_bottom"
+    },
+    "half=upper": {
+      "model": "druids_n_dinosaurs:block/yellow_ironweed_top"
+    }
+  }
+}
