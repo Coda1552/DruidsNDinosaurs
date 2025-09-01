@@ -24,7 +24,7 @@
     "waterlogged=false,bounces=1": {
       "model": "druids_n_dinosaurs:block/bounceshroom_1"
     },
-    "waterlogged=true,bounces=03": {
+    "waterlogged=true,bounces=0": {
       "model": "druids_n_dinosaurs:block/bounceshroom_0"
     },
     "waterlogged=false,bounces=0": {

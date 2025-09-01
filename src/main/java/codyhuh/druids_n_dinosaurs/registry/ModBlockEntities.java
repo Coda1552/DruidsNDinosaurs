@@ -1,6 +1,7 @@
 package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
+import codyhuh.druids_n_dinosaurs.common.blockentity.BounceshroomBlockEntity;
 import codyhuh.druids_n_dinosaurs.common.blockentity.ModHangingSignBlockEntity;
 import codyhuh.druids_n_dinosaurs.common.blockentity.ModSignBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -26,6 +27,12 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
                                     ModBlocks.ALOEWOOD_HANGING_SIGN.get(),
                                     ModBlocks.ALOEWOOD_WALL_HANGING_SIGN.get())
+                            .build(null));
+
+    public static final RegistryObject<BlockEntityType<BounceshroomBlockEntity>> BOUNCESHROOM =
+            BLOCK_ENTITIES.register("bounceshroom", () ->
+                    BlockEntityType.Builder.of(BounceshroomBlockEntity::new,
+                                    ModBlocks.BOUNCESHROOM.get())
                             .build(null));
 
     public static void register(IEventBus eventBus){

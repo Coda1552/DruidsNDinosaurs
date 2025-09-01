@@ -1,16 +1,24 @@
 package codyhuh.druids_n_dinosaurs.common.blocks;
 
+import codyhuh.druids_n_dinosaurs.common.blockentity.BounceshroomBlockEntity;
+import codyhuh.druids_n_dinosaurs.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -18,15 +26,14 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class BounceshroomBlock extends BushBlock {
+public class BounceshroomBlock extends BaseEntityBlock {
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
+    protected static final VoxelShape COLLISION = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final IntegerProperty BOUNCES = IntegerProperty.create("bounces", 0, 4);
 
@@ -41,22 +48,42 @@ public class BounceshroomBlock extends BushBlock {
         return this.defaultBlockState().setValue(WATERLOGGED, fluidstate.is(FluidTags.WATER) && fluidstate.getAmount() == 8).setValue(BOUNCES, 4);
     }
 
+    @Override
     public VoxelShape getShape(BlockState p_52419_, BlockGetter p_52420_, BlockPos p_52421_, CollisionContext p_52422_) {
         return SHAPE;
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState p_60572_, BlockGetter p_60573_, BlockPos p_60574_, CollisionContext p_60575_) {
-        return Shapes.empty();
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.isFaceSturdy(level, pos.below(), Direction.UP);
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return canSupportCenter(level, pos.below(), Direction.UP);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_49180_) {
         p_49180_.add(WATERLOGGED).add(BOUNCES);
+    }
+
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float p_154571_) {
+        if (entity.isSuppressingBounce() || (level.getBlockEntity(pos) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces <= 0)) {
+            super.fallOn(level, state, pos, entity, p_154571_);
+        }
+        else {
+            if (level.getBlockEntity(pos) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces > 0) {
+                level.playSound(null, pos, SoundEvents.SLIME_JUMP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                entity.causeFallDamage(p_154571_, 0.0F, level.damageSources().fall());
+            }
+        }
+    }
+
+    @Override
+    public void updateEntityAfterFallOn(BlockGetter level, Entity entity) {
+        if (entity.isSuppressingBounce()) {
+            super.updateEntityAfterFallOn(level, entity);
+        }
+        else {
+            if (level.getBlockEntity(entity.getOnPos()) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces > 0) {
+                bounceshroom.bounceUp(bounceshroom, entity);
+            }
+        }
     }
 
     public FluidState getFluidState(BlockState p_49191_) {
@@ -64,39 +91,18 @@ public class BounceshroomBlock extends BushBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
-        if (state.getValue(BOUNCES) < 4) {
-            level.setBlock(pos, state.setValue(BOUNCES, state.getValue(BOUNCES) + 1), 2);
-        }
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-       if (!entity.isSuppressingBounce() && state.getValue(BOUNCES) > 0) {
-           this.bounceUp(state, level, pos, entity);
-       }
+    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new BounceshroomBlockEntity(blockPos, blockState);
     }
 
-    public void fallOn(Level level, BlockState state, BlockPos pos, Entity p_154570_, float p_154571_) {
-        if (p_154570_.isSuppressingBounce() || state.getValue(BOUNCES) == 0) {
-            super.fallOn(level, state, pos, p_154570_, p_154571_);
-        } else {
-            p_154570_.causeFallDamage(p_154571_, 0.0F, level.damageSources().fall());
-
-
-        }
-    }
-
-    private void bounceUp(BlockState state, Level level, BlockPos pos, Entity entity) {
-        Vec3 vec3 = entity.getDeltaMovement();
-
-        if (vec3.y < 0.0D) {
-            double d = 1.45D;
-            entity.setDeltaMovement(vec3.x, -vec3.y * d, vec3.z);
-
-            if (entity.fallDistance > 0.0D) {
-                level.setBlock(pos, state.setValue(BOUNCES, state.getValue(BOUNCES) - 1), 2);
-            }
-        }
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.BOUNCESHROOM.get(), BounceshroomBlockEntity::tick);
     }
 }
