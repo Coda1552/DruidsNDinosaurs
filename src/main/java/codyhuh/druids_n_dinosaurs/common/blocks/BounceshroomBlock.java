@@ -63,14 +63,15 @@ public class BounceshroomBlock extends BaseEntityBlock {
     }
 
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float p_154571_) {
-        if (entity.isSuppressingBounce() || (level.getBlockEntity(pos) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces <= 0)) {
+        if (entity.isSuppressingBounce()) {
             super.fallOn(level, state, pos, entity, p_154571_);
         }
         else {
-            if (level.getBlockEntity(pos) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces > 0) {
-                level.playSound(null, pos, SoundEvents.SLIME_JUMP, SoundSource.BLOCKS, 1.0F, 1.0F);
-                entity.causeFallDamage(p_154571_, 0.0F, level.damageSources().fall());
+            if (level.getBlockEntity(entity.getOnPos()) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces > 0) {
+                bounceshroom.bounceUp(bounceshroom, entity);
             }
+            level.playSound(null, pos, SoundEvents.SLIME_JUMP, SoundSource.BLOCKS, 1.0F, 1.0F);
+            entity.causeFallDamage(p_154571_, 0.0F, level.damageSources().fall());
         }
     }
 
@@ -81,7 +82,7 @@ public class BounceshroomBlock extends BaseEntityBlock {
         }
         else {
             if (level.getBlockEntity(entity.getOnPos()) instanceof BounceshroomBlockEntity bounceshroom && bounceshroom.bounces > 0) {
-                bounceshroom.bounceUp(bounceshroom, entity);
+                //bounceshroom.bounceUp(bounceshroom, entity);
             }
         }
     }
