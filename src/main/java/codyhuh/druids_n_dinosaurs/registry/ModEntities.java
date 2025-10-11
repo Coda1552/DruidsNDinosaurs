@@ -1,6 +1,8 @@
 package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
+import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModChestBoatEntity;
 import net.minecraft.world.entity.EntityType;
@@ -20,6 +22,14 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT =
             ENTITY_TYPES.register("mod_chest_boat", () -> EntityType.Builder.<ModChestBoatEntity>of(ModChestBoatEntity::new, MobCategory.MISC)
                     .sized(1.375f, 0.5625f).build("mod_chest_boat"));
+
+
+    public static final RegistryObject<EntityType<Rustling>> RUSTLING = ENTITY_TYPES.register("rustling",
+            () -> EntityType.Builder.of(Rustling::new, MobCategory.CREATURE).sized(0.625F, 1.2F).build("rustling"));
+
+    public static final RegistryObject<EntityType<RustMuncherEntity>> RUSTMUNCHER = ENTITY_TYPES.register("rustmuncher",
+            () -> EntityType.Builder.of(RustMuncherEntity::new, MobCategory.CREATURE).sized(0.8F, 1.4F).fireImmune()
+                    .build("rustmuncher"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

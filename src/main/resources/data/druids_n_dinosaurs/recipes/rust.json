@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "druids_n_dinosaurs:rust_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "druids_n_dinosaurs:rust"
+  }
+}

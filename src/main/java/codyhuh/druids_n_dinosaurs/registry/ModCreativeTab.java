@@ -53,6 +53,11 @@ public class ModCreativeTab {public static final DeferredRegister<CreativeModeTa
                         output.accept(ModBlocks.GOLD_DOOR.get());
                         output.accept(ModBlocks.GOLD_TRAPDOOR.get());
 
+                        output.accept(ModItems.RUST.get());
+                        output.accept(ModBlocks.RUST_BLOCK.get());
+                        output.accept(ModBlocks.RUSTICLE.get());
+                        output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
+                        output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
 
                     })
                     .build());

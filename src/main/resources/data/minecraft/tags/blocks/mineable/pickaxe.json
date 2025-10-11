@@ -6,6 +6,8 @@
     "druids_n_dinosaurs:cut_gold_slab",
     "druids_n_dinosaurs:gold_door",
     "druids_n_dinosaurs:gold_trapdoor",
-    "druids_n_dinosaurs:chiseled_gold"
+    "druids_n_dinosaurs:chiseled_gold",
+    "druids_n_dinosaurs:rusticle",
+    "druids_n_dinosaurs:rust_block"
   ]
 }

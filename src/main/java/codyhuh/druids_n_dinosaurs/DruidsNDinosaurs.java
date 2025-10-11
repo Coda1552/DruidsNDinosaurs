@@ -1,19 +1,26 @@
 package codyhuh.druids_n_dinosaurs;
 
+import codyhuh.druids_n_dinosaurs.client.ClientEvents;
 import codyhuh.druids_n_dinosaurs.client.renderers.ModBoatRenderer;
+import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.*;
+import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -38,8 +45,13 @@ public class DruidsNDinosaurs {
         ModBlocks.registerBlocks(bus);
         ModConfiguredFeatures.register(bus);
         ModCreativeTab.register(bus);
+        ModEffects.register(bus);
+        ModPotions.register(bus);
+
+        bus.addListener(this::createAttributes);
 
         bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -52,18 +64,20 @@ public class DruidsNDinosaurs {
             ComposterBlock.COMPOSTABLES.put(ModBlocks.BOUNCESHROOM.get().asItem(), 0.65F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.YELLOW_IRONWEED.get().asItem(), 0.65F);
 
+            BrewingRecipeRegistry.addRecipe(new RustlingBrewingRecipe(Potions.AWKWARD,
+                    ModItems.RUST.get(), ModPotions.TETANUS_POTION.get()));
+
+            BrewingRecipeRegistry.addRecipe(new RustlingBrewingRecipe(ModPotions.TETANUS_POTION.get(),
+                    Items.REDSTONE, ModPotions.TETANUS_POTION_2.get()));
         });
     }
 
-    @Mod.EventBusSubscriber(modid = DruidsNDinosaurs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientEvents {
+    private void createAttributes(EntityAttributeCreationEvent e) {
+        e.put(ModEntities.RUSTLING.get(), Rustling.createRustlingAttributes().build());
+        e.put(ModEntities.RUSTMUNCHER.get(), RustMuncherEntity.createAttributes().build());
+    }
 
-        @SubscribeEvent
-        public static void clientSetup(FMLClientSetupEvent e) {
-            ItemProperties.register(ModItems.WICKER_IDOL.get(), new ResourceLocation(DruidsNDinosaurs.MOD_ID, "full"), (stack, world, player, i) -> !WickerIdolItem.containsEntity(stack) ? 0.0F : 1.0F);
-
-            EntityRenderers.register(ModEntities.MOD_BOAT.get(), p_174010_ -> new ModBoatRenderer(p_174010_, false));
-            EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), p_174010_ -> new ModBoatRenderer(p_174010_, true));
-        }
+    private void clientSetup(final FMLClientSetupEvent event) {
+        MinecraftForge.EVENT_BUS.register(new ClientEvents());
     }
 }

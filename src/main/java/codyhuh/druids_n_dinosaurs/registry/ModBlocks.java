@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.blocks.*;
+import codyhuh.druids_n_dinosaurs.common.blocks.block.RusticleBlock;
 import codyhuh.druids_n_dinosaurs.common.worldgen.tree.AloewoodTreeGrower;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
@@ -98,6 +99,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_ALOEWOOD_SAPLING = registerBlock("potted_aloewood_sapling",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.ALOEWOOD_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
+
+    //Rust
+    public static final RegistryObject<Block> RUST_BLOCK = registerBlock("rust_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+
+    public static final RegistryObject<Block> RUSTICLE = registerBlock("rusticle",
+            () -> new RusticleBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE)));
 
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {

@@ -61,6 +61,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.ALOEWOOD_LEAVES.get(),
                 block -> createLeavesDrops(ModBlocks.ALOEWOOD_LEAVES.get(), ModBlocks.ALOEWOOD_SAPLING.get(), 0.05F, 0.0625F, 0.083333336F, 0.1F));
+
+        this.dropSelf(ModBlocks.RUST_BLOCK.get());
+        this.dropSelf(ModBlocks.RUSTICLE.get());
     }
 
     @Override

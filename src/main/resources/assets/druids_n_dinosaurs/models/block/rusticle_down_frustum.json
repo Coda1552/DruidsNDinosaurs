@@ -1,0 +1,6 @@
+{
+  "parent": "druids_n_dinosaurs:block/rusticle",
+  "textures": {
+    "cross": "druids_n_dinosaurs:block/rusticle_down_frustum"
+  }
+}

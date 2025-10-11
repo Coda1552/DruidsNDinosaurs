@@ -7,5 +7,94 @@
         "stream": true
       }
     ]
+  },
+  "rustling_ambient": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_ambient_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_ambient_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_ambient_3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustling_ambient"
+  },
+  "rustling_hurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_hurt_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_hurt_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_hurt_3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustling_hurt"
+  },
+  "rustling_death": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_death"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustling_death"
+  },
+  "rustling_shear": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustling/rustling_shear"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustling_shear"
+  },
+
+
+  "rustmuncher_ambient": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_ambient_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_ambient_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_ambient_3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustmuncher_ambient"
+  },
+  "rustmuncher_hurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_hurt_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_hurt_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_hurt_3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustmuncher_hurt"
+  },
+  "rustmuncher_death": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:rustmuncher/rustmuncher_death"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.rustmuncher_death"
   }
 }
