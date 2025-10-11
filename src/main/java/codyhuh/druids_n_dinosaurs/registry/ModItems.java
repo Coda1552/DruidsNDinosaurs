@@ -34,4 +34,6 @@ public class ModItems {
     public static final RegistryObject<Item> RUSTLING_SPAWN_EGG = ITEMS.register("rustling_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.RUSTLING, 0x4d7a41, 0xed9c3c, new Item.Properties()));
     public static final RegistryObject<Item> RUSTMUNCHER_SPAWN_EGG = ITEMS.register("rustmuncher_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.RUSTMUNCHER, 0x725b59, 0x4e9067, new Item.Properties()));
 
+    public static final RegistryObject<Item> RUSTLING_SHERD = ITEMS.register("rustling_pottery_sherd", () -> new Item(new Item.Properties()));
+
 }

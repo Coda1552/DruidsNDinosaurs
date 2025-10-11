@@ -71,5 +71,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ItemTags.HANGING_SIGNS).add(
                 ModItems.ALOEWOOD_HANGING_SIGN.get()
         );
+
+        this.tag(ItemTags.DECORATED_POT_SHERDS).add(
+                ModItems.RUSTLING_SHERD.get());
     }
 }

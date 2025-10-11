@@ -48,6 +48,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.ALOEWOOD_BOAT);
         simpleItem(ModItems.ALOEWOOD_CHEST_BOAT);
+
+        simpleItem(ModItems.RUSTLING_SHERD);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){

@@ -7,15 +7,19 @@ import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -47,6 +51,7 @@ public class DruidsNDinosaurs {
         ModCreativeTab.register(bus);
         ModEffects.register(bus);
         ModPotions.register(bus);
+        ModDecoratedPotPatterns.DECORATED_POT_PATTERNS.register(bus);
 
         bus.addListener(this::createAttributes);
 
@@ -56,6 +61,8 @@ public class DruidsNDinosaurs {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(()->{
+
+            registerPotPatterns();
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ALOEWOOD_SAPLING.getId(), ModBlocks.POTTED_ALOEWOOD_SAPLING);
 
@@ -79,5 +86,12 @@ public class DruidsNDinosaurs {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
+    }
+
+    private static void registerPotPatterns() {
+        ImmutableMap.Builder<Item, ResourceKey<String>> map = ImmutableMap.builder();
+        map.putAll(DecoratedPotPatterns.ITEM_TO_POT_TEXTURE);
+        map.put(ModItems.RUSTLING_SHERD.get(), ModDecoratedPotPatterns.RUSTLING.getKey());
+        DecoratedPotPatterns.ITEM_TO_POT_TEXTURE = map.build();
     }
 }
