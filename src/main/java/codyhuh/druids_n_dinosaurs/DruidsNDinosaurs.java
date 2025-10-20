@@ -4,15 +4,23 @@ import codyhuh.druids_n_dinosaurs.client.ClientEvents;
 import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.Util;
+import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
 import net.minecraftforge.common.MinecraftForge;
@@ -73,6 +81,14 @@ public class DruidsNDinosaurs {
 
             BrewingRecipeRegistry.addRecipe(new RustlingBrewingRecipe(ModPotions.TETANUS_POTION.get(),
                     Items.REDSTONE, ModPotions.TETANUS_POTION_2.get()));
+        });
+
+        DispenserBlock.registerBehavior(ModItems.GOURD_EGG.get(), new AbstractProjectileDispenseBehavior() {
+            protected Projectile getProjectile(Level p_123468_, Position p_123469_, ItemStack p_123470_) {
+                return Util.make(new ThrownGourdEgg(p_123468_, p_123469_.x(), p_123469_.y(), p_123469_.z()), (p_123466_) -> {
+                    p_123466_.setItem(p_123470_);
+                });
+            }
         });
     }
 
