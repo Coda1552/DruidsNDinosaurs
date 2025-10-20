@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
+import codyhuh.druids_n_dinosaurs.common.items.GourdEggItem;
 import codyhuh.druids_n_dinosaurs.common.items.ModBoatItem;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import net.minecraft.world.item.BlockItem;
@@ -17,6 +18,9 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DruidsNDinosaurs.MOD_ID);
 
     public static final RegistryObject<Item> WICKER_IDOL = ITEMS.register("wicker_idol", () -> new WickerIdolItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> GOURD_RAPTOR_SPAWN_EGG = ITEMS.register("gourd_raptor_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GOURD_RAPTOR, 0x30776c, 0xd7ce63, new Item.Properties()));
+    public static final RegistryObject<Item> GOURD_EGG = ITEMS.register("gourd_egg", () -> new GourdEggItem(new Item.Properties().stacksTo(1)));
 
     //Aloewood
     public static final RegistryObject<Item> ALOEWOOD_SIGN = ITEMS.register("aloewood_sign",

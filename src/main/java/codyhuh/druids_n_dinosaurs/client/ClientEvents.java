@@ -1,7 +1,7 @@
 package codyhuh.druids_n_dinosaurs.client;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
-import codyhuh.druids_n_dinosaurs.client.renderers.ModBoatRenderer;
+import codyhuh.druids_n_dinosaurs.client.renders.ModBoatRenderer;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;

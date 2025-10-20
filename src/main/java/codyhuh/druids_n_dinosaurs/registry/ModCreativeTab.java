@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModCreativeTab {public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DruidsNDinosaurs.MOD_ID);
 
-    public static final RegistryObject<CreativeModeTab> MARVELOUS_MENAGERIE_MOBS =
+    public static final RegistryObject<CreativeModeTab> TAB =
             CREATIVE_MODE_TABS.register("druids_n_dinosaurs", ()-> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.WICKER_IDOL.get()))
                     .title(Component.translatable("creativetab.druids_n_dinosaurs"))
                     .displayItems((itemDisplayParameters, output) -> {
@@ -53,6 +53,8 @@ public class ModCreativeTab {public static final DeferredRegister<CreativeModeTa
                         output.accept(ModBlocks.GOLD_DOOR.get());
                         output.accept(ModBlocks.GOLD_TRAPDOOR.get());
 
+                        output.accept(ModItems.GOURD_EGG.get());
+                        output.accept(ModItems.GOURD_RAPTOR_SPAWN_EGG.get());
                         output.accept(ModItems.RUST.get());
                         output.accept(ModBlocks.RUST_BLOCK.get());
                         output.accept(ModBlocks.RUSTICLE.get());

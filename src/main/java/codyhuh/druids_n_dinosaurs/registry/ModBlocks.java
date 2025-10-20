@@ -40,7 +40,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> GOLD_DOOR = registerBlock("gold_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
     public static final RegistryObject<Block> GOLD_TRAPDOOR = registerBlock("gold_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).noCollission().noOcclusion(), ModBlockSetTypes.DND_GOLD));
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).noOcclusion(), ModBlockSetTypes.DND_GOLD));
 
     //Aloewood plank blocks
     public static final RegistryObject<Block> ALOEWOOD_PLANKS = registerBlock("aloewood_planks",

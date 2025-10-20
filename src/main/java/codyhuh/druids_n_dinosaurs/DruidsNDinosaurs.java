@@ -1,18 +1,13 @@
 package codyhuh.druids_n_dinosaurs;
 
 import codyhuh.druids_n_dinosaurs.client.ClientEvents;
-import codyhuh.druids_n_dinosaurs.client.renderers.ModBoatRenderer;
 import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
-import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -20,13 +15,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.DecoratedPotPatterns;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -56,7 +48,12 @@ public class DruidsNDinosaurs {
         bus.addListener(this::createAttributes);
 
         bus.addListener(this::commonSetup);
+        bus.addListener(this::registerEntityAttributes);
         bus.addListener(this::clientSetup);
+    }
+
+    private void registerEntityAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.GOURD_RAPTOR.get(), GourdRaptorEntity.createAttributes().build());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

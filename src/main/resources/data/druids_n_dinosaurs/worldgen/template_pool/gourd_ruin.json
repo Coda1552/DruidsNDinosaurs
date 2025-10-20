@@ -1,0 +1,15 @@
+{
+  "name": "druids_n_dinosaurs:gourd_ruin",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "druids_n_dinosaurs:gourd_ruin",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

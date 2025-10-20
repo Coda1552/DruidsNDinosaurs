@@ -1,12 +1,15 @@
 package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModChestBoatEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,6 +18,16 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, DruidsNDinosaurs.MOD_ID);
+
+
+    public static final RegistryObject<EntityType<GourdRaptorEntity>> GOURD_RAPTOR =
+            ENTITY_TYPES.register("gourd_raptor", () -> EntityType.Builder.of(GourdRaptorEntity::new, MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f).build("gourd_raptor"));
+
+    public static final RegistryObject<EntityType<ThrownGourdEgg>> GOURD_EGG =
+            ENTITY_TYPES.register("gourd_egg", () -> EntityType.Builder.<ThrownGourdEgg>of(ThrownGourdEgg::new, MobCategory.MISC)
+                    .sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("gourd_raptor"));
+
 
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =
             ENTITY_TYPES.register("mod_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)

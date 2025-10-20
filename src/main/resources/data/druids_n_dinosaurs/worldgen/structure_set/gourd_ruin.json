@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "druids_n_dinosaurs:gourd_ruin",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 48,
+    "salt": 1235785,
+    "spread_type": "linear"
+  }
+}

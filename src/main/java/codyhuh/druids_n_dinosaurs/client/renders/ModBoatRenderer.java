@@ -1,4 +1,4 @@
-package codyhuh.druids_n_dinosaurs.client.renderers;
+package codyhuh.druids_n_dinosaurs.client.renders;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;

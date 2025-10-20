@@ -6,8 +6,12 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ModModelLayers {
 
+    public static final ModelLayerLocation GOURD_RAPTOR_LAYER = new ModelLayerLocation(
+            new ResourceLocation(DruidsNDinosaurs.MOD_ID, "gourd_raptor"), "main");
+
     public static final ModelLayerLocation ALOEWOOD_BOAT_LAYER = new ModelLayerLocation(
             new ResourceLocation(DruidsNDinosaurs.MOD_ID, "boat/aloewood"), "main");
+
     public static final ModelLayerLocation ALOEWOOD_CHEST_BOAT_LAYER = new ModelLayerLocation(
             new ResourceLocation(DruidsNDinosaurs.MOD_ID, "chest_boat/aloewood"), "main");
 
