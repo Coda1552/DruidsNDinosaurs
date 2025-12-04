@@ -20,7 +20,9 @@ public class ModEvents {
 
         Level level = player.level();
 
-        if (level.canSeeSky(player.blockPosition()) && player.tickCount % 20 == 0 && !level.isClientSide()){
+        if (level.canSeeSky(player.blockPosition()) && player.tickCount % 40 == 0 && !level.isClientSide()){
+
+            System.out.println(level.getDayTime());
 
             ItemStack[] inventoryItems = new ItemStack[]{
                     player.getItemInHand(InteractionHand.MAIN_HAND),
@@ -35,38 +37,44 @@ public class ModEvents {
             int healingValue = 0;
 
             if (localTime>=0 && localTime<=12000){
-                healingValue++;
+                healingValue = 1;
 
                 if ((localTime>3000 && localTime<=10000)){
-                    healingValue++;
+                    healingValue = 2;
 
                     if (localTime>5000 && localTime<=7000){
-                        healingValue++;
-                        healingValue++;
+                        healingValue = 4;
                     }
                 }
 
                 for (ItemStack item : inventoryItems){
-                    if (item.getEnchantmentLevel(ModEnchantments.SUNKISSED.get())>0){
-                        this.repairItem(item, healingValue);
-                    }
+                    if (item != ItemStack.EMPTY)
+                        if (item.getEnchantmentLevel(ModEnchantments.SUNKISSED.get())>0){
+                            this.repairItem(item, healingValue);
+                        }
                 }
 
-            }else if (localTime>=12000){
+                healingValue = 0;
+
+            }else if (localTime>12000){
+
                 float moonBrightness = level.getMoonBrightness();
-                if (moonBrightness == 0 && player.tickCount % 40 == 0) {
-                    healingValue++;
+
+                if (moonBrightness == 0 && player.tickCount % 80 == 0) {
+                    healingValue = 1;
+
                 }else if (moonBrightness>0){
-                    healingValue++;
+                    healingValue = 1;
 
                     if (moonBrightness>0.25f){
-                        healingValue++;
+                        healingValue = 2;
 
                         if (moonBrightness>0.5f){
-                            healingValue++;
+                            healingValue = 3;
+
                             if (moonBrightness>0.75f){
-                                healingValue++;
-                                healingValue++;
+                                healingValue = 5;
+
                             }
                         }
                     }
@@ -78,6 +86,8 @@ public class ModEvents {
                             this.repairItem(item, healingValue);
                         }
                 }
+
+                healingValue = 0;
             }
         }
     }
