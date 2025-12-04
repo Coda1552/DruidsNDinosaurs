@@ -5,6 +5,7 @@ import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
+import codyhuh.druids_n_dinosaurs.event.ModEvents;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
 import com.google.common.collect.ImmutableMap;
@@ -52,12 +53,15 @@ public class DruidsNDinosaurs {
         ModEffects.register(bus);
         ModPotions.register(bus);
         ModDecoratedPotPatterns.DECORATED_POT_PATTERNS.register(bus);
+        ModEnchantments.register(bus);
 
         bus.addListener(this::createAttributes);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::registerEntityAttributes);
         bus.addListener(this::clientSetup);
+
+        MinecraftForge.EVENT_BUS.register(new ModEvents());
     }
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {

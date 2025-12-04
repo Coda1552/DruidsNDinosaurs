@@ -80,5 +80,11 @@
 
   "druids_n_dinosaurs.sound.subtitle.rustmuncher_ambient": "Rustmuncher idles",
   "druids_n_dinosaurs.sound.subtitle.rustmuncher_hurt": "Rustmuncher hurts",
-  "druids_n_dinosaurs.sound.subtitle.rustmuncher_death": "Rustmuncher dies"
+  "druids_n_dinosaurs.sound.subtitle.rustmuncher_death": "Rustmuncher dies",
+
+  "enchantment.druids_n_dinosaurs.sunkissed" : "Sunkissed",
+  "enchantment.druids_n_dinosaurs.moontouched" : "Moontouched",
+
+  "enchantment.druids_n_dinosaurs.sunkissed.desc": "Repairs tools while under the sunlight. The higher the sun is in the sky, the more tools get repaired.",
+  "enchantment.druids_n_dinosaurs.moontouched.desc": "Repairs tools while under the moonlight. The fuller the moon is in the sky, the more tools get repaired."
 }

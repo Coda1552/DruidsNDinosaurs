@@ -9,7 +9,9 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModCreativeTab {public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+public class ModCreativeTab {
+
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DruidsNDinosaurs.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TAB =
