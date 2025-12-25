@@ -1,4 +1,4 @@
-package codyhuh.druids_n_dinosaurs.common.entity;
+package codyhuh.druids_n_dinosaurs.common.entity.custom;
 
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;

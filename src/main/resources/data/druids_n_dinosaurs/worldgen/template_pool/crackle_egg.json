@@ -1,0 +1,15 @@
+{
+  "name": "druids_n_dinosaurs:crackle_egg",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "druids_n_dinosaurs:crackle_egg_3",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

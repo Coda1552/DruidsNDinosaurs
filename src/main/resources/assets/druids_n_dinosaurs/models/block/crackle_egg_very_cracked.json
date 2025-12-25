@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "druids_n_dinosaurs:block/crackle_egg_very_cracked"
+  }
+}

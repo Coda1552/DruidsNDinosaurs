@@ -1,6 +1,6 @@
 package codyhuh.druids_n_dinosaurs.client.models;
 
-import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.Rustling;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;

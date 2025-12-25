@@ -21,6 +21,25 @@ public class ModCreativeTab {
 
                         output.accept(ModItems.WICKER_IDOL.get());
 
+                        output.accept(ModItems.EGG_SHARDS.get());
+                        output.accept(ModBlocks.CRACKLE_EGG.get());
+
+                        output.accept(ModItems.GOURD_EGG.get());
+
+                        output.accept(ModItems.BOTTLE_O_SOUL.get());
+
+                        output.accept(ModItems.AMBER_WHISPER_PEARL.get());
+                        output.accept(ModItems.AZURE_WHISPER_PEARL.get());
+                        output.accept(ModItems.EBONY_WHISPER_PEARL.get());
+                        output.accept(ModItems.FUCHSIA_WHISPER_PEARL.get());
+                        output.accept(ModItems.VERDANT_WHISPER_PEARL.get());
+                        output.accept(ModItems.VERMILLION_WHISPER_PEARL.get());
+
+                        output.accept(ModItems.RUST.get());
+                        output.accept(ModBlocks.RUST_BLOCK.get());
+                        output.accept(ModBlocks.RUSTICLE.get());
+                        output.accept(ModItems.RUSTLING_SHERD.get());
+
                         output.accept(ModBlocks.YELLOW_IRONWEED.get());
                         output.accept(ModBlocks.BOUNCESHROOM.get());
 
@@ -55,15 +74,13 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.GOLD_DOOR.get());
                         output.accept(ModBlocks.GOLD_TRAPDOOR.get());
 
-                        output.accept(ModItems.GOURD_EGG.get());
+                        output.accept(ModItems.CRACKLE_SPAWN_EGG.get());
+                        output.accept(ModItems.EGG_RAPTOR_SPAWN_EGG.get());
                         output.accept(ModItems.GOURD_RAPTOR_SPAWN_EGG.get());
-                        output.accept(ModItems.RUST.get());
-                        output.accept(ModBlocks.RUST_BLOCK.get());
-                        output.accept(ModBlocks.RUSTICLE.get());
-                        output.accept(ModItems.RUSTLING_SHERD.get());
+                        output.accept(ModItems.HUE_HOG_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
-
+                        output.accept(ModItems.WHISP_SPAWN_EGG.get());
                     })
                     .build());
 

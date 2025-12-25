@@ -1,4 +1,4 @@
-package codyhuh.druids_n_dinosaurs.datagen.providers.loot;
+package codyhuh.druids_n_dinosaurs.datagen.providers;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +28,67 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+
+        //whisper pearls
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMBER_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.YELLOW_DYE)
+                .define('C', Blocks.YELLOW_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FUCHSIA_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.PINK_DYE)
+                .define('C', Blocks.PINK_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VERMILLION_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.ORANGE_DYE)
+                .define('C', Blocks.ORANGE_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VERDANT_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.LIME_DYE)
+                .define('C', Blocks.LIME_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AZURE_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.LIGHT_BLUE_DYE)
+                .define('C', Blocks.LIGHT_BLUE_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EBONY_WHISPER_PEARL.get(), 1)
+                .pattern("DCD")
+                .pattern("CWC")
+                .pattern("DCD")
+                .define('D', Items.BLACK_DYE)
+                .define('C', Blocks.BLACK_CANDLE.asItem())
+                .define('W', ModItems.BOTTLE_O_SOUL.get())
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
 
         //Sigillaria woodset
         makePlanks(ModBlocks.ALOEWOOD_PLANKS, ModTags.Items.ALOEWOOD_LOG_ITEM).save(consumer);

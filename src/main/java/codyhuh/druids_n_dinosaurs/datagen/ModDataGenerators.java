@@ -2,7 +2,7 @@ package codyhuh.druids_n_dinosaurs.datagen;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.datagen.providers.*;
-import codyhuh.druids_n_dinosaurs.datagen.providers.loot.ModRecipeProvider;
+import codyhuh.druids_n_dinosaurs.datagen.providers.ModRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -35,5 +35,7 @@ public class ModDataGenerators {
         generator.addProvider(event.includeServer(),new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+
+        generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));
     }
 }

@@ -1,9 +1,7 @@
 package codyhuh.druids_n_dinosaurs;
 
 import codyhuh.druids_n_dinosaurs.client.ClientEvents;
-import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
-import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
-import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.*;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import codyhuh.druids_n_dinosaurs.event.ModEvents;
 import codyhuh.druids_n_dinosaurs.registry.*;
@@ -54,18 +52,14 @@ public class DruidsNDinosaurs {
         ModPotions.register(bus);
         ModDecoratedPotPatterns.DECORATED_POT_PATTERNS.register(bus);
         ModEnchantments.register(bus);
+        ModLootModifiers.register(bus);
 
         bus.addListener(this::createAttributes);
 
         bus.addListener(this::commonSetup);
-        bus.addListener(this::registerEntityAttributes);
         bus.addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(new ModEvents());
-    }
-
-    private void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.GOURD_RAPTOR.get(), GourdRaptorEntity.createAttributes().build());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -97,8 +91,13 @@ public class DruidsNDinosaurs {
     }
 
     private void createAttributes(EntityAttributeCreationEvent e) {
+        e.put(ModEntities.GOURD_RAPTOR.get(), GourdRaptorEntity.createAttributes().build());
         e.put(ModEntities.RUSTLING.get(), Rustling.createRustlingAttributes().build());
         e.put(ModEntities.RUSTMUNCHER.get(), RustMuncherEntity.createAttributes().build());
+        e.put(ModEntities.WHISP.get(), Whisp.createAttributes().build());
+        e.put(ModEntities.CRACKLE.get(), Crackle.createAttributes().build());
+        e.put(ModEntities.EGG_RAPTOR.get(), EggRaptor.createAttributes().build());
+        e.put(ModEntities.HUE_HOG.get(), HueHog.createAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

@@ -22,8 +22,6 @@ public class ModEvents {
 
         if (level.canSeeSky(player.blockPosition()) && player.tickCount % 40 == 0 && !level.isClientSide()){
 
-            System.out.println(level.getDayTime());
-
             ItemStack[] inventoryItems = new ItemStack[]{
                     player.getItemInHand(InteractionHand.MAIN_HAND),
                     player.getItemInHand(InteractionHand.OFF_HAND),

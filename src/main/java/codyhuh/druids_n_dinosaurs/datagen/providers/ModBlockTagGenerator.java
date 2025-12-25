@@ -10,6 +10,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +24,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                ModBlocks.RUST_BLOCK.get(),
+                ModBlocks.RUSTICLE.get(),
+                ModBlocks.GOLD_DOOR.get(),
+                ModBlocks.GOLD_TRAPDOOR.get(),
+                ModBlocks.CUT_GOLD.get(),
+                ModBlocks.CHISELED_GOLD.get(),
+                ModBlocks.CUT_GOLD_SLAB.get(),
+                ModBlocks.CUT_GOLD_STAIRS.get(),
+                ModBlocks.CRACKLE_EGG.get()
+        );
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
                 ModBlocks.ALOEWOOD_PLANKS.get(),
@@ -56,6 +69,32 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         );
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .addTag(ModTags.Blocks.ALOEWOOD_LOG_BLOCK)
+        ;
+
+        this.tag(ModTags.Blocks.HUE_HOG_TARGETS)
+                .add(Blocks.LILY_OF_THE_VALLEY)
+                .add(Blocks.OXEYE_DAISY)
+                .add(Blocks.WHITE_TULIP)
+                .add(Blocks.AZURE_BLUET)
+                .add(Blocks.AZURE_BLUET)
+                .add(Blocks.WITHER_ROSE)
+                .add(Blocks.WITHER_ROSE)
+                .add(Blocks.RED_TULIP)
+                .add(Blocks.ROSE_BUSH)
+                .add(Blocks.POPPY)
+                .add(Blocks.ORANGE_TULIP)
+                .add(Blocks.TORCHFLOWER)
+                .add(Blocks.SUNFLOWER)
+                .add(Blocks.DANDELION)
+                .add(ModBlocks.YELLOW_IRONWEED.get())
+                .add(Blocks.PITCHER_PLANT)
+                .add(Blocks.BLUE_ORCHID)
+                .add(Blocks.CORNFLOWER)
+                .add(Blocks.ALLIUM)
+                .add(Blocks.LILAC)
+                .add(Blocks.PINK_TULIP)
+                .add(Blocks.PINK_PETALS)
+                .add(Blocks.PEONY)
         ;
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(

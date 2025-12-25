@@ -1,15 +1,10 @@
 package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
-import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
-import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
-import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
-import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
-import codyhuh.druids_n_dinosaurs.common.entity.custom.ModChestBoatEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.*;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +22,22 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ThrownGourdEgg>> GOURD_EGG =
             ENTITY_TYPES.register("gourd_egg", () -> EntityType.Builder.<ThrownGourdEgg>of(ThrownGourdEgg::new, MobCategory.MISC)
                     .sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("gourd_raptor"));
+
+    public static final RegistryObject<EntityType<Whisp>> WHISP =
+            ENTITY_TYPES.register("whisp", () -> EntityType.Builder.of(Whisp::new, MobCategory.CREATURE)
+                    .sized(0.45f, 1f).build("whisp"));
+
+    public static final RegistryObject<EntityType<Crackle>> CRACKLE =
+            ENTITY_TYPES.register("crackle", () -> EntityType.Builder.of(Crackle::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("crackle"));
+
+    public static final RegistryObject<EntityType<EggRaptor>> EGG_RAPTOR =
+            ENTITY_TYPES.register("egg_raptor", () -> EntityType.Builder.of(EggRaptor::new, MobCategory.CREATURE)
+                    .sized(0.75f, 0.9f).build("egg_raptor"));
+
+    public static final RegistryObject<EntityType<HueHog>> HUE_HOG =
+            ENTITY_TYPES.register("hue_hog", () -> EntityType.Builder.of(HueHog::new, MobCategory.CREATURE)
+                    .sized(0.6f, 0.6f).build("hue_hog"));
 
 
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =

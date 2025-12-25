@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "druids_n_dinosaurs:crackle_egg",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 20,
+    "separation": 8,
+    "salt": 37895102,
+    "spread_type": "linear"
+  }
+}

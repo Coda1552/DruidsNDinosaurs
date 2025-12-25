@@ -12,20 +12,21 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickAction;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
@@ -229,4 +230,66 @@ public class WickerIdolItem extends Item {
             return super.useOn(context);
         }
     }
+
+    //While hovering over a slot and clicked
+    public boolean overrideStackedOnOther(ItemStack idol, Slot slot, ClickAction clickAction, Player player) {
+
+        ItemStack otherItem = slot.getItem();
+
+        if (idol.getCount() == 1 && containsEntity(idol) && clickAction == ClickAction.SECONDARY && otherItem.is(Items.GLASS_BOTTLE)) {
+
+            otherItem.shrink(1);
+
+            ItemStack soulBottle = new ItemStack(ModItems.BOTTLE_O_SOUL.get());
+
+            if (slot.getItem().isEmpty()){
+                slot.set(soulBottle);
+            }else {
+                if (!player.getInventory().add(soulBottle))
+                    player.drop(soulBottle, true);
+                else
+                    player.addItem(soulBottle);
+            }
+            this.playBottleSound(player);
+
+            idol.removeTagKey(DATA_CREATURE);
+
+
+            return false;
+        }
+
+        return super.overrideStackedOnOther(idol, slot, clickAction, player);
+    }
+
+    public boolean overrideOtherStackedOnMe(ItemStack wickerIdol, ItemStack otherItem, Slot slot, ClickAction clickAction,
+                                            Player player, SlotAccess slotAccess) {
+
+        if (wickerIdol.getCount() != 1) return false;
+
+        if (clickAction == ClickAction.SECONDARY && slot.allowModification(player)) {
+            if (containsEntity(wickerIdol) && !otherItem.isEmpty() && otherItem.is(Items.GLASS_BOTTLE)) {
+
+                otherItem.shrink(1);
+                ItemStack soulBottle = new ItemStack(ModItems.BOTTLE_O_SOUL.get());
+                this.playBottleSound(player);
+
+                if (!player.getInventory().add(soulBottle))
+                    player.drop(soulBottle, true);
+                else
+                    player.addItem(soulBottle);
+
+                wickerIdol.removeTagKey(DATA_CREATURE);
+
+            }
+
+            return false;
+        }
+
+        return super.overrideOtherStackedOnMe(wickerIdol, otherItem, slot, clickAction, player, slotAccess);
+    }
+
+    private void playBottleSound(Entity p_186352_) {
+        p_186352_.playSound(SoundEvents.BOTTLE_FILL, 0.8F, 0.8F + p_186352_.level().getRandom().nextFloat() * 0.4F);
+    }
+
 }

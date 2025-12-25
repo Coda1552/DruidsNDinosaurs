@@ -65,7 +65,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(ModBlocks.POTTED_ALOEWOOD_SAPLING.get(), models().singleTexture("potted_aloewood_sapling", new ResourceLocation("flower_pot_cross"), "plant",
                 blockTexture(ModBlocks.ALOEWOOD_SAPLING.get())).renderType("cutout"));
-
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

@@ -50,6 +50,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ALOEWOOD_CHEST_BOAT);
 
         simpleItem(ModItems.RUSTLING_SHERD);
+
+        simpleItem(ModItems.BOTTLE_O_SOUL);
+
+        withExistingParent(ModItems.WHISP_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        simpleItem(ModItems.AMBER_WHISPER_PEARL);
+        simpleItem(ModItems.AZURE_WHISPER_PEARL);
+        simpleItem(ModItems.EBONY_WHISPER_PEARL);
+        simpleItem(ModItems.FUCHSIA_WHISPER_PEARL);
+        simpleItem(ModItems.VERDANT_WHISPER_PEARL);
+        simpleItem(ModItems.VERMILLION_WHISPER_PEARL);
+
+        withExistingParent(ModItems.CRACKLE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        simpleItem(ModItems.EGG_SHARDS);
+
+        withExistingParent(ModItems.EGG_RAPTOR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.HUE_HOG_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){

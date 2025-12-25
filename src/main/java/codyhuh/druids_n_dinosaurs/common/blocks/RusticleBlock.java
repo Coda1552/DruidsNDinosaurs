@@ -1,4 +1,4 @@
-package codyhuh.druids_n_dinosaurs.common.blocks.block;
+package codyhuh.druids_n_dinosaurs.common.blocks;
 
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;

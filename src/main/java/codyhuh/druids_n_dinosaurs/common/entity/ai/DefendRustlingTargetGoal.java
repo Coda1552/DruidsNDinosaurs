@@ -1,7 +1,7 @@
 package codyhuh.druids_n_dinosaurs.common.entity.ai;
 
-import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
-import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.RustMuncherEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.Rustling;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;

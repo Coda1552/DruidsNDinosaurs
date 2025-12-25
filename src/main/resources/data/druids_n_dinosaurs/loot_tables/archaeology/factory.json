@@ -10,6 +10,11 @@
           "name": "minecraft:sniffer_egg",
           "weight": 1
         },
+        {
+          "type": "minecraft:item",
+          "name": "druids_n_dinosaurs:crackle_egg",
+          "weight": 2
+        },
 
         {
           "type": "minecraft:item",

@@ -64,6 +64,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.RUST_BLOCK.get());
         this.dropSelf(ModBlocks.RUSTICLE.get());
+
+        this.dropSelf(ModBlocks.CRACKLE_EGG.get());
     }
 
     @Override

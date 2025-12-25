@@ -21,6 +21,8 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> ALOEWOOD_LOG_BLOCK = tag("aloewood_log_block");
 
+        public static final TagKey<Block> HUE_HOG_TARGETS = tag("hue_hog_targets");
+
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
         }

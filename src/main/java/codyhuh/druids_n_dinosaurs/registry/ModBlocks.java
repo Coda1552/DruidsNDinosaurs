@@ -2,7 +2,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.blocks.*;
-import codyhuh.druids_n_dinosaurs.common.blocks.block.RusticleBlock;
+import codyhuh.druids_n_dinosaurs.common.blocks.RusticleBlock;
 import codyhuh.druids_n_dinosaurs.common.worldgen.tree.AloewoodTreeGrower;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
@@ -107,6 +107,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> RUSTICLE = registerBlock("rusticle",
             () -> new RusticleBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE)));
 
+    //Crackle
+    public static final RegistryObject<Block> CRACKLE_EGG = registerBlock("crackle_egg",
+            () -> new CrackleEggBlock(BlockBehaviour.Properties.copy(Blocks.SNIFFER_EGG)));
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);

@@ -3,7 +3,7 @@ package codyhuh.druids_n_dinosaurs.client.renders;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.client.ModModelLayers;
 import codyhuh.druids_n_dinosaurs.client.models.RustMuncherModel;
-import codyhuh.druids_n_dinosaurs.common.entity.RustMuncherEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.RustMuncherEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

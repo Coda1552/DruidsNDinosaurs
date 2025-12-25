@@ -3,7 +3,7 @@ package codyhuh.druids_n_dinosaurs.client.renders;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.client.ModModelLayers;
 import codyhuh.druids_n_dinosaurs.client.models.RustlingModel;
-import codyhuh.druids_n_dinosaurs.common.entity.Rustling;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.Rustling;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

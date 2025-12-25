@@ -86,5 +86,27 @@
   "enchantment.druids_n_dinosaurs.moontouched" : "Moontouched",
 
   "enchantment.druids_n_dinosaurs.sunkissed.desc": "Repairs tools while under the sunlight. The higher the sun is in the sky, the more tools get repaired.",
-  "enchantment.druids_n_dinosaurs.moontouched.desc": "Repairs tools while under the moonlight. The fuller the moon is in the sky, the more tools get repaired."
+  "enchantment.druids_n_dinosaurs.moontouched.desc": "Repairs tools while under the moonlight. The fuller the moon is in the sky, the more tools get repaired.",
+
+  "item.druids_n_dinosaurs.bottle_o_soul": "Bottle O' Soul",
+
+  "entity.druids_n_dinosaurs.whisp": "Whisp",
+  "item.druids_n_dinosaurs.whisp_spawn_egg": "Whisp Spawn Egg",
+  "item.druids_n_dinosaurs.fuchsia_whisper_pearl": "Fuchsia Whisper Pearl",
+  "item.druids_n_dinosaurs.vermillion_whisper_pearl": "Vermillion Whisper Pearl",
+  "item.druids_n_dinosaurs.amber_whisper_pearl": "Amber Whisper Pearl",
+  "item.druids_n_dinosaurs.verdant_whisper_pearl": "Verdant Whisper Pearl",
+  "item.druids_n_dinosaurs.azure_whisper_pearl": "Azure Whisper Pearl",
+  "item.druids_n_dinosaurs.ebony_whisper_pearl": "Ebony Whisper Pearl",
+
+  "entity.druids_n_dinosaurs.crackle": "Crackle",
+  "item.druids_n_dinosaurs.crackle_spawn_egg": "Crackle Spawn Egg",
+  "item.druids_n_dinosaurs.egg_shards": "Crackle Egg Shards",
+  "block.druids_n_dinosaurs.crackle_egg": "Spotted Crackle Egg",
+
+  "entity.druids_n_dinosaurs.egg_raptor": "Egg Raptor",
+  "item.druids_n_dinosaurs.egg_raptor_spawn_egg": "Egg Raptor Spawn Egg",
+
+  "entity.druids_n_dinosaurs.hue_hog": "Hue Hog",
+  "item.druids_n_dinosaurs.hue_hog_spawn_egg": "Hue Hog Spawn Egg"
 }
