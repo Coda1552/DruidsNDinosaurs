@@ -34,6 +34,8 @@ public class ModDataGenerators {
 
         generator.addProvider(event.includeServer(),new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
 
+        generator.addProvider(true, new ModBiomeTagGenerator(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(true, new ModEntityTagGenerator(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
 
         generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));

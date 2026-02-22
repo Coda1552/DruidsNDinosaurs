@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "druids_n_dinosaurs:venison"
+  },
+  "result": "druids_n_dinosaurs:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 100
+}

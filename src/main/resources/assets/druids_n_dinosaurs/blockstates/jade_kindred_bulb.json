@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "druids_n_dinosaurs:block/jade_kindred_bulb_lit"
+    },
+    "lit=false": {
+      "model": "druids_n_dinosaurs:block/jade_kindred_bulb_unlit"
+    }
+  }
+}

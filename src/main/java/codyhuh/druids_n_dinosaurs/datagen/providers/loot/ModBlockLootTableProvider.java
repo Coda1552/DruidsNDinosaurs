@@ -4,7 +4,13 @@ import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -66,6 +72,40 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.RUSTICLE.get());
 
         this.dropSelf(ModBlocks.CRACKLE_EGG.get());
+
+        this.dropSelf(ModBlocks.CATACOMB_BONE_BLOCK.get());
+        this.dropSelf(ModBlocks.HART_TUFF_TOTEM.get());
+        this.dropSelf(ModBlocks.ELEPHANT_TUFF_TOTEM.get());
+        this.dropSelf(ModBlocks.LEFT_WING_TUFF_TOTEM.get());
+        this.dropSelf(ModBlocks.RIGHT_WING_TUFF_TOTEM.get());
+        this.dropSelf(ModBlocks.BIRD_TUFF_TOTEM.get());
+
+        this.dropSelf(ModBlocks.JADE_BLOCK.get());
+        this.dropSelf(ModBlocks.SHATTERED_JADE.get());
+        this.dropSelf(ModBlocks.CHISELED_POLISHED_JADE_WALL.get());
+        this.dropSelf(ModBlocks.CHISELED_POLISHED_JADE.get());
+        this.dropSelf(ModBlocks.JADE_BRICKS.get());
+        this.dropSelf(ModBlocks.JADE_BRICK_STAIRS.get());
+        this.add(ModBlocks.JADE_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.JADE_BRICK_SLAB.get()));
+        this.dropSelf(ModBlocks.JADE_HUMMINGBIRD_BULB.get());
+        this.dropSelf(ModBlocks.JADE_KINDRED_BULB.get());
+        this.dropSelf(ModBlocks.POLISHED_JADE_BLOCK.get());
+        this.dropSelf(ModBlocks.POLISHED_JADE_STAIRS.get());
+        this.add(ModBlocks.POLISHED_JADE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.POLISHED_JADE_SLAB.get()));
+        this.dropSelf(ModBlocks.JADE_STAIRS.get());
+        this.add(ModBlocks.JADE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.POLISHED_JADE_SLAB.get()));
+
+        this.add(ModBlocks.JADE_ORE.get(),
+                block -> createJadeOreDrops(ModBlocks.JADE_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_JADE_ORE.get(),
+                block -> createJadeOreDrops(ModBlocks.DEEPSLATE_JADE_ORE.get()));
+    }
+
+    protected LootTable.Builder createJadeOreDrops(Block pBlock) {
+        return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(ModItems.JADE_SHARD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 
     @Override

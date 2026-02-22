@@ -103,13 +103,64 @@ public class ModBlocks {
     //Rust
     public static final RegistryObject<Block> RUST_BLOCK = registerBlock("rust_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
-
     public static final RegistryObject<Block> RUSTICLE = registerBlock("rusticle",
             () -> new RusticleBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE)));
 
     //Crackle
     public static final RegistryObject<Block> CRACKLE_EGG = registerBlock("crackle_egg",
             () -> new CrackleEggBlock(BlockBehaviour.Properties.copy(Blocks.SNIFFER_EGG)));
+
+    //Catacomb Bone Block
+    public static final RegistryObject<Block> CATACOMB_BONE_BLOCK = registerBlock("catacomb_bone_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).requiresCorrectToolForDrops()));
+
+    //Tuff totem blocks
+    public static final RegistryObject<Block> BIRD_TUFF_TOTEM = registerBlock("bird_tuff_totem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> LEFT_WING_TUFF_TOTEM = registerBlock("left_wing_tuff_totem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> RIGHT_WING_TUFF_TOTEM = registerBlock("right_wing_tuff_totem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> HART_TUFF_TOTEM = registerBlock("hart_tuff_totem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ELEPHANT_TUFF_TOTEM = registerBlock("elephant_tuff_totem",
+            () -> new ElephantTotemBlock(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+
+    //Jade
+    public static final RegistryObject<Block> JADE_ORE = registerBlock("jade_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = registerBlock("deepslate_jade_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
+    public static final RegistryObject<Block> JADE_BLOCK = registerBlock("jade_block",
+            () -> new JadeBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> JADE_STAIRS = registerBlock("jade_stairs",
+            ()-> new StairBlock(() -> ModBlocks.JADE_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> JADE_SLAB = registerBlock("jade_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> POLISHED_JADE_BLOCK = registerBlock("polished_jade",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> POLISHED_JADE_STAIRS = registerBlock("polished_jade_stairs",
+            ()-> new StairBlock(() -> ModBlocks.POLISHED_JADE_BLOCK.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> POLISHED_JADE_SLAB = registerBlock("polished_jade_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> JADE_HUMMINGBIRD_BULB = registerBlock("jade_hummingbird_bulb",
+            () -> new BulbBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK)
+                    .lightLevel((pState) -> {return pState.getValue(BulbBlock.LIT) ? 15 : 0;})));
+    public static final RegistryObject<Block> JADE_KINDRED_BULB = registerBlock("jade_kindred_bulb",
+            () -> new BulbBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK)
+                    .lightLevel((pState) -> {return pState.getValue(BulbBlock.LIT) ? 15 : 0;})));
+    public static final RegistryObject<Block> JADE_BRICKS = registerBlock("jade_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> JADE_BRICK_STAIRS = registerBlock("jade_brick_stairs",
+            ()-> new StairBlock(() -> ModBlocks.JADE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> JADE_BRICK_SLAB = registerBlock("jade_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> CHISELED_POLISHED_JADE = registerBlock("chiseled_polished_jade",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> CHISELED_POLISHED_JADE_WALL = registerBlock("chiseled_polished_jade_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SHATTERED_JADE = registerBlock("shattered_jade",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);

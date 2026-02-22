@@ -3,11 +3,13 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -34,6 +36,16 @@ public class ModTags {
         
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
+        }
+    }
+
+    public static class Biomes {
+
+        public static final TagKey<Biome> JADE_HIGH_BIOMES = tag("jade_high_biomes");
+        public static final TagKey<Biome> HART_BIOMES = tag("hart_biomes");
+
+        private static TagKey<Biome> tag(String pName) {
+            return TagKey.create(Registries.BIOME, new ResourceLocation(DruidsNDinosaurs.MOD_ID, pName));
         }
     }
 }

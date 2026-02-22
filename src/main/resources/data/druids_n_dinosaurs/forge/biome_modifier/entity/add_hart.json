@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#druids_n_dinosaurs:hart_biomes",
+  "spawners": {
+    "type": "druids_n_dinosaurs:hart",
+    "weight": 10,
+    "minCount": 2,
+    "maxCount": 4,
+    "category": "creature"
+  }
+}

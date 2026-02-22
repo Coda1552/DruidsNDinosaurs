@@ -108,7 +108,7 @@ public class WickerIdolItem extends Item {
     }
 
     private boolean canBeCaught(LivingEntity entity) {
-        return !(entity instanceof WitherBoss) && !(entity instanceof EnderDragon) && !(entity instanceof Warden) && !entity.getType().is(ModTags.UNCATCHABLE);
+        return !(entity instanceof Player) && !(entity instanceof WitherBoss) && !(entity instanceof EnderDragon) && !(entity instanceof Warden) && !entity.getType().is(ModTags.UNCATCHABLE);
     }
 
     @Override

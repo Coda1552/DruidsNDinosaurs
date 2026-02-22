@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "druids_n_dinosaurs:block/jade_hummingbird_bulb"
+  }
+}

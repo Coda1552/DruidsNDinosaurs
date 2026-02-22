@@ -7,9 +7,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOLDER;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -65,6 +68,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(ModBlocks.POTTED_ALOEWOOD_SAPLING.get(), models().singleTexture("potted_aloewood_sapling", new ResourceLocation("flower_pot_cross"), "plant",
                 blockTexture(ModBlocks.ALOEWOOD_SAPLING.get())).renderType("cutout"));
+
+        blockWithItem(ModBlocks.DEEPSLATE_JADE_ORE);
+        blockWithItem(ModBlocks.JADE_ORE);
+        blockWithItem(ModBlocks.JADE_BLOCK);
+        stairsBlock((StairBlock) ModBlocks.JADE_STAIRS.get(), blockTexture(ModBlocks.JADE_BLOCK.get()));
+        slabBlock((SlabBlock) ModBlocks.JADE_SLAB.get(), blockTexture(ModBlocks.JADE_BLOCK.get()), blockTexture(ModBlocks.JADE_BLOCK.get()));
+        blockWithItem(ModBlocks.POLISHED_JADE_BLOCK);
+        blockWithItem(ModBlocks.SHATTERED_JADE);
+        blockWithItem(ModBlocks.CHISELED_POLISHED_JADE);
+        blockWithItem(ModBlocks.JADE_BRICKS);
+        wallBlock((WallBlock) ModBlocks.CHISELED_POLISHED_JADE_WALL.get(), blockTexture(ModBlocks.CHISELED_POLISHED_JADE.get()));
+        stairsBlock((StairBlock) ModBlocks.JADE_BRICK_STAIRS.get(), blockTexture(ModBlocks.JADE_BRICKS.get()));
+        slabBlock((SlabBlock) ModBlocks.JADE_BRICK_SLAB.get(), blockTexture(ModBlocks.JADE_BRICKS.get()), blockTexture(ModBlocks.JADE_BRICKS.get()));
+        stairsBlock((StairBlock) ModBlocks.POLISHED_JADE_STAIRS.get(), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()));
+        slabBlock((SlabBlock) ModBlocks.POLISHED_JADE_SLAB.get(), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()));
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

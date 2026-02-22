@@ -10,12 +10,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -28,6 +30,123 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        this.stonecutting(Blocks.BONE_BLOCK, ModBlocks.CATACOMB_BONE_BLOCK.get(), 4).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.HART_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.ELEPHANT_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.RIGHT_WING_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.LEFT_WING_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.BIRD_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(ModBlocks.LEFT_WING_TUFF_TOTEM.get(), ModBlocks.RIGHT_WING_TUFF_TOTEM.get()).save(consumer, "left_wing_tuff_totem_mirror");
+        this.stonecutting(ModBlocks.RIGHT_WING_TUFF_TOTEM.get(), ModBlocks.LEFT_WING_TUFF_TOTEM.get()).save(consumer, "right_wing_tuff_totem_mirror");
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.POLISHED_JADE_BLOCK.get(), 4).save(consumer);
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.POLISHED_JADE_STAIRS.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.POLISHED_JADE_SLAB.get(), 8).save(consumer);
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_STAIRS.get()).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_SLAB.get(), 2).save(consumer);
+
+        this.stonecutting(ModBlocks.POLISHED_JADE_BLOCK, ModBlocks.POLISHED_JADE_STAIRS.get()).save(consumer, this.name("polished_jade_into_stairs"));
+        this.stonecutting(ModBlocks.POLISHED_JADE_BLOCK, ModBlocks.POLISHED_JADE_SLAB.get(), 2).save(consumer, this.name("polished_jade_into_slabs"));
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.SHATTERED_JADE.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_KINDRED_BULB.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_HUMMINGBIRD_BULB.get(), 4).save(consumer);
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_BRICKS.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_BRICK_STAIRS.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.JADE_BRICK_SLAB.get(), 8).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BRICK_SLAB, ModBlocks.JADE_BRICK_STAIRS.get()).save(consumer, this.name("jade_bricks_into_stairs"));
+        this.stonecutting(ModBlocks.JADE_BRICK_SLAB, ModBlocks.JADE_BRICK_SLAB.get(), 2).save(consumer, this.name("jade_bricks_into_slabs"));
+
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.CHISELED_POLISHED_JADE.get(), 4).save(consumer);
+        this.stonecutting(ModBlocks.JADE_BLOCK, ModBlocks.CHISELED_POLISHED_JADE_WALL.get(), 4).save(consumer, this.name("chiseled_polished_jade_wall_stonecutting"));
+
+        this.stonecutting(ModBlocks.CHISELED_POLISHED_JADE, ModBlocks.CHISELED_POLISHED_JADE_WALL.get()).save(consumer, this.name("chiseled_polished_jade_into_walls"));
+
+        this.makeWall(ModBlocks.CHISELED_POLISHED_JADE, ModBlocks.CHISELED_POLISHED_JADE_WALL).save(consumer);
+
+        //Jade items
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.JADE_BRICK.get(), 1)
+                .pattern("JJJ")
+                .pattern("JJJ")
+                .pattern("JJJ")
+                .define('J', ModItems.JADE_SHARD.get())
+                .unlockedBy(getHasName(ModItems.JADE_SHARD.get()), has(ModItems.JADE_SHARD.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.JADE_SHARD.get(), 9)
+                .requires(ModItems.JADE_BRICK.get())
+                .unlockedBy(getHasName(ModItems.JADE_SHARD.get()), has(ModItems.JADE_SHARD.get()))
+                .save(consumer);
+
+        makeIngotToBlock(ModItems.JADE_BRICK, ModBlocks.JADE_BLOCK).save(consumer);
+
+        //Jade axe
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.JADE_AXE.get(), 1)
+                .pattern("JJ ")
+                .pattern("JS ")
+                .pattern(" S ")
+                .define('J', ModItems.JADE_BRICK.get())
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(ModItems.JADE_BRICK.get()), has(ModItems.JADE_BRICK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.JADE_AXE.get(), 1)
+                .pattern(" JJ")
+                .pattern(" SJ")
+                .pattern(" S ")
+                .define('J', ModItems.JADE_BRICK.get())
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(ModItems.JADE_BRICK.get()), has(ModItems.JADE_BRICK.get()))
+                .save(consumer, this.name("jade_axe_mirrored"));
+
+        //Jade Doll
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.JADE_DOLL.get(), 1)
+                .pattern("JJJ")
+                .pattern("JWJ")
+                .pattern("JJJ")
+                .define('J', ModItems.JADE_BRICK.get())
+                .define('W', ModItems.WICKER_IDOL.get())
+                .unlockedBy(getHasName(ModItems.JADE_SHARD.get()), has(ModItems.JADE_SHARD.get()))
+                .save(consumer);
+
+        //Ornate Eggs
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_ORNATE_EGG.get(), 1)
+                .pattern("CCC")
+                .pattern("CSC")
+                .pattern("CMC")
+                .define('C', ModItems.EGG_SHARDS.get())
+                .define('S', ModItems.BOTTLE_O_SOUL.get())
+                .define('M', Items.COPPER_INGOT)
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_ORNATE_EGG.get(), 1)
+                .pattern("CCC")
+                .pattern("CSC")
+                .pattern("CMC")
+                .define('C', ModItems.EGG_SHARDS.get())
+                .define('S', ModItems.BOTTLE_O_SOUL.get())
+                .define('M', Items.GOLD_INGOT)
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_ORNATE_EGG.get(), 1)
+                .pattern("CCC")
+                .pattern("CSC")
+                .pattern("CMC")
+                .define('C', ModItems.EGG_SHARDS.get())
+                .define('S', ModItems.BOTTLE_O_SOUL.get())
+                .define('M', Items.DIAMOND)
+                .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL, 2)
+                .requires(ModItems.ANTLER.get())
+                .unlockedBy(getHasName(ModItems.ANTLER.get()), has(ModItems.ANTLER.get()))
+                .save(consumer);
 
         //whisper pearls
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMBER_WHISPER_PEARL.get(), 1)
@@ -90,7 +209,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.BOTTLE_O_SOUL.get()), has(ModItems.BOTTLE_O_SOUL.get()))
                 .save(consumer);
 
-        //Sigillaria woodset
+        //Aloewood woodset
         makePlanks(ModBlocks.ALOEWOOD_PLANKS, ModTags.Items.ALOEWOOD_LOG_ITEM).save(consumer);
         makeWood(ModBlocks.ALOEWOOD_WOOD, ModBlocks.ALOEWOOD_LOG).save(consumer);
         makeWood(ModBlocks.STRIPPED_ALOEWOOD_WOOD, ModBlocks.STRIPPED_ALOEWOOD_LOG).save(consumer);
@@ -118,7 +237,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
                 .save(consumer);
 
-        //Sigillaria sign
+        //Aloewood sign
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.ALOEWOOD_SIGN.get(), 3)
                 .pattern("SSS")
                 .pattern("SSS")
@@ -128,7 +247,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModBlocks.ALOEWOOD_LOG.get()), has(ModBlocks.ALOEWOOD_LOG.get()))
                 .save(consumer);
 
-        //Sigillaria hanging sign
+        //Aloewood hanging sign
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.ALOEWOOD_HANGING_SIGN.get(), 6)
                 .pattern("# #")
                 .pattern("SSS")
@@ -136,6 +255,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#', Items.CHAIN)
                 .define('S', ModBlocks.STRIPPED_ALOEWOOD_LOG.get())
                 .unlockedBy(getHasName(ModBlocks.ALOEWOOD_LOG.get()), has(ModBlocks.ALOEWOOD_LOG.get()))
+                .save(consumer);
+
+        //Rusticle
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUSTICLE.get(), 2)
+                .pattern("RRR")
+                .pattern(" R ")
+                .define('R', ModItems.RUST.get())
+                .unlockedBy(getHasName(ModItems.RUST.get()), has(ModItems.RUST.get()))
+                .save(consumer);
+
+        //Bounceshroom
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BOUNCESHROOM.get(), 1)
+                .pattern("SSS")
+                .pattern("SMS")
+                .pattern("SSS")
+                .define('S', Items.SLIME_BALL)
+                .define('M', Tags.Items.MUSHROOMS)
+                .unlockedBy(getHasName(Items.SLIME_BALL), has(Items.SLIME_BALL))
                 .save(consumer);
     }
     public ShapelessRecipeBuilder makePlanks(Supplier<? extends Block> plankOut, TagKey<Item> logIn) {
@@ -190,6 +327,50 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("MM")
                 .pattern("MM")
                 .define('M', (ItemLike)logIn.get()).unlockedBy("has_" + ForgeRegistries.BLOCKS.getKey((Block)logIn.get()).getPath(), has((ItemLike)logIn.get()));
+    }
+
+    public SingleItemRecipeBuilder stonecutting(ItemLike input, ItemLike result) {
+        SingleItemRecipeBuilder var10000 = SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, result);
+        IForgeRegistry var10001 = ForgeRegistries.BLOCKS;
+        return var10000.unlockedBy("has_" + var10001.getKey(input), has(input));
+    }
+
+    public SingleItemRecipeBuilder stonecutting(ItemLike input, ItemLike result, int resultAmount) {
+        SingleItemRecipeBuilder var10000 = SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, result, resultAmount);
+        IForgeRegistry var10001 = ForgeRegistries.BLOCKS;
+        return var10000.unlockedBy("has_" + var10001.getKey(input), has(input));
+    }
+
+    public SingleItemRecipeBuilder stonecutting(Supplier<Block> input, ItemLike result) {
+        SingleItemRecipeBuilder var10000 = SingleItemRecipeBuilder.stonecutting(Ingredient.of(input.get()), RecipeCategory.BUILDING_BLOCKS, result);
+        IForgeRegistry var10001 = ForgeRegistries.BLOCKS;
+        return var10000.unlockedBy("has_" + var10001.getKey(input.get()), has(input.get()));
+    }
+
+    public SingleItemRecipeBuilder stonecutting(Supplier<Block> input, ItemLike result, int resultAmount) {
+        SingleItemRecipeBuilder var10000 = SingleItemRecipeBuilder.stonecutting(Ingredient.of(input.get()), RecipeCategory.BUILDING_BLOCKS, result, resultAmount);
+        IForgeRegistry var10001 = ForgeRegistries.BLOCKS;
+        return var10000.unlockedBy("has_" + var10001.getKey(input.get()), has(input.get()));
+    }
+
+    public ShapedRecipeBuilder makeIngotToBlock(Supplier<? extends Item> ingotIn, Supplier<? extends Block> blockOut) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, blockOut.get(), 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .define('#', ingotIn.get())
+                .unlockedBy(getHasName(ingotIn.get()), has(ingotIn.get()));
+    }
+
+    public ShapedRecipeBuilder makeWall(Supplier<? extends Block> blockIn, Supplier<? extends Block> wallOut) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, (ItemLike)wallOut.get(),
+                6).pattern("MMM").pattern("MMM").define('M',
+                (ItemLike)blockIn.get()).unlockedBy("has_" +
+                ForgeRegistries.BLOCKS.getKey((Block)blockIn.get()).getPath(), has((ItemLike)blockIn.get()));
+    }
+
+    public ShapelessRecipeBuilder makeBlockToIngot(Supplier<? extends Block> blockIn, Supplier<? extends Item> ingotOut) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, (ItemLike)ingotOut.get(), 9).requires((ItemLike)blockIn.get()).unlockedBy("has_" + ForgeRegistries.BLOCKS.getKey((Block)blockIn.get()).getPath(), has((ItemLike)blockIn.get()));
     }
 
     private ResourceLocation name(String name) {

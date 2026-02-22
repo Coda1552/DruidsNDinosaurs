@@ -5,8 +5,10 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "druids_n_dinosaurs.refmap.json",
   "mixins": [
+    "BegGoalMixin",
+    "FallingBlockEntityMixin",
     "MobMixin",
-    "FallingBlockEntityMixin"
+    "WolfMixin"
   ],
   "client": [
   ],

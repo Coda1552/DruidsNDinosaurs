@@ -1,12 +1,15 @@
 package codyhuh.druids_n_dinosaurs.client;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
+import codyhuh.druids_n_dinosaurs.client.particles.JadeOmenParticle;
 import codyhuh.druids_n_dinosaurs.client.renders.ModBoatRenderer;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
+import codyhuh.druids_n_dinosaurs.registry.ModParticles;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.PortalParticle;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -55,8 +59,12 @@ public class ClientEvents {
                     //slowness
                     event.setYaw(event.getYaw() + (float) (Math.sin((player.tickCount + partialTick) * 0.2F) * 10F));
                 }
-
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void registerParticles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.JADE_OMEN.get(), JadeOmenParticle.Provider::new);
     }
 }

@@ -66,11 +66,52 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModItems.EGG_RAPTOR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.HUE_HOG_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.JADE_AUTOMATON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.JADE_ELEPHANT_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.TUFF_TOTEM_POLE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.HART_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
+        simpleItem(ModItems.JADE_SHARD);
+        simpleItem(ModItems.JADE_BRICK);
+        simpleItem(ModItems.JADE_DOLL);
+
+        simpleTool(ModItems.JADE_AXE);
+        simpleTool(ModItems.FOOLS_SCEPTER);
+
+        wallItem(ModBlocks.CHISELED_POLISHED_JADE_WALL, ModBlocks.CHISELED_POLISHED_JADE);
+
+        evenSimplerBlockItem(ModBlocks.JADE_BRICK_SLAB);
+        evenSimplerBlockItem(ModBlocks.JADE_BRICK_STAIRS);
+
+        evenSimplerBlockItem(ModBlocks.POLISHED_JADE_SLAB);
+        evenSimplerBlockItem(ModBlocks.POLISHED_JADE_STAIRS);
+
+        evenSimplerBlockItem(ModBlocks.JADE_SLAB);
+        evenSimplerBlockItem(ModBlocks.JADE_STAIRS);
+
+        simpleItem(ModItems.COPPER_ORNATE_EGG);
+        simpleItem(ModItems.GOLD_ORNATE_EGG);
+        simpleItem(ModItems.DIAMOND_ORNATE_EGG);
+
+        simpleItem(ModItems.ANTLER);
+        simpleItem(ModItems.VENISON);
+        simpleItem(ModItems.COOKED_VENISON);
+    }
+
+    public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall", new ResourceLocation(DruidsNDinosaurs.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(DruidsNDinosaurs.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleTool(RegistryObject<Item> item){
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(DruidsNDinosaurs.MOD_ID, "item/" + item.getId().getPath()));
     }
 

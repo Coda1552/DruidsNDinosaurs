@@ -3,6 +3,7 @@ package codyhuh.druids_n_dinosaurs;
 import codyhuh.druids_n_dinosaurs.client.ClientEvents;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.*;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
+import codyhuh.druids_n_dinosaurs.event.CommonEvents;
 import codyhuh.druids_n_dinosaurs.event.ModEvents;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
@@ -53,6 +54,7 @@ public class DruidsNDinosaurs {
         ModDecoratedPotPatterns.DECORATED_POT_PATTERNS.register(bus);
         ModEnchantments.register(bus);
         ModLootModifiers.register(bus);
+        ModParticles.register(bus);
 
         bus.addListener(this::createAttributes);
 
@@ -60,12 +62,15 @@ public class DruidsNDinosaurs {
         bus.addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(new ModEvents());
+        MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(()->{
 
             registerPotPatterns();
+
+            ModEntityPlacements.entityPlacement();
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.ALOEWOOD_SAPLING.getId(), ModBlocks.POTTED_ALOEWOOD_SAPLING);
 
@@ -98,6 +103,10 @@ public class DruidsNDinosaurs {
         e.put(ModEntities.CRACKLE.get(), Crackle.createAttributes().build());
         e.put(ModEntities.EGG_RAPTOR.get(), EggRaptor.createAttributes().build());
         e.put(ModEntities.HUE_HOG.get(), HueHog.createAttributes().build());
+        e.put(ModEntities.JADE_AUTOMATON.get(), JadeAutomaton.createAttributes().build());
+        e.put(ModEntities.JADE_ELEPHANT.get(), JadeElephant.createAttributes().build());
+        e.put(ModEntities.TUFF_TOTEM_POLE.get(), TuffTotemPole.createAttributes().build());
+        e.put(ModEntities.HART.get(), Hart.createAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

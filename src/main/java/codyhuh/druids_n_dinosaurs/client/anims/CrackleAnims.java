@@ -1,4 +1,4 @@
-package codyhuh.druids_n_dinosaurs.client.anims;// Save this class in your mod and generate all required imports
+package codyhuh.druids_n_dinosaurs.client.anims;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;

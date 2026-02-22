@@ -5,12 +5,10 @@ import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -25,6 +23,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
+        this.tag(BlockTags.WALLS).add(
+                ModBlocks.CHISELED_POLISHED_JADE_WALL.get());
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ModBlocks.RUST_BLOCK.get(),
                 ModBlocks.RUSTICLE.get(),
@@ -34,7 +35,29 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CHISELED_GOLD.get(),
                 ModBlocks.CUT_GOLD_SLAB.get(),
                 ModBlocks.CUT_GOLD_STAIRS.get(),
-                ModBlocks.CRACKLE_EGG.get()
+                ModBlocks.CRACKLE_EGG.get(),
+                ModBlocks.CATACOMB_BONE_BLOCK.get(),
+                ModBlocks.HART_TUFF_TOTEM.get(),
+                ModBlocks.RIGHT_WING_TUFF_TOTEM.get(),
+                ModBlocks.LEFT_WING_TUFF_TOTEM.get(),
+                ModBlocks.ELEPHANT_TUFF_TOTEM.get(),
+                ModBlocks.BIRD_TUFF_TOTEM.get(),
+                ModBlocks.JADE_BLOCK.get(),
+                ModBlocks.JADE_STAIRS.get(),
+                ModBlocks.JADE_SLAB.get(),
+                ModBlocks.JADE_ORE.get(),
+                ModBlocks.JADE_BRICKS.get(),
+                ModBlocks.JADE_KINDRED_BULB.get(),
+                ModBlocks.JADE_BRICK_STAIRS.get(),
+                ModBlocks.JADE_HUMMINGBIRD_BULB.get(),
+                ModBlocks.JADE_BRICK_SLAB.get(),
+                ModBlocks.CHISELED_POLISHED_JADE_WALL.get(),
+                ModBlocks.CHISELED_POLISHED_JADE.get(),
+                ModBlocks.DEEPSLATE_JADE_ORE.get(),
+                ModBlocks.SHATTERED_JADE.get(),
+                ModBlocks.POLISHED_JADE_BLOCK.get(),
+                ModBlocks.POLISHED_JADE_STAIRS.get(),
+                ModBlocks.POLISHED_JADE_SLAB.get()
         );
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
@@ -55,6 +78,26 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.ALOEWOOD_WALL_SIGN.get(),
                 ModBlocks.ALOEWOOD_HANGING_SIGN.get(),
                 ModBlocks.ALOEWOOD_WALL_HANGING_SIGN.get()
+        );
+
+        this.tag(BlockTags.STAIRS).add(
+                ModBlocks.POLISHED_JADE_STAIRS.get(),
+                ModBlocks.JADE_BRICK_STAIRS.get(),
+                ModBlocks.JADE_STAIRS.get(),
+                ModBlocks.ALOEWOOD_STAIRS.get(),
+                ModBlocks.CUT_GOLD_STAIRS.get()
+        );
+
+        this.tag(BlockTags.SLABS).add(
+                ModBlocks.POLISHED_JADE_SLAB.get(),
+                ModBlocks.JADE_BRICK_SLAB.get(),
+                ModBlocks.JADE_SLAB.get(),
+                ModBlocks.ALOEWOOD_SLAB.get(),
+                ModBlocks.CUT_GOLD_SLAB.get()
+        );
+
+        this.tag(BlockTags.WOODEN_SLABS).add(
+                ModBlocks.ALOEWOOD_SLAB.get()
         );
 
         this.tag(BlockTags.PLANKS).add(

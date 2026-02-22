@@ -40,6 +40,22 @@ public class ModEntities {
                     .sized(0.6f, 0.6f).build("hue_hog"));
 
 
+    public static final RegistryObject<EntityType<JadeAutomaton>> JADE_AUTOMATON =
+            ENTITY_TYPES.register("jade_automaton", () -> EntityType.Builder.of(JadeAutomaton::new, MobCategory.CREATURE)
+                    .sized(0.6F, 1.95F).fireImmune().build("jade_automaton"));
+    public static final RegistryObject<EntityType<JadeElephant>> JADE_ELEPHANT =
+            ENTITY_TYPES.register("jade_elephant", () -> EntityType.Builder.of(JadeElephant::new, MobCategory.CREATURE)
+                    .sized(1.2F, 1.8F).fireImmune().build("jade_elephant"));
+
+    public static final RegistryObject<EntityType<TuffTotemPole>> TUFF_TOTEM_POLE =
+            ENTITY_TYPES.register("tuff_totem_pole", () -> EntityType.Builder.of(TuffTotemPole::new, MobCategory.CREATURE)
+                    .sized(1.3F, 4.5F).fireImmune().build("tuff_totem_pole"));
+
+    public static final RegistryObject<EntityType<Hart>> HART =
+            ENTITY_TYPES.register("hart", () -> EntityType.Builder.of(Hart::new, MobCategory.CREATURE)
+                    .sized(0.75f, 1.15f).build("hart"));
+
+
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =
             ENTITY_TYPES.register("mod_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)
                     .sized(1.375f, 0.5625f).build("mod_boat"));

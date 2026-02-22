@@ -3,9 +3,8 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
 import codyhuh.druids_n_dinosaurs.common.items.*;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.food.Foods;
+import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -75,4 +74,39 @@ public class ModItems {
     public static final RegistryObject<Item> HUE_HOG_SPAWN_EGG = ITEMS.register("hue_hog_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.HUE_HOG, 0xa48e6c, 0x6b5139, new Item.Properties()));
 
+    public static final RegistryObject<Item> JADE_AUTOMATON_SPAWN_EGG = ITEMS.register("jade_automaton_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.JADE_AUTOMATON, 0x054420, 0x309663, new Item.Properties()));
+
+    public static final RegistryObject<Item> JADE_AXE = ITEMS.register("jade_axe",
+            () ->new AxeItem(Tiers.IRON, 6.0F, -3.1F, new Item.Properties().durability(1000)));
+
+    public static final RegistryObject<Item> JADE_SHARD = ITEMS.register("jade_shard",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> JADE_BRICK = ITEMS.register("jade_brick",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> JADE_DOLL = ITEMS.register("jade_doll",
+            () -> new JadeDollItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> FOOLS_SCEPTER = ITEMS.register("fools_scepter",
+            () -> new FoolsScepter(new Item.Properties()));
+    public static final RegistryObject<Item> JADE_ELEPHANT_SPAWN_EGG = ITEMS.register("jade_elephant_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.JADE_ELEPHANT, 0x43b070, 0xffec4f, new Item.Properties()));
+
+    public static final RegistryObject<Item> DIAMOND_ORNATE_EGG = ITEMS.register("diamond_ornate_egg",
+            () -> new OrnateEgg(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GOLD_ORNATE_EGG = ITEMS.register("gold_ornate_egg",
+            () -> new OrnateEgg(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> COPPER_ORNATE_EGG = ITEMS.register("copper_ornate_egg",
+            () -> new OrnateEgg(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> TUFF_TOTEM_POLE_SPAWN_EGG = ITEMS.register("tuff_totem_pole_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TUFF_TOTEM_POLE, 0x76776f, 0x3bba65, new Item.Properties()));
+    public static final RegistryObject<Item> HART_SPAWN_EGG = ITEMS.register("hart_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.HART, 0x965933, 0xdecbb6, new Item.Properties()));
+
+    public static final RegistryObject<Item> ANTLER = ITEMS.register("antler",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> VENISON = ITEMS.register("venison",
+            () -> new Item(new Item.Properties().food(Foods.BEEF)));
+    public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register("cooked_venison",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_BEEF)));
 }

@@ -108,5 +108,54 @@
   "item.druids_n_dinosaurs.egg_raptor_spawn_egg": "Egg Raptor Spawn Egg",
 
   "entity.druids_n_dinosaurs.hue_hog": "Hue Hog",
-  "item.druids_n_dinosaurs.hue_hog_spawn_egg": "Hue Hog Spawn Egg"
+  "item.druids_n_dinosaurs.hue_hog_spawn_egg": "Hue Hog Spawn Egg",
+
+  "block.druids_n_dinosaurs.catacomb_bone_block": "Catacomb Bone Block",
+
+  "block.druids_n_dinosaurs.hart_tuff_totem": "Hart Tuff Totem",
+  "block.druids_n_dinosaurs.bird_tuff_totem": "Bird Tuff Totem",
+  "block.druids_n_dinosaurs.elephant_tuff_totem": "Elephant Tuff Totem",
+  "block.druids_n_dinosaurs.left_wing_tuff_totem": "Left Wing Tuff Totem",
+  "block.druids_n_dinosaurs.right_wing_tuff_totem": "Right Wing Tuff Totem",
+
+  "item.druids_n_dinosaurs.jade_shard": "Jade Shard",
+  "item.druids_n_dinosaurs.jade_brick": "Jade Brick",
+  "item.druids_n_dinosaurs.jade_axe": "Jade Axe",
+  "block.druids_n_dinosaurs.jade_ore": "Jade Ore",
+  "block.druids_n_dinosaurs.deepslate_jade_ore": "Deepslate Jade Ore",
+  "block.druids_n_dinosaurs.jade_block": "Block of Jade",
+  "block.druids_n_dinosaurs.jade_stairs": "Jade Stairs",
+  "block.druids_n_dinosaurs.jade_slab": "Jade Slab",
+  "block.druids_n_dinosaurs.polished_jade": "Polished Jade Block",
+  "block.druids_n_dinosaurs.polished_jade_stairs": "Polished Jade Stairs",
+  "block.druids_n_dinosaurs.polished_jade_slab": "Polished Jade Slab",
+  "block.druids_n_dinosaurs.jade_hummingbird_bulb": "Jade Hummingbird Bulb",
+  "block.druids_n_dinosaurs.jade_kindred_bulb": "Jade Kindred Bulb",
+  "block.druids_n_dinosaurs.jade_bricks": "Jade Bricks",
+  "block.druids_n_dinosaurs.jade_brick_stairs": "Jade Brick Stairs",
+  "block.druids_n_dinosaurs.jade_brick_slab": "Jade Brick Slab",
+  "block.druids_n_dinosaurs.chiseled_polished_jade": "Chiseled Polished Jade Block",
+  "block.druids_n_dinosaurs.chiseled_polished_jade_wall": "Chiseled Polished Jade Wall",
+  "block.druids_n_dinosaurs.shattered_jade": "Shattered Jade Block",
+
+  "entity.druids_n_dinosaurs.jade_automaton": "Jade Automaton",
+  "item.druids_n_dinosaurs.jade_automaton_spawn_egg": "Jade Automaton Spawn Egg",
+  "item.druids_n_dinosaurs.jade_doll": "Jade Doll",
+
+  "entity.druids_n_dinosaurs.jade_elephant": "Jade Elephant",
+  "item.druids_n_dinosaurs.jade_elephant_spawn_egg": "Jade Elephant Spawn Egg",
+  "item.druids_n_dinosaurs.fools_scepter": "Fool's Scepter",
+
+  "entity.druids_n_dinosaurs.tuff_totem_pole": "Tuff Totem Pole",
+  "item.druids_n_dinosaurs.tuff_totem_pole_spawn_egg": "Tuff Totem Pole Spawn Egg",
+  "item.druids_n_dinosaurs.copper_ornate_egg": "Copper Ornate Egg",
+  "item.druids_n_dinosaurs.gold_ornate_egg": "Gold Ornate Egg",
+  "item.druids_n_dinosaurs.diamond_ornate_egg": "Diamond Ornate Egg",
+  "druids_n_dinosaurs.ornate_egg.instructions": "Right click on ground to spawn ",
+
+  "entity.druids_n_dinosaurs.hart": "Hart",
+  "item.druids_n_dinosaurs.hart_spawn_egg": "Hart Spawn Egg",
+  "item.druids_n_dinosaurs.antler": "Hart Antler",
+  "item.druids_n_dinosaurs.venison": "Venison",
+  "item.druids_n_dinosaurs.cooked_venison": "Cooked Venison"
 }

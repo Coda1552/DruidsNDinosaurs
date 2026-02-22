@@ -49,6 +49,13 @@ public class ModEventBusClientEvents {
 
         event.registerLayerDefinition(ModModelLayers.HUE_HOG_LAYER, HueHogModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.HUE_HOG_PUFF_LAYER, HueHogModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.JADE_AUTOMATON_LAYER, JadeAutomatonModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.JADE_ELEPHANT, JadeElephantModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.TUFF_TOTEM_POLE, TotemPoleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.HART_LAYER, HartModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -73,6 +80,11 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntities.EGG_RAPTOR.get(), EggRaptorRenderer::new);
 
         event.registerEntityRenderer(ModEntities.HUE_HOG.get(), HueHogRenderer::new);
+
+        event.registerEntityRenderer(ModEntities.JADE_AUTOMATON.get(), JadeAutomatonRenderer::new);
+        event.registerEntityRenderer(ModEntities.JADE_ELEPHANT.get(), JadeElephantRenderer::new);
+        event.registerEntityRenderer(ModEntities.TUFF_TOTEM_POLE.get(), TuffTotemPoleRenderer::new);
+        event.registerEntityRenderer(ModEntities.HART.get(), HartRenderer::new);
     }
 
 }

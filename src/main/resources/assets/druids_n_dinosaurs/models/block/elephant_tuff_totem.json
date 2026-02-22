@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "druids_n_dinosaurs:block/tuff_totem_top",
+    "side": "druids_n_dinosaurs:block/tuff_totem_elephant"
+  }
+}

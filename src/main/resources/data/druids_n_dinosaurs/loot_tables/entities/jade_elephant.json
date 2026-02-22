@@ -1,0 +1,22 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "druids_n_dinosaurs:jade_block",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

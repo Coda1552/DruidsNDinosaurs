@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "druids_n_dinosaurs:block/catacomb_bone_block_0"
+      },
+      {
+        "model": "druids_n_dinosaurs:block/catacomb_bone_block_1"
+      },
+      {
+        "model": "druids_n_dinosaurs:block/catacomb_bone_block_2"
+      },
+      {
+        "model": "druids_n_dinosaurs:block/catacomb_bone_block_3"
+      }
+    ]
+  }
+}

@@ -80,11 +80,13 @@ public class EggRaptor extends Animal implements InventoryCarrier {
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putBoolean("HasEggShards", this.hasEggs());
+        this.writeInventoryToTag(compoundTag);
     }
 
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         this.setHasEggs(compoundTag.getBoolean("HasEggShards"));
+        this.readInventoryFromTag(compoundTag);
     }
 
     public boolean hasEggs(){

@@ -40,6 +40,14 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.RUSTICLE.get());
                         output.accept(ModItems.RUSTLING_SHERD.get());
 
+                        output.accept(ModItems.COPPER_ORNATE_EGG.get());
+                        output.accept(ModItems.GOLD_ORNATE_EGG.get());
+                        output.accept(ModItems.DIAMOND_ORNATE_EGG.get());
+
+                        output.accept(ModItems.ANTLER.get());
+                        output.accept(ModItems.VENISON.get());
+                        output.accept(ModItems.COOKED_VENISON.get());
+
                         output.accept(ModBlocks.YELLOW_IRONWEED.get());
                         output.accept(ModBlocks.BOUNCESHROOM.get());
 
@@ -74,12 +82,44 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.GOLD_DOOR.get());
                         output.accept(ModBlocks.GOLD_TRAPDOOR.get());
 
+                        output.accept(ModBlocks.CATACOMB_BONE_BLOCK.get());
+                        output.accept(ModBlocks.BIRD_TUFF_TOTEM.get());
+                        output.accept(ModBlocks.ELEPHANT_TUFF_TOTEM.get());
+                        output.accept(ModBlocks.HART_TUFF_TOTEM.get());
+                        output.accept(ModBlocks.LEFT_WING_TUFF_TOTEM.get());
+                        output.accept(ModBlocks.RIGHT_WING_TUFF_TOTEM.get());
+
+                        output.accept(ModItems.JADE_SHARD.get());
+                        output.accept(ModItems.JADE_BRICK.get());
+                        output.accept(ModItems.JADE_AXE.get());
+                        output.accept(ModItems.JADE_DOLL.get());
+                        output.accept(ModBlocks.JADE_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_JADE_ORE.get());
+                        output.accept(ModBlocks.JADE_BLOCK.get());
+                        output.accept(ModBlocks.JADE_STAIRS.get());
+                        output.accept(ModBlocks.JADE_SLAB.get());
+                        output.accept(ModBlocks.SHATTERED_JADE.get());
+                        output.accept(ModBlocks.POLISHED_JADE_BLOCK.get());
+                        output.accept(ModBlocks.POLISHED_JADE_STAIRS.get());
+                        output.accept(ModBlocks.POLISHED_JADE_SLAB.get());
+                        output.accept(ModBlocks.CHISELED_POLISHED_JADE.get());
+                        output.accept(ModBlocks.CHISELED_POLISHED_JADE_WALL.get());
+                        output.accept(ModBlocks.JADE_BRICKS.get());
+                        output.accept(ModBlocks.JADE_BRICK_STAIRS.get());
+                        output.accept(ModBlocks.JADE_BRICK_SLAB.get());
+                        output.accept(ModBlocks.JADE_HUMMINGBIRD_BULB.get());
+                        output.accept(ModBlocks.JADE_KINDRED_BULB.get());
+
                         output.accept(ModItems.CRACKLE_SPAWN_EGG.get());
                         output.accept(ModItems.EGG_RAPTOR_SPAWN_EGG.get());
                         output.accept(ModItems.GOURD_RAPTOR_SPAWN_EGG.get());
+                        output.accept(ModItems.HART_SPAWN_EGG.get());
                         output.accept(ModItems.HUE_HOG_SPAWN_EGG.get());
+                        output.accept(ModItems.JADE_AUTOMATON_SPAWN_EGG.get());
+                        output.accept(ModItems.JADE_ELEPHANT_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
+                        output.accept(ModItems.TUFF_TOTEM_POLE_SPAWN_EGG.get());
                         output.accept(ModItems.WHISP_SPAWN_EGG.get());
                     })
                     .build());
