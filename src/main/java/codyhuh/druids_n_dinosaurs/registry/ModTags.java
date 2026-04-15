@@ -3,8 +3,8 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -13,8 +13,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
-    
-    public static final TagKey<EntityType<?>> UNCATCHABLE = create("uncatchable");
 
     private static TagKey<EntityType<?>> create(String name) {
         return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
@@ -41,11 +39,23 @@ public class ModTags {
 
     public static class Biomes {
 
-        public static final TagKey<Biome> JADE_HIGH_BIOMES = tag("jade_high_biomes");
+        public static final TagKey<Biome> JADE_LOW_CONCENTRATION_BIOMES = tag("jade_low_concentration_biomes");
+        public static final TagKey<Biome> JADE_HIGH_CONCENTRATION_BIOMES = tag("jade_high_concentration_biomes");
+        public static final TagKey<Biome> JADE_HIGH_ALTITUDE_BIOMES = tag("jade_high_altitude_biomes");
         public static final TagKey<Biome> HART_BIOMES = tag("hart_biomes");
 
         private static TagKey<Biome> tag(String pName) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DruidsNDinosaurs.MOD_ID, pName));
+        }
+    }
+
+
+
+    public static class EntityTypes {
+        public static final TagKey<EntityType<?>> WICKER_IDOL_BLACKLIST = tag("wicker_idol_blacklist");
+
+        private static TagKey<net.minecraft.world.entity.EntityType<?>> tag(String name){
+            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
         }
     }
 }

@@ -232,7 +232,7 @@ public class JadeElephant extends Animal implements IAnimatedAttacker, Inventory
             this.removeInteractionItem(pPlayer, itemstack);
             this.spawnAtLocation(ModItems.FOOLS_SCEPTER.get());
             return InteractionResult.SUCCESS;
-        }else if (itemstack.is(Tags.Items.STONE)){
+        }else if (itemstack.is(Tags.Items.STONE) && this.getInterestedTime() == 0){
             ItemStack copy = itemstack.copyWithCount(1);
             itemstack.shrink(1);
             this.setItemInHand(InteractionHand.MAIN_HAND, copy);

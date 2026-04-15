@@ -28,7 +28,10 @@ public class ElephantTotemBlock extends Block {
         ItemStack stack = pPlayer.getItemInHand(pHand);
         if (stack.is(ModItems.BOTTLE_O_SOUL.get()) && this.isValidFormation(pLevel, pPos)){
             clearPatternBlocks(pLevel, pPos);
-
+            
+            if (!pPlayer.isCreative()){
+                stack.shrink(1);
+            }
             JadeElephant pGolem = ModEntities.JADE_ELEPHANT.get().create(pLevel);
             if (pGolem != null){
                 pGolem.moveTo((double)pPos.getX() + 0.5D, (double)pPos.getY() - 3, (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);

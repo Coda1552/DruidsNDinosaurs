@@ -3,6 +3,8 @@ package codyhuh.druids_n_dinosaurs.common.entity.custom;
 import codyhuh.druids_n_dinosaurs.registry.ModPotions;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -44,6 +46,8 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.function.IntFunction;
+
+import static com.ibm.icu.impl.ValidIdentifiers.Datatype.variant;
 
 public class Whisp extends PathfinderMob {
 
@@ -234,18 +238,47 @@ public class Whisp extends PathfinderMob {
 
         if (itemstack.is(ItemTags.CANDLES) && ((this.getSeekCandleCooldown()>0 && this.getSeekCandleCooldown() < seekCandleCooldown/2) || pPlayer.isCreative()) && this.getSeekingCandleTicks() <= 0){
             if (!this.level().isClientSide) {
-                this.level().playSound(pPlayer, this, SoundEvents.ALLAY_ITEM_GIVEN, SoundSource.PLAYERS, 1.0F, 1.0F);
-                this.setSeekingCandleTicks(seekingCandleTicks);
-                this.setSeekCandleCooldown(0);
-                if (!pPlayer.isCreative())
-                    itemstack.shrink(1);
-                return InteractionResult.SUCCESS;
+                if (this.getSeekCandleCooldown() <= seekCandleCooldown && !this.isSpinning()){
+                    this.level().playSound(pPlayer, this, SoundEvents.ALLAY_ITEM_GIVEN, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+                    this.setSeekCandleCooldown(seekCandleCooldown);
+                    if (!pPlayer.isCreative())
+                        itemstack.shrink(1);
+
+
+                    if (this.navigation.getPath() != null){
+                        this.navigation.stop();
+                    }
+
+                    WhispVariant variant = WhispVariant.byId(this.getVariant());
+                    this.setDeltaMovement(Vec3.ZERO);
+
+                    ThrownPotion thrownpotion = new ThrownPotion(this.level(), this);
+                    thrownpotion.setItem(PotionUtils.setPotion(new ItemStack(Items.SPLASH_POTION), variant.getPotion()));
+                    thrownpotion.setXRot(thrownpotion.getXRot() - -20.0F);
+                    thrownpotion.shoot(0, 5, 0, 0.75F, 1.0F);
+                    this.level().addFreshEntity(thrownpotion);
+                    this.setSpinningTime(40);
+
+                    this.addParticlesAroundSelf(ParticleTypes.WAX_ON);
+
+                    return InteractionResult.SUCCESS;
+                }
             } else {
                 return InteractionResult.CONSUME;
             }
         }
 
         return super.mobInteract(pPlayer, pHand);
+    }
+
+    protected void addParticlesAroundSelf(ParticleOptions pParticleOption) {
+        for(int i = 0; i < 5; ++i) {
+            double d0 = this.random.nextGaussian() * 0.02D;
+            double d1 = this.random.nextGaussian() * 0.02D;
+            double d2 = this.random.nextGaussian() * 0.02D;
+            this.level().addParticle(pParticleOption, this.getRandomX(0.5D), this.getY() + 0.5D, this.getRandomZ(0.5D), d0, d1, d2);
+        }
     }
 
     private void setupAnimationStates() {

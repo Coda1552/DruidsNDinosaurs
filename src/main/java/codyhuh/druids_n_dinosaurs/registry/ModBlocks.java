@@ -26,7 +26,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BOUNCESHROOM = registerBlock("bounceshroom",
             () -> new BounceshroomBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).lightLevel(value -> 1).randomTicks()));
     public static final RegistryObject<Block> YELLOW_IRONWEED = registerBlock("yellow_ironweed",
-            () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
+            () -> new BonemealableDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
 
     // GOLD
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",

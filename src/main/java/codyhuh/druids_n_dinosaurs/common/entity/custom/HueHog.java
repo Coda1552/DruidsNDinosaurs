@@ -34,6 +34,7 @@ import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -55,6 +56,8 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
     public int turnHeadTimeout = this.random.nextInt(160) + 60;
     public int danceAnimationTimeout;
     public int collectAnimationTimeout;
+    int wantsToCollectTicks = 20*60;
+    int wantsToChangeColorTicks = 20*4;
 
     private static final Map<DyeColor, ItemLike> ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (p_29841_) -> {
         p_29841_.put(DyeColor.WHITE, Items.WHITE_DYE);
@@ -114,8 +117,8 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
 
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(WANTS_TO_COLLECT_TICKS, 20*60*3);
-        this.entityData.define(WANTS_TO_CHANGE_COLOR_TICKS, 20*60*2);
+        this.entityData.define(WANTS_TO_COLLECT_TICKS, wantsToCollectTicks);
+        this.entityData.define(WANTS_TO_CHANGE_COLOR_TICKS, wantsToChangeColorTicks);
         this.entityData.define(COLLECTING_TICKS, 0);
         this.entityData.define(DANCING_TICKS, 0);
         this.entityData.define(CAN_CHANGE_COLORS, false);
@@ -413,7 +416,7 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
                 this.hog.setColor(hog, hog.level().getBlockState(blockPos.above()));
                 if (this.hog.getCollectingTicks() == 0)
                     this.hog.setCollectingTicks(50);
-                this.hog.setWantsToCollectTicks(20*60*(2+hog.getRandom().nextInt(0, 2)));
+                this.hog.setWantsToCollectTicks(this.hog.wantsToCollectTicks*(hog.getRandom().nextInt(0, 2)));
                 this.stop();
             }
         }
@@ -434,6 +437,9 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
 
         @Override
         public boolean canUse() {
+            if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.hog.level(), this.hog)) {
+                return false;
+            }
             return super.canUse() && this.hog.hasColor() && this.hog.wantsToChangeColorTicks()==0 && this.hog.canChangeColors()
                     && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.hog.level(), this.hog);
         }
@@ -456,7 +462,7 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
         @Override
         public void stop() {
             this.hog.setDancingTicks(60);
-            this.hog.setwantsToChangeColorTicks(20*60*(1+hog.getRandom().nextInt(0, 1)));
+            this.hog.setwantsToChangeColorTicks(this.hog.wantsToChangeColorTicks*(1+hog.getRandom().nextInt(0, 1)));
         }
 
         @Override

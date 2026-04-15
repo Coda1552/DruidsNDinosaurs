@@ -9,6 +9,7 @@ import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -27,5 +28,8 @@ public class ModEntityTagGenerator extends EntityTypeTagsProvider {
 
     protected void addTags(){
         this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(ModEntities.JADE_AUTOMATON.get());
+        this.tag(EntityTypeTags.FREEZE_IMMUNE_ENTITY_TYPES).add(ModEntities.TUFF_TOTEM_POLE.get());
+        this.tag(ModTags.EntityTypes.WICKER_IDOL_BLACKLIST).add(EntityType.ENDER_DRAGON).add(EntityType.WARDEN).add(EntityType.WITHER);
+
     }
 }

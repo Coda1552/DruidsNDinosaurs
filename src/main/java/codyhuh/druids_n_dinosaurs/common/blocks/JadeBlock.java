@@ -28,6 +28,9 @@ public class JadeBlock extends Block {
         ItemStack stack = pPlayer.getItemInHand(pHand);
         if (stack.is(ModItems.BOTTLE_O_SOUL.get()) && this.isValidFormation(pLevel, pPos)){
             clearPatternBlocks(pLevel, pPos);
+            if (!pPlayer.isCreative()){
+                stack.shrink(1);
+            }
 
             TuffTotemPole pGolem = ModEntities.TUFF_TOTEM_POLE.get().create(pLevel);
             if (pGolem != null){

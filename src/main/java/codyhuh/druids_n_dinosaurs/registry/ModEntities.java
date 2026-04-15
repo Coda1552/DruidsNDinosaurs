@@ -25,7 +25,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<Whisp>> WHISP =
             ENTITY_TYPES.register("whisp", () -> EntityType.Builder.of(Whisp::new, MobCategory.CREATURE)
-                    .sized(0.45f, 1f).build("whisp"));
+                    .sized(0.45f, 1.5f).build("whisp"));
 
     public static final RegistryObject<EntityType<Crackle>> CRACKLE =
             ENTITY_TYPES.register("crackle", () -> EntityType.Builder.of(Crackle::new, MobCategory.CREATURE)

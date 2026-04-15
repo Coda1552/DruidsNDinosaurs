@@ -62,7 +62,7 @@ public class EggRaptor extends Animal implements InventoryCarrier {
         this.goalSelector.addGoal(0, new LookForItemGoal(this, ALLOWED_ITEMS, 1.25f));
         this.goalSelector.addGoal(1, new DepositEggsInChest(this, 1.0D, 25));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.15D, Ingredient.of(ModItems.EGG_SHARDS.get(), Items.EGG, Items.WHEAT_SEEDS), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.15D, Ingredient.of(ModItems.EGG_SHARDS.get(), Items.EGG, Items.WHEAT_SEEDS, ModItems.GOURD_EGG.get()), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.15D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));

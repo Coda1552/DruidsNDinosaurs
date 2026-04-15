@@ -92,12 +92,12 @@
 
   "entity.druids_n_dinosaurs.whisp": "Whisp",
   "item.druids_n_dinosaurs.whisp_spawn_egg": "Whisp Spawn Egg",
-  "item.druids_n_dinosaurs.fuchsia_whisper_pearl": "Fuchsia Whisper Pearl",
-  "item.druids_n_dinosaurs.vermillion_whisper_pearl": "Vermillion Whisper Pearl",
-  "item.druids_n_dinosaurs.amber_whisper_pearl": "Amber Whisper Pearl",
-  "item.druids_n_dinosaurs.verdant_whisper_pearl": "Verdant Whisper Pearl",
-  "item.druids_n_dinosaurs.azure_whisper_pearl": "Azure Whisper Pearl",
-  "item.druids_n_dinosaurs.ebony_whisper_pearl": "Ebony Whisper Pearl",
+  "item.druids_n_dinosaurs.fuchsia_whisper_pearl": "Pink Whisper Pearl",
+  "item.druids_n_dinosaurs.vermillion_whisper_pearl": "Orange Whisper Pearl",
+  "item.druids_n_dinosaurs.amber_whisper_pearl": "Yellow Whisper Pearl",
+  "item.druids_n_dinosaurs.verdant_whisper_pearl": "Lime Whisper Pearl",
+  "item.druids_n_dinosaurs.azure_whisper_pearl": "Light Blue Whisper Pearl",
+  "item.druids_n_dinosaurs.ebony_whisper_pearl": "Black Whisper Pearl",
 
   "entity.druids_n_dinosaurs.crackle": "Crackle",
   "item.druids_n_dinosaurs.crackle_spawn_egg": "Crackle Spawn Egg",
@@ -156,6 +156,6 @@
   "entity.druids_n_dinosaurs.hart": "Hart",
   "item.druids_n_dinosaurs.hart_spawn_egg": "Hart Spawn Egg",
   "item.druids_n_dinosaurs.antler": "Hart Antler",
-  "item.druids_n_dinosaurs.venison": "Venison",
+  "item.druids_n_dinosaurs.venison": "Raw Venison",
   "item.druids_n_dinosaurs.cooked_venison": "Cooked Venison"
 }

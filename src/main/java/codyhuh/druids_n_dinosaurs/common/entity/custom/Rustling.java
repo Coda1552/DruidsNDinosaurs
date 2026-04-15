@@ -45,15 +45,15 @@ public class Rustling extends Animal implements IForgeShearable, Shearable {
 
     private static final EntityDataAccessor<Integer> BREEDING_COOLDOWN = SynchedEntityData.defineId(Rustling.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> RUST_LEVEL = SynchedEntityData.defineId(Rustling.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> RUST_TIME = SynchedEntityData.defineId(Rustling.class, EntityDataSerializers.INT);
 
-    private int increaseRustTime;
     private int attackedByPlayerTime;
     private int prevBreedingCooldown;
+    private int prevRustTime;
 
     public Rustling(EntityType<? extends Animal> type, Level level) {
         super(type, level);
         this.setMaxUpStep(1);
-        this.increaseRustTime = random.nextInt(6000) + (2000);
     }
 
     public static AttributeSupplier.Builder createRustlingAttributes() {
@@ -82,6 +82,7 @@ public class Rustling extends Animal implements IForgeShearable, Shearable {
         super.defineSynchedData();
         this.entityData.define(RUST_LEVEL, 0);
         this.entityData.define(BREEDING_COOLDOWN, 0);
+        this.entityData.define(RUST_TIME, 6000);
     }
 
     @Override
@@ -89,13 +90,24 @@ public class Rustling extends Animal implements IForgeShearable, Shearable {
         super.readAdditionalSaveData(tag);
         this.setRustLevel(tag.getInt("RustLevel"));
         this.setBreedingCooldown(tag.getInt("BreedingCooldown"));
+        this.setBreedingCooldown(tag.getInt("BreedingCooldown"));
+        this.setRustTime(tag.getInt("RustTime"));
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putInt("RustLevel", getRustLevel());
-        tag.putInt("BreedingCooldown", getBreedingCooldown());
+        tag.putInt("RustLevel", this.getRustLevel());
+        tag.putInt("BreedingCooldown", this.getBreedingCooldown());
+        tag.putInt("RustTime", this.getRustTime());
+    }
+
+    public int getRustTime() {
+        return this.entityData.get(RUST_TIME);
+    }
+
+    public void setRustTime(int rustTime) {
+        this.entityData.set(RUST_TIME, rustTime);
     }
 
     public int getRustLevel() {
@@ -137,18 +149,20 @@ public class Rustling extends Animal implements IForgeShearable, Shearable {
             --this.attackedByPlayerTime;
         }
 
-        if (getRustLevel() < 3 && this.isAlive() && this.increaseRustTime > 0) {
-            --this.increaseRustTime;
-
-            if (level().canSeeSky(blockPosition()) && level().isRainingAt(blockPosition()) && this.increaseRustTime > 0){
-                --this.increaseRustTime;
+        if (!this.level().isClientSide()){
+            if (this.getRustLevel() < 3 && this.isAlive() && this.getRustTime() > 0) {
+                this.prevRustTime = this.getRustTime()-1;
+                if (level().canSeeSky(blockPosition()) && level().isRainingAt(blockPosition()) && this.getRustTime() > 0){
+                    this.prevRustTime--;
+                }
+                this.setRustTime(this.prevRustTime);
             }
-        }
 
-        if (getRustLevel() < 3 && this.isAlive() && this.increaseRustTime == 0) {
-            this.playSound(SoundEvents.AXE_SCRAPE, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.setRustLevel(getRustLevel() + 1);
-            this.increaseRustTime = random.nextInt(6000) + (2000);
+            if (this.getRustLevel() < 3 && this.isAlive() && this.getRustTime() <= 0) {
+                this.playSound(SoundEvents.AXE_SCRAPE, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+                this.setRustLevel(this.getRustLevel() + 1);
+                this.setRustTime(this.getRandom().nextInt(6000) + (2000));
+            }
         }
     }
 

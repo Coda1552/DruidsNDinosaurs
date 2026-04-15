@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
@@ -20,7 +19,7 @@ public class TuffTotemPoleItemLayer<T extends TuffTotemPole, M extends TotemPole
     }
 
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-        ItemStack itemstack = pLivingEntity.getInventory().getItem(0);
+        ItemStack itemstack = pLivingEntity.getEggItem();
         if (!itemstack.isEmpty() && pLivingEntity.getEggPhase()>0) {
             pPoseStack.pushPose();
 

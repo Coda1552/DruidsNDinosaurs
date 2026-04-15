@@ -75,6 +75,7 @@ public class Hart extends AbstractHorse {
     }
 
     protected void registerGoals() {
+        this.goalSelector.addGoal(0, new ClimbOnTopOfPowderSnowGoal(this, this.level()));
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1));
         this.goalSelector.addGoal(2, new HartScratchGoal(this, 0.75, 20));

@@ -14,7 +14,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,7 +22,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -31,14 +29,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class TuffTotemPole extends Animal implements InventoryCarrier {
+public class TuffTotemPole extends Animal {
 
-    private final SimpleContainer inventory = new SimpleContainer(1);
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState cawingAnimationState = new AnimationState();
     public int cawAnimationTimeout;
     int phaseTime = 20*60*2;
 
+    private static final EntityDataAccessor<ItemStack> EGG_ITEM = SynchedEntityData.defineId(TuffTotemPole.class, EntityDataSerializers.ITEM_STACK);
     private static final EntityDataAccessor<Integer> EGG_PHASE = SynchedEntityData.defineId(TuffTotemPole.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> CURRENT_PHASE_TIME = SynchedEntityData.defineId(TuffTotemPole.class, EntityDataSerializers.INT);
 
@@ -64,22 +62,18 @@ public class TuffTotemPole extends Animal implements InventoryCarrier {
         super.defineSynchedData();
         this.entityData.define(EGG_PHASE, 0);
         this.entityData.define(CURRENT_PHASE_TIME, 0);
+        this.entityData.define(EGG_ITEM, ItemStack.EMPTY);
     }
 
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("EggPhase", this.getEggPhase());
         compound.putInt("PhaseTime", this.getPhaseTime());
-        ListTag listTag = new ListTag();
-        for (int i = 0; i < this.inventory.getContainerSize(); ++i) {
-            ItemStack itemStack = this.inventory.getItem(i);
-            if (itemStack.isEmpty()) continue;
-            CompoundTag compoundTag2 = new CompoundTag();
-            compoundTag2.putByte("Slot", (byte)i);
-            itemStack.save(compoundTag2);
-            listTag.add(compoundTag2);
+
+        if (!this.getEggItem().isEmpty()) {
+            compound.put("EggItem", this.getEggItem().save(new CompoundTag()));
         }
-        compound.put("Items", listTag);
+
     }
 
     public void readAdditionalSaveData(CompoundTag compound) {
@@ -87,13 +81,23 @@ public class TuffTotemPole extends Animal implements InventoryCarrier {
         this.setEggPhase(compound.getInt("EggPhase"));
         this.setPhaseTime(compound.getInt("PhaseTime"));
 
-        ListTag listtag = compound.getList("Items", 10);
-        for (int i = 0; i < listtag.size(); ++i) {
-            CompoundTag compoundTag2 = listtag.getCompound(i);
-            int j = compoundTag2.getByte("Slot") & 0xFF;
-            if (j >= this.inventory.getContainerSize()) continue;
-            this.inventory.setItem(j, ItemStack.of(compoundTag2));
+        CompoundTag compoundtag = compound.getCompound("EggItem");
+        if (compoundtag != null && !compoundtag.isEmpty()) {
+            ItemStack itemstack = ItemStack.of(compoundtag);
+            this.setEggItem(itemstack);
         }
+    }
+
+
+    public ItemStack getEggItem() {
+        return this.getEntityData().get(EGG_ITEM);
+    }
+
+    public void setEggItem(ItemStack pStack) {
+        if (!pStack.isEmpty()) {
+            pStack = pStack.copyWithCount(1);
+        }
+        this.getEntityData().set(EGG_ITEM, pStack);
     }
 
     public int getEggPhase() {
@@ -115,29 +119,28 @@ public class TuffTotemPole extends Animal implements InventoryCarrier {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level().isClientSide) {
-            if (this.getEggPhase() == 1 && this.getRandom().nextBoolean()){
-                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.7D), this.getY() - 15.5 + this.getRandomY()/5,
-                        this.getRandomZ(0.7D), 0, 0.02, 0.0D);
-            }
 
-            if (this.getRandom().nextInt(2) == 0 && this.getEggPhase() == 2) {
+        if (this.getEggPhase() == 1 && this.getRandom().nextBoolean()){
+            this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.7D), this.getY() - 15.5 + this.getRandomY()/5,
+                    this.getRandomZ(0.7D), 0, 0.02, 0.0D);
+        }
 
-                this.level().addParticle(ModParticles.JADE_OMEN.get(),
-                        this.getRandomX(0.5), this.getY() + 3.0D, this.getRandomZ(0.5),
-                        this.getX() - this.getRandomX(2.5D),
-                        this.getY() - this.getRandomY(),
-                        this.getZ() - this.getRandomZ(2.5));
-            }
+        if (this.getRandom().nextInt(2) == 0 && this.getEggPhase() == 2) {
 
-            if (this.getRandom().nextBoolean() && this.getEggPhase() == 3){
-                this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D),
-                        this.getY() - 15 + this.getRandomY()/4,
-                        this.getRandomZ(1.0D),
-                        0.0D,
-                        0.0D,
-                        0.0D);
-            }
+            this.level().addParticle(ModParticles.JADE_OMEN.get(),
+                    this.getRandomX(0.5), this.getY() + 3.0D, this.getRandomZ(0.5),
+                    this.getX() - this.getRandomX(2.5D),
+                    this.getY() - this.getRandomY(),
+                    this.getZ() - this.getRandomZ(2.5));
+        }
+
+        if (this.getRandom().nextBoolean() && this.getEggPhase() == 3){
+            this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D),
+                    this.getY() - 15 + this.getRandomY()/4,
+                    this.getRandomZ(1.0D),
+                    0.0D,
+                    0.0D,
+                    0.0D);
         }
     }
 
@@ -184,21 +187,27 @@ public class TuffTotemPole extends Animal implements InventoryCarrier {
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack stack = pPlayer.getItemInHand(pHand);
+
         if (stack.getItem() instanceof OrnateEgg && this.getEggPhase() == 0){
-            ItemStack copy = stack.copy();
-            this.getInventory().setItem(0, copy);
-            this.setEggPhase(1);
-            this.setPhaseTime(phaseTime);
-            removeInteractionItem(pPlayer, stack);
+            if (!this.level().isClientSide){
+                ItemStack copy = stack.copy();
+                this.setEggItem(copy);
+                this.setEggPhase(1);
+                this.setPhaseTime(phaseTime);
+                removeInteractionItem(pPlayer, stack);
+            }
             return InteractionResult.SUCCESS;
         }
         if (stack.isEmpty() && this.getEggPhase() > 0){
-            ItemStack copy = this.getInventory().getItem(0);
-            if (this.getEggPhase() == 3 && copy.getItem() instanceof OrnateEgg egg){
-                egg.setEntityType(this.getRandom().nextInt(0, 4), copy);
+            if (!this.level().isClientSide){
+                ItemStack copy = this.getEggItem();
+                if (this.getEggPhase() == 3 && copy.getItem() instanceof OrnateEgg egg){
+                    egg.setEntityType(this.getRandom().nextInt(0, 4), copy);
+                }
+                this.setEggItem(ItemStack.EMPTY);
+                this.spawnAtLocation(copy);
+                this.setEggPhase(0);
             }
-            this.spawnAtLocation(copy);
-            this.setEggPhase(0);
             return InteractionResult.SUCCESS;
         }
         return super.mobInteract(pPlayer, pHand);
@@ -266,18 +275,12 @@ public class TuffTotemPole extends Animal implements InventoryCarrier {
         this.playSound(SoundEvents.IRON_GOLEM_STEP, 1.0F, 1.0F);
     }
 
-    @Override
-    public SimpleContainer getInventory() {
-        return inventory;
-    }
-
     protected void dropEquipment() {
         super.dropEquipment();
-        this.inventory.removeAllItems().forEach(this::spawnAtLocation);
-        ItemStack itemstack = this.getInventory().getItem(0);
+        ItemStack itemstack = this.getEggItem();
         if (!itemstack.isEmpty() && !EnchantmentHelper.hasVanishingCurse(itemstack)) {
             this.spawnAtLocation(itemstack);
-            this.getInventory().setItem(0, ItemStack.EMPTY);
+            this.setEggItem(ItemStack.EMPTY);
         }
 
     }

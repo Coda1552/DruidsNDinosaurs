@@ -218,6 +218,10 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
             }
 
             if (itemstack.is(ModItems.BOTTLE_O_SOUL.get()) && !this.isLit()) {
+                if (!pPlayer.isCreative()){
+                    itemstack.shrink(1);
+                    pPlayer.setItemInHand(pHand, new ItemStack(Items.GLASS_BOTTLE));
+                }
                 this.setLit(true);
                 this.playSound(SoundEvents.BEACON_ACTIVATE);
                 return InteractionResult.SUCCESS;

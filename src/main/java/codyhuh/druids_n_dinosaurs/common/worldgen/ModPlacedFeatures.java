@@ -18,15 +18,20 @@ import java.util.List;
 
 public class ModPlacedFeatures {
 
-    public static final ResourceKey<PlacedFeature> JADE_DEEP = registerKey("jade_deep");
+    public static final ResourceKey<PlacedFeature> JADE_DEEP_HIGH_CONCENTRATION = registerKey("jade_deep_high_concentration");
+    public static final ResourceKey<PlacedFeature> JADE_DEEP_LOW_CONCENTRATION = registerKey("jade_deep_low_concentration");
     public static final ResourceKey<PlacedFeature> JADE_HIGH = registerKey("jade_high");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
 
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, JADE_DEEP, configuredFeatures.getOrThrow(ModConfiguredFeatures.JADE_KEY),
+        register(context, JADE_DEEP_HIGH_CONCENTRATION, configuredFeatures.getOrThrow(ModConfiguredFeatures.JADE_KEY),
                 ModOrePlacement.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
+                        VerticalAnchor.absolute(0))));
+
+        register(context, JADE_DEEP_LOW_CONCENTRATION, configuredFeatures.getOrThrow(ModConfiguredFeatures.JADE_KEY),
+                ModOrePlacement.commonOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),
                         VerticalAnchor.absolute(0))));
 
         register(context, JADE_HIGH, configuredFeatures.getOrThrow(ModConfiguredFeatures.JADE_KEY),

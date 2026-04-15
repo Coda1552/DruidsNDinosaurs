@@ -23,7 +23,9 @@ public class ModBiomeTagGenerator  extends BiomeTagsProvider {
     }
 
     protected void addTags(){
-        this.tag(ModTags.Biomes.JADE_HIGH_BIOMES).add(Biomes.JUNGLE).add(Biomes.SPARSE_JUNGLE).addTag(BiomeTags.IS_JUNGLE).add(Biomes.CHERRY_GROVE);
+        this.tag(ModTags.Biomes.JADE_HIGH_ALTITUDE_BIOMES).add(Biomes.JUNGLE).add(Biomes.SPARSE_JUNGLE).addTag(BiomeTags.IS_JUNGLE).add(Biomes.CHERRY_GROVE);
+        this.tag(ModTags.Biomes.JADE_LOW_CONCENTRATION_BIOMES).addTag(BiomeTags.IS_OVERWORLD);
         this.tag(ModTags.Biomes.HART_BIOMES).addTag(BiomeTags.IS_FOREST).add(Biomes.PLAINS);
+
     }
 }
