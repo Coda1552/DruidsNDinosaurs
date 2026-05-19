@@ -7,11 +7,11 @@ import codyhuh.druids_n_dinosaurs.registry.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -28,6 +28,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .addTag(ModTags.Items.ALOEWOOD_LOG_ITEM);
+
+        this.tag(ModTags.Items.FLOWER_CROWNS).add(ModItems.FLOWER_CROWN.get()).add(ModItems.BLUE_FLOWER_CROWN.get());
 
         this.tag(ItemTags.PLANKS).add(
                 ModBlocks.ALOEWOOD_PLANKS.get().asItem()
@@ -77,7 +79,26 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 ModItems.ALOEWOOD_HANGING_SIGN.get()
         );
 
-        this.tag(ItemTags.DECORATED_POT_SHERDS).add(
-                ModItems.RUSTLING_SHERD.get());
+        this.tag(ItemTags.DECORATED_POT_SHERDS)
+                .add(ModItems.RUSTLING_SHERD.get())
+                .add(ModItems.HART_SHERD.get())
+                .add(ModItems.GAZE_SHERD.get())
+                .add(ModItems.RUSTMUNCHER_SHERD.get())
+                .add(ModItems.CRACKLE_SHERD.get())
+                .add(ModItems.BLOOM_SHERD.get())
+                .add(ModItems.CROWN_SHERD.get())
+                .add(ModItems.LUNAR_SHERD.get())
+                .add(ModItems.STELLAR_SHERD.get())
+                .add(ModItems.WHISP_SHERD.get())
+                .add(ModItems.TRUNK_SHERD.get())
+                .add(ModItems.REBIRTH_SHERD.get())
+                .add(ModItems.WAYFIND_UP_SHERD.get())
+                .add(ModItems.WAYFIND_DOWN_SHERD.get())
+                .add(ModItems.WAYFIND_LEFT_SHERD.get())
+                .add(ModItems.WAYFIND_RIGHT_SHERD.get())
+                .add(ModItems.MONKE_SHERD.get());
+
+
+        this.tag(Tags.Items.ARMORS_HELMETS).add(ModItems.FLOWER_CROWN.get()).add(ModItems.BLUE_FLOWER_CROWN.get());
     }
 }

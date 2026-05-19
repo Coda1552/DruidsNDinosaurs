@@ -96,5 +96,57 @@
       }
     ],
     "subtitle": "rustling.sound.subtitle.rustmuncher_death"
+  },
+
+  "ori_chalcos_idle": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_0"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_3"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_4"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_5"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_6"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_7"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_8"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/ori_chalcos_9"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.ori_chalcos_idle"
+  },
+  "ori_chalcos_eugh": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/eugh_1"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/eugh_2"
+      },
+      {
+        "name": "druids_n_dinosaurs:ori_chalcos/eugh_3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.ori_chalcos_eugh"
   }
 }

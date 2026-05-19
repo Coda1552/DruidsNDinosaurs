@@ -55,6 +55,17 @@ public class ModEntities {
             ENTITY_TYPES.register("hart", () -> EntityType.Builder.of(Hart::new, MobCategory.CREATURE)
                     .sized(0.75f, 1.15f).build("hart"));
 
+    public static final RegistryObject<EntityType<GildedGallumpher>> GILDED_GALLUMPHER =
+            ENTITY_TYPES.register("gilded_gallumpher", () -> EntityType.Builder.of(GildedGallumpher::new, MobCategory.CREATURE)
+                    .sized(2.5f, 2.15f).build("gilded_gallumpher"));
+
+    public static final RegistryObject<EntityType<Chiselchirp>> CHISELCHIRP =
+            ENTITY_TYPES.register("chiselchirp", () -> EntityType.Builder.of(Chiselchirp::new, MobCategory.CREATURE)
+                    .sized(0.5f, 0.5f).build("chiselchirp"));
+
+    public static final RegistryObject<EntityType<TerraThunk>> TERRA_THUNK =
+            ENTITY_TYPES.register("terra_thunk", () -> EntityType.Builder.of(TerraThunk::new, MobCategory.CREATURE)
+                    .sized(2.75f, 3.2f).build("terra_thunk"));
 
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =
             ENTITY_TYPES.register("mod_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)

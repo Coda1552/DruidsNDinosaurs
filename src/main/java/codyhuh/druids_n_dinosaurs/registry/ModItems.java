@@ -3,6 +3,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.ModBoatEntity;
 import codyhuh.druids_n_dinosaurs.common.items.*;
+import codyhuh.druids_n_dinosaurs.common.items.armor.ModArmorMaterials;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -14,7 +15,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DruidsNDinosaurs.MOD_ID);
 
     public static final RegistryObject<Item> WICKER_IDOL = ITEMS.register("wicker_idol",
-            () -> new WickerIdolItem(new Item.Properties()));
+            () -> new WickerIdolItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> GOURD_RAPTOR_SPAWN_EGG = ITEMS.register("gourd_raptor_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.GOURD_RAPTOR, 0x30776c, 0xd7ce63, new Item.Properties()));
@@ -42,11 +43,10 @@ public class ModItems {
     public static final RegistryObject<Item> RUSTMUNCHER_SPAWN_EGG = ITEMS.register("rustmuncher_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.RUSTMUNCHER, 0x725b59, 0x4e9067, new Item.Properties()));
 
-    public static final RegistryObject<Item> RUSTLING_SHERD = ITEMS.register("rustling_pottery_sherd",
-            () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> BOTTLE_O_SOUL = ITEMS.register("bottle_o_soul",
-            () -> new BottleOSoulItem(new Item.Properties()));
+            () -> new BottleOSoulItem(new Item.Properties().food(ModFoods.SOUL_BOTTLE).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> BOTTLE_O_ETHEREAL = ITEMS.register("bottle_o_ethereal",
+            () -> new BottleOEtherealItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE)));
 
     public static final RegistryObject<Item> WHISP_SPAWN_EGG = ITEMS.register("whisp_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WHISP, 0xf4a8ef, 0xb1619c, new Item.Properties()));
@@ -100,13 +100,68 @@ public class ModItems {
             () -> new OrnateEgg(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> TUFF_TOTEM_POLE_SPAWN_EGG = ITEMS.register("tuff_totem_pole_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.TUFF_TOTEM_POLE, 0x76776f, 0x3bba65, new Item.Properties()));
+
     public static final RegistryObject<Item> HART_SPAWN_EGG = ITEMS.register("hart_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.HART, 0x965933, 0xdecbb6, new Item.Properties()));
-
     public static final RegistryObject<Item> ANTLER = ITEMS.register("antler",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VENISON = ITEMS.register("venison",
             () -> new Item(new Item.Properties().food(Foods.BEEF)));
     public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register("cooked_venison",
             () -> new Item(new Item.Properties().food(Foods.COOKED_BEEF)));
+
+
+    public static final RegistryObject<Item> RUSTLING_SHERD = ITEMS.register("rustling_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HART_SHERD = ITEMS.register("hart_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GAZE_SHERD = ITEMS.register("gaze_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RUSTMUNCHER_SHERD = ITEMS.register("rustmuncher_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRACKLE_SHERD = ITEMS.register("crackle_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BLOOM_SHERD = ITEMS.register("bloom_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CROWN_SHERD = ITEMS.register("crown_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LUNAR_SHERD = ITEMS.register("lunar_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STELLAR_SHERD = ITEMS.register("stellar_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WHISP_SHERD = ITEMS.register("whisp_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TRUNK_SHERD = ITEMS.register("trunk_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> REBIRTH_SHERD = ITEMS.register("rebirth_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WAYFIND_UP_SHERD = ITEMS.register("wayfind_up_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WAYFIND_DOWN_SHERD = ITEMS.register("wayfind_down_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WAYFIND_LEFT_SHERD = ITEMS.register("wayfind_left_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WAYFIND_RIGHT_SHERD = ITEMS.register("wayfind_right_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MONKE_SHERD = ITEMS.register("monke_pottery_sherd",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> GILDED_GALLUMPHER_SPAWN_EGG = ITEMS.register("gilded_gallumpher_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.GILDED_GALLUMPHER, 0x902a1c, 0xf1f493, new Item.Properties()));
+
+    public static final RegistryObject<Item> CHISELCHIRP_SPAWN_EGG = ITEMS.register("chiselchirp_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.CHISELCHIRP, 0x8dad2e, 0x2cb4a3, new Item.Properties()));
+
+    public static final RegistryObject<Item> TERRA_THUNK_SPAWN_EGG = ITEMS.register("terra_thunk_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TERRA_THUNK, 0x728659, 0xfce25f, new Item.Properties()));
+
+    public static final RegistryObject<Item> PALEO_MEAT = ITEMS.register("paleo_meat",
+            () -> new Item(new Item.Properties().food(Foods.BEEF)));
+    public static final RegistryObject<Item> COOKED_PALEO_MEAT = ITEMS.register("cooked_paleo_meat",
+            () -> new Item(new Item.Properties().food(Foods.COOKED_BEEF)));
+
+    public static final RegistryObject<Item> FLOWER_CROWN = ITEMS.register("flower_crown",
+            ()-> new ArmorItem(ModArmorMaterials.FLOWER_CROWN, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_FLOWER_CROWN = ITEMS.register("blue_flower_crown",
+            ()-> new ArmorItem(ModArmorMaterials.BLUE_FLOWER_CROWN, ArmorItem.Type.HELMET, new Item.Properties()));
 }

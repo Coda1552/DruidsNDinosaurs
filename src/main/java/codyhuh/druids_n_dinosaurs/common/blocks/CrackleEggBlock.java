@@ -36,13 +36,9 @@ public class CrackleEggBlock extends Block {
         return state.getValue(HATCH);
     }
 
-    private boolean isReadyToHatch(BlockState state) {
-        return this.getHatchLevel(state) == 2;
-    }
-
 
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (this.shouldUpdateHatchLevel(level, pos.below())) {
+        if (this.shouldUpdateHatchLevel(level) && level.getBlockState(pos.below()).is(Blocks.HAY_BLOCK)) {
             int i = state.getValue(HATCH);
 
             if (i < 2) {
@@ -66,8 +62,13 @@ public class CrackleEggBlock extends Block {
         }
     }
 
-    private boolean shouldUpdateHatchLevel(Level level, BlockPos ground) {
-        return level.random.nextInt(500) == 0 && level.getBlockState(ground).is(Blocks.HAY_BLOCK);
+    private boolean shouldUpdateHatchLevel(Level pLevel) {
+        float f = pLevel.getTimeOfDay(1.0F);
+        if ((double)f < 0.69D && (double)f > 0.65D) {
+            return true;
+        } else {
+            return pLevel.random.nextInt(500) == 0;
+        }
     }
 
     public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {

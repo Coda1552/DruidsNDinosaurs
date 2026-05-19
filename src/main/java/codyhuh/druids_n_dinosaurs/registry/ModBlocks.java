@@ -7,9 +7,12 @@ import codyhuh.druids_n_dinosaurs.common.worldgen.tree.AloewoodTreeGrower;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +30,12 @@ public class ModBlocks {
             () -> new BounceshroomBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK).lightLevel(value -> 1).randomTicks()));
     public static final RegistryObject<Block> YELLOW_IRONWEED = registerBlock("yellow_ironweed",
             () -> new BonemealableDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.SUNFLOWER)));
+
+    public static final RegistryObject<Block> BLOOM_BEACON = registerBloomBeacon("bloom_beacon",
+            () -> new BloomBeaconBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.MOSS)
+                    .pushReaction(PushReaction.BLOCK).randomTicks().lightLevel((state) -> {
+                        return 15;
+                    })));
 
     // GOLD
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
@@ -108,7 +117,7 @@ public class ModBlocks {
 
     //Crackle
     public static final RegistryObject<Block> CRACKLE_EGG = registerBlock("crackle_egg",
-            () -> new CrackleEggBlock(BlockBehaviour.Properties.copy(Blocks.SNIFFER_EGG)));
+            () -> new CrackleEggBlock(BlockBehaviour.Properties.copy(Blocks.SNIFFER_EGG).randomTicks()));
 
     //Catacomb Bone Block
     public static final RegistryObject<Block> CATACOMB_BONE_BLOCK = registerBlock("catacomb_bone_block",
@@ -125,6 +134,9 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> ELEPHANT_TUFF_TOTEM = registerBlock("elephant_tuff_totem",
             () -> new ElephantTotemBlock(BlockBehaviour.Properties.copy(Blocks.TUFF).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> TUFF_BONE = registerBlock("tuff_bone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
 
     //Jade
     public static final RegistryObject<Block> JADE_ORE = registerBlock("jade_ore",
@@ -162,14 +174,41 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHATTERED_JADE = registerBlock("shattered_jade",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    public static final RegistryObject<Block> BRIGHT_BLOOMS = registerBlock("bright_blooms",
+            () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT)
+                    .noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel((state) -> {
+                        return switch (state.getValue(PinkPetalsBlock.AMOUNT)){
+                            case 1 -> 2;
+                            case 2 -> 6;
+                            case 3 -> 8;
+                            default -> 10;
+                        };
+                    })));
+
+    public static final RegistryObject<Block> ANTLER_BLOCK = registerBlock("antler_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)));
+
+    public static final RegistryObject<Block> BRAMBLERUST = registerBlock("bramblerust",
+            () -> new BramblerustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBloomBeacon(String name, Supplier<T> block){
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBloomBeaconItem(name, toReturn);
+        return toReturn;
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerBloomBeaconItem(String name, RegistryObject<T> block){
+        return ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     }
 
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){

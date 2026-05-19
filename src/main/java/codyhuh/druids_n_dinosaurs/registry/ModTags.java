@@ -23,6 +23,8 @@ public class ModTags {
 
         public static final TagKey<Block> HUE_HOG_TARGETS = tag("hue_hog_targets");
 
+        public static final TagKey<Block> BEACON_BLOOM_TOTEMS = tag("beacon_bloom_totems");
+
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
         }
@@ -31,6 +33,7 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> ALOEWOOD_LOG_ITEM = tag("aloewood_log_item");
+        public static final TagKey<Item> FLOWER_CROWNS = tag("flower_crowns");
         
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));
@@ -53,6 +56,7 @@ public class ModTags {
 
     public static class EntityTypes {
         public static final TagKey<EntityType<?>> WICKER_IDOL_BLACKLIST = tag("wicker_idol_blacklist");
+        public static final TagKey<EntityType<?>> BLOOM_ENTITIES = tag("bloom_entities");
 
         private static TagKey<net.minecraft.world.entity.EntityType<?>> tag(String name){
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));

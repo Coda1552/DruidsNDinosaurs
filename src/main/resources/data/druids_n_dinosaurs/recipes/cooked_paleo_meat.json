@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "druids_n_dinosaurs:paleo_meat"
+  },
+  "result": "druids_n_dinosaurs:cooked_paleo_meat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

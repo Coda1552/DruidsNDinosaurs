@@ -227,21 +227,17 @@ public class Hart extends AbstractHorse {
             if (futureScratching == 10){
                 if (this.getLeftAntler() && this.getRightAntler()){
                     if (this.getRandom().nextBoolean()){
-                        System.out.println("Setting Left Antler Off from having both");
                         this.setLeftAntler(false);
                         this.setRegrowTimeL(REGROW_TIME);
                     }else{
-                        System.out.println("Setting Right Antler Off from having both");
                         this.setRightAntler(false);
                         this.setRegrowTimeR(REGROW_TIME);
                     }
                 }else{
                     if (this.getLeftAntler()){
-                        System.out.println("Setting Left Antler Off from NOT having both");
                         this.setLeftAntler(false);
                         this.setRegrowTimeL(REGROW_TIME);
                     }else if (this.getRightAntler()){
-                        System.out.println("Setting Right Antler Off from NOT having both");
                         this.setRightAntler(false);
                         this.setRegrowTimeR(REGROW_TIME);
                     }

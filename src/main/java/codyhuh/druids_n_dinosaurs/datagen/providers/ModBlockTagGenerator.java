@@ -57,7 +57,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SHATTERED_JADE.get(),
                 ModBlocks.POLISHED_JADE_BLOCK.get(),
                 ModBlocks.POLISHED_JADE_STAIRS.get(),
-                ModBlocks.POLISHED_JADE_SLAB.get()
+                ModBlocks.POLISHED_JADE_SLAB.get(),
+                ModBlocks.TUFF_BONE.get(),
+                ModBlocks.ANTLER_BLOCK.get()
         );
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
@@ -79,6 +81,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.ALOEWOOD_HANGING_SIGN.get(),
                 ModBlocks.ALOEWOOD_WALL_HANGING_SIGN.get()
         );
+
+        this.tag(BlockTags.MINEABLE_WITH_HOE)
+                .add(ModBlocks.BLOOM_BEACON.get());
 
         this.tag(BlockTags.STAIRS).add(
                 ModBlocks.POLISHED_JADE_STAIRS.get(),
@@ -140,6 +145,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(Blocks.PEONY)
         ;
 
+        this.tag(ModTags.Blocks.BEACON_BLOOM_TOTEMS)
+                .add(ModBlocks.HART_TUFF_TOTEM.get())
+                .add(ModBlocks.ELEPHANT_TUFF_TOTEM.get())
+                .add(ModBlocks.BIRD_TUFF_TOTEM.get())
+                .add(ModBlocks.LEFT_WING_TUFF_TOTEM.get())
+                .add(ModBlocks.RIGHT_WING_TUFF_TOTEM.get());
+
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ModBlocks.ALOEWOOD_LEAVES.get(),
                 ModBlocks.BOUNCESHROOM.get()
@@ -196,5 +208,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.WALL_HANGING_SIGNS).add(
                 ModBlocks.ALOEWOOD_WALL_HANGING_SIGN.get()
         );
+
+        this.tag(BlockTags.FLOWERS)
+                .add(ModBlocks.BLOOM_BEACON.get())
+                .add(ModBlocks.BRIGHT_BLOOMS.get());
     }
 }

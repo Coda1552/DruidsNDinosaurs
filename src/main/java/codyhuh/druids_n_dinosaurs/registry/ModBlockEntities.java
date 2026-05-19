@@ -4,6 +4,7 @@ import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.blockentity.BounceshroomBlockEntity;
 import codyhuh.druids_n_dinosaurs.common.blockentity.ModHangingSignBlockEntity;
 import codyhuh.druids_n_dinosaurs.common.blockentity.ModSignBlockEntity;
+import codyhuh.druids_n_dinosaurs.common.blocks.blockentity.BloomBeaconBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -33,6 +34,12 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("bounceshroom", () ->
                     BlockEntityType.Builder.of(BounceshroomBlockEntity::new,
                                     ModBlocks.BOUNCESHROOM.get())
+                            .build(null));
+
+    public static final RegistryObject<BlockEntityType<BloomBeaconBlockEntity>> BLOOM_BEACON =
+            BLOCK_ENTITIES.register("bloom_beacon", () ->
+                    BlockEntityType.Builder.of(BloomBeaconBlockEntity::new,
+                                    ModBlocks.BLOOM_BEACON.get())
                             .build(null));
 
     public static void register(IEventBus eventBus){

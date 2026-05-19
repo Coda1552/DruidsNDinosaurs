@@ -6,11 +6,13 @@
   "refmap": "druids_n_dinosaurs.refmap.json",
   "mixins": [
     "BegGoalMixin",
+    "EntityMixin",
     "FallingBlockEntityMixin",
     "MobMixin",
     "WolfMixin"
   ],
   "client": [
+    "client.LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

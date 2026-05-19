@@ -48,17 +48,25 @@
   "entity.druids_n_dinosaurs.mod_boat": "Boat",
   "entity.druids_n_dinosaurs.mod_chest_boat": "Boat with Chest",
 
-
   "item.druids_n_dinosaurs.rust": "Rust",
-  "item.druids_n_dinosaurs.rustling_pottery_sherd": "Rustling Pottery Sherd",
+  "block.druids_n_dinosaurs.rusticle": "Rusticle",
+  "block.druids_n_dinosaurs.rust_block": "Block of Rust",
+  "block.druids_n_dinosaurs.bramblerust": "Bramblerust",
 
   "item.druids_n_dinosaurs.rustling_spawn_egg": "Rustling Spawn Egg",
   "entity.druids_n_dinosaurs.rustling": "Rustling",
+  "druids_n_dinosaurs.sound.subtitle.rustling_ambient": "Rustling idles",
+  "druids_n_dinosaurs.sound.subtitle.rustling_hurt": "Rustling hurts",
+  "druids_n_dinosaurs.sound.subtitle.rustling_death": "Rustling dies",
+  "druids_n_dinosaurs.sound.subtitle.rustling_shear": "Rustling is sheared",
 
-  "block.druids_n_dinosaurs.rust_block": "Block of Rust",
+  "item.druids_n_dinosaurs.rustmuncher_spawn_egg": "Rustmuncher Spawn Egg",
+  "entity.druids_n_dinosaurs.rustmuncher": "Rustmuncher",
+  "druids_n_dinosaurs.sound.subtitle.rustmuncher_ambient": "Rustmuncher idles",
+  "druids_n_dinosaurs.sound.subtitle.rustmuncher_hurt": "Rustmuncher hurts",
+  "druids_n_dinosaurs.sound.subtitle.rustmuncher_death": "Rustmuncher dies",
 
   "effect.druids_n_dinosaurs.tetanus": "Tetanus",
-
   "item.minecraft.potion.effect.tetanus_potion": "Potion of Tetanus",
   "item.minecraft.splash_potion.effect.tetanus_potion": "Splash Potion of Tetanus",
   "item.minecraft.lingering_potion.effect.tetanus_potion": "Lingering Potion of Tetanus",
@@ -67,20 +75,6 @@
   "item.minecraft.splash_potion.effect.tetanus_potion_2": "Splash Potion of Tetanus",
   "item.minecraft.lingering_potion.effect.tetanus_potion_2": "Lingering Potion of Tetanus",
   "item.minecraft.tipped_arrow.effect.tetanus_potion_2": "Arrow of Tetanus",
-
-  "block.druids_n_dinosaurs.rusticle": "Rusticle",
-
-  "item.druids_n_dinosaurs.rustmuncher_spawn_egg": "Rustmuncher Spawn Egg",
-  "entity.druids_n_dinosaurs.rustmuncher": "Rustmuncher",
-
-  "druids_n_dinosaurs.sound.subtitle.rustling_ambient": "Rustling idles",
-  "druids_n_dinosaurs.sound.subtitle.rustling_hurt": "Rustling hurts",
-  "druids_n_dinosaurs.sound.subtitle.rustling_death": "Rustling dies",
-  "druids_n_dinosaurs.sound.subtitle.rustling_shear": "Rustling is sheared",
-
-  "druids_n_dinosaurs.sound.subtitle.rustmuncher_ambient": "Rustmuncher idles",
-  "druids_n_dinosaurs.sound.subtitle.rustmuncher_hurt": "Rustmuncher hurts",
-  "druids_n_dinosaurs.sound.subtitle.rustmuncher_death": "Rustmuncher dies",
 
   "enchantment.druids_n_dinosaurs.sunkissed" : "Sunkissed",
   "enchantment.druids_n_dinosaurs.moontouched" : "Moontouched",
@@ -117,6 +111,7 @@
   "block.druids_n_dinosaurs.elephant_tuff_totem": "Elephant Tuff Totem",
   "block.druids_n_dinosaurs.left_wing_tuff_totem": "Left Wing Tuff Totem",
   "block.druids_n_dinosaurs.right_wing_tuff_totem": "Right Wing Tuff Totem",
+  "block.druids_n_dinosaurs.tuff_bone": "Tuff Bone",
 
   "item.druids_n_dinosaurs.jade_shard": "Jade Shard",
   "item.druids_n_dinosaurs.jade_brick": "Jade Brick",
@@ -157,5 +152,46 @@
   "item.druids_n_dinosaurs.hart_spawn_egg": "Hart Spawn Egg",
   "item.druids_n_dinosaurs.antler": "Hart Antler",
   "item.druids_n_dinosaurs.venison": "Raw Venison",
-  "item.druids_n_dinosaurs.cooked_venison": "Cooked Venison"
+  "item.druids_n_dinosaurs.cooked_venison": "Cooked Venison",
+  "block.druids_n_dinosaurs.antler_block": "Antler Block",
+
+  "block.druids_n_dinosaurs.bright_blooms": "Bright Blooms",
+  "item.druids_n_dinosaurs.flower_crown": "Flower Crown",
+  "item.druids_n_dinosaurs.blue_flower_crown": "Blue Flower Crown",
+
+  "item.druids_n_dinosaurs.rustling_pottery_sherd": "Rustling Pottery Sherd",
+  "item.druids_n_dinosaurs.bloom_pottery_sherd": "Bloom Pottery Sherd",
+  "item.druids_n_dinosaurs.crackle_pottery_sherd": "Crackle Pottery Sherd",
+  "item.druids_n_dinosaurs.crown_pottery_sherd": "Crown Pottery Sherd",
+  "item.druids_n_dinosaurs.gaze_pottery_sherd": "Gaze Pottery Sherd",
+  "item.druids_n_dinosaurs.hart_pottery_sherd": "Hart Pottery Sherd",
+  "item.druids_n_dinosaurs.lunar_pottery_sherd": "Lunar Pottery Sherd",
+  "item.druids_n_dinosaurs.monke_pottery_sherd": "Monke Pottery Sherd",
+  "item.druids_n_dinosaurs.rebirth_pottery_sherd": "Rebirth Pottery Sherd",
+  "item.druids_n_dinosaurs.rustmuncher_pottery_sherd": "Rustmuncher Pottery Sherd",
+  "item.druids_n_dinosaurs.stellar_pottery_sherd": "Stellar Pottery Sherd",
+  "item.druids_n_dinosaurs.trunk_pottery_sherd": "Trunk Pottery Sherd",
+  "item.druids_n_dinosaurs.wayfind_down_pottery_sherd": "Wayfind Down Pottery Sherd",
+  "item.druids_n_dinosaurs.wayfind_left_pottery_sherd": "Wayfind Left Pottery Sherd",
+  "item.druids_n_dinosaurs.wayfind_right_pottery_sherd": "Wayfind Right Pottery Sherd",
+  "item.druids_n_dinosaurs.wayfind_up_pottery_sherd": "Wayfind Up Pottery Sherd",
+  "item.druids_n_dinosaurs.whisp_pottery_sherd": "Whisp Pottery Sherd",
+
+  "entity.druids_n_dinosaurs.gilded_gallumpher": "Gilded Gallumpher",
+  "item.druids_n_dinosaurs.gilded_gallumpher_spawn_egg": "Gilded Gallumpher Spawn Egg",
+
+  "entity.druids_n_dinosaurs.chiselchirp": "Chiselchirp",
+  "item.druids_n_dinosaurs.chiselchirp_spawn_egg": "Chiselchirp Spawn Egg",
+
+  "entity.druids_n_dinosaurs.terra_thunk": "Terra Thunk",
+  "item.druids_n_dinosaurs.terra_thunk_spawn_egg": "Terra Thunk Spawn Egg",
+
+  "item.druids_n_dinosaurs.paleo_meat": "Raw Paleo Meat",
+  "item.druids_n_dinosaurs.cooked_paleo_meat": "Cooked Paleo Meat",
+
+  "block.druids_n_dinosaurs.bloom_beacon": "Beacon Bloom",
+  "effect.druids_n_dinosaurs.bloom": "Bloom",
+
+  "item.druids_n_dinosaurs.bottle_o_ethereal": "Bottle o' Ethereal",
+  "effect.druids_n_dinosaurs.ethereal": "Ethereal"
 }

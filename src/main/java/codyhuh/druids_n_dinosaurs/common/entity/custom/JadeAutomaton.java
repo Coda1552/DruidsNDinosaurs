@@ -1,7 +1,9 @@
 package codyhuh.druids_n_dinosaurs.common.entity.custom;
 
+import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
 import codyhuh.druids_n_dinosaurs.registry.ModParticles;
+import codyhuh.druids_n_dinosaurs.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -49,7 +51,9 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
     private static final EntityDataAccessor<Boolean> IS_WANDERING = SynchedEntityData.defineId(JadeAutomaton.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(JadeAutomaton.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<BlockPos> HOME_POS = SynchedEntityData.defineId(JadeAutomaton.class, EntityDataSerializers.BLOCK_POS);
-    private static final EntityDataAccessor<Boolean> IS_EIDOLON = SynchedEntityData.defineId(JadeAutomaton.class, EntityDataSerializers.BOOLEAN);
+
+    //0 = normal, 1 = eidolon, 2 = phantasm, 3 = ori chalcos
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(JadeAutomaton.class, EntityDataSerializers.INT);
 
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     @javax.annotation.Nullable
@@ -57,6 +61,12 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
 
     public JadeAutomaton(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.refreshDimensions();
+    }
+
+    public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
+        this.refreshDimensions();
+        super.onSyncedDataUpdated(pKey);
     }
 
     @Override
@@ -113,7 +123,7 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
         this.entityData.define(IS_WANDERING, false);
         this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
         this.entityData.define(HOME_POS, BlockPos.ZERO);
-        this.entityData.define(IS_EIDOLON, false);
+        this.entityData.define(VARIANT, 0);
     }
 
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
@@ -123,12 +133,12 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
 
-        pCompound.putBoolean("IsLit", this.isLit());
+        pCompound.putBoolean("IsLit", this.isLitData());
         pCompound.putBoolean("IsWandering", this.isWandering());
         pCompound.putInt("HomePosX", this.getHomePos().getX());
         pCompound.putInt("HomePosY", this.getHomePos().getY());
         pCompound.putInt("HomePosZ", this.getHomePos().getZ());
-        pCompound.putBoolean("Eidolon", this.isEidolon());
+        pCompound.putInt("Variant", this.getVariant());
         this.addPersistentAngerSaveData(pCompound);
     }
 
@@ -142,48 +152,86 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
 
         this.setLit(pCompound.getBoolean("IsLit"));
         this.setWandering(pCompound.getBoolean("IsWandering"));
-        this.setIsEidolon(pCompound.getBoolean("Eidolon"));
+        this.setVariant(pCompound.getInt("Variant"));
         this.readPersistentAngerSaveData(this.level(), pCompound);
     }
 
     public void setCustomName(@javax.annotation.Nullable Component pName) {
         super.setCustomName(pName);
         if (!this.isEidolon() && pName != null && pName.getString().equals("Eidolon")) {
-            this.setIsEidolon(true);
+            this.setVariant(1);
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(300);
             this.setHealth(300.0F);
             this.getAttribute(Attributes.ARMOR).setBaseValue(30);
             this.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(20);
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(100);
-        } else if (this.isEidolon() && pName != null && !pName.getString().equals("Eidolon")) {
-            this.setIsEidolon(false);
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(40);
-            this.setHealth(40.0F);
+        } else if (!this.isPhantasm() && pName != null && pName.getString().equals("Phantasm")) {
+            this.setVariant(2);
+            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(50);
+            this.setHealth(50);
+            this.setAge(-24000);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.35F+(0.35F*0.3));
+            this.getAttribute(Attributes.ARMOR).setBaseValue(7);
+            this.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(10);
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(40);
+            this.addEffect(new MobEffectInstance(ModEffects.ETHEREAL.get(), 20));
+        } else if (!this.isOriChalcos() && pName != null && pName.getString().equals("Ori Chalcos")) {
+            this.setVariant(3);
+            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);
+            this.setHealth(100);
+        } else if (this.isCustomName() && pName != null) {
+            this.setVariant(0);
+            if (isLitData()){
+                this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(60);
+                this.setHealth(60.0F);
+            }else {
+                this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(40);
+                this.setHealth(40.0F);
+            }
             this.getAttribute(Attributes.ARMOR).setBaseValue(0);
             this.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(0);
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(3);
         }
     }
 
-    public boolean isLit() {
+    public boolean isLitData(){
         return this.entityData.get(IS_LIT);
     }
 
+    public boolean isActuallyLit() {
+        return this.isLitData() || this.isEidolon() || this.isPhantasm() || this.isOriChalcos();
+    }
+
+    public boolean isCustomName() {
+        return this.isEidolon() || this.isPhantasm() || this.isOriChalcos();
+    }
+
     public void setLit(boolean lit) {
-        if (!this.isLit() && lit) {
+        if (!this.isActuallyLit() && lit) {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(60);
             this.setHealth(60.0F);
         }
         this.entityData.set(IS_LIT, lit);
     }
 
-
-    public boolean isEidolon() {
-        return this.entityData.get(IS_EIDOLON);
+    public boolean isEidolon(){
+        return this.getVariant() == 1;
     }
 
-    public void setIsEidolon(boolean eidolon) {
-        this.entityData.set(IS_EIDOLON, eidolon);
+    public boolean isPhantasm(){
+        return this.getVariant() == 2;
+    }
+
+    public boolean isOriChalcos(){
+        return this.getVariant() == 3;
+    }
+
+    public int getVariant() {
+        return this.entityData.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.entityData.set(VARIANT, variant);
     }
 
     public boolean isWandering() {
@@ -217,9 +265,9 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
                 return InteractionResult.SUCCESS;
             }
 
-            if (itemstack.is(ModItems.BOTTLE_O_SOUL.get()) && !this.isLit()) {
-                if (!pPlayer.isCreative()){
-                    itemstack.shrink(1);
+            if (itemstack.is(ModItems.BOTTLE_O_SOUL.get()) && !this.isActuallyLit()) {
+                this.removeInteractionItem(pPlayer, itemstack);
+                if (!pPlayer.getAbilities().instabuild){
                     pPlayer.setItemInHand(pHand, new ItemStack(Items.GLASS_BOTTLE));
                 }
                 this.setLit(true);
@@ -234,11 +282,28 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
                 return InteractionResult.SUCCESS;
             }
 
+            if (this.getItemBySlot(EquipmentSlot.HEAD).isEmpty() &&
+                    itemstack.is(ModItems.FLOWER_CROWN.get()) || itemstack.is(ModItems.BLUE_FLOWER_CROWN.get())) {
+                ItemStack stack = itemstack.copyWithCount(1);
+                this.setItemSlot(EquipmentSlot.HEAD, stack);
+                this.removeInteractionItem(pPlayer, itemstack);
+                return InteractionResult.SUCCESS;
+            }
+
             if (this.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.JADE_AXE.get()) && itemstack.isEmpty() && pHand == InteractionHand.MAIN_HAND) {
                 ItemStack itemstack1 = this.getItemInHand(InteractionHand.MAIN_HAND);
                 pPlayer.addItem(itemstack1);
                 this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                 this.swing(InteractionHand.MAIN_HAND);
+                return InteractionResult.SUCCESS;
+            }
+
+            if (itemstack.is(Items.SHEARS) && pHand == InteractionHand.MAIN_HAND && (this.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.BLUE_FLOWER_CROWN.get())
+                            || this.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.FLOWER_CROWN.get()))) {
+                ItemStack itemstack1 = this.getItemBySlot(EquipmentSlot.HEAD);
+                this.spawnAtLocation(itemstack1);
+                this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
+                this.playSound(SoundEvents.SHEEP_SHEAR);
                 return InteractionResult.SUCCESS;
             }
         }
@@ -254,14 +319,26 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
     @Override
     public void tick() {
         super.tick();
-        if (this.isEidolon() && !this.isDeadOrDying() && !this.level().isClientSide && this.tickCount % 20 == 0 && this.getMaxHealth() > this.getHealth()) {
-            float currentHealth = this.getHealth();
-            this.setHealth(currentHealth + 1);
+        if (this.isAlive() && !this.isDeadOrDying()) {
+            if ((this.isEidolon() || this.isPhantasm()) && this.tickCount % 20 == 0 && this.getMaxHealth() > this.getHealth()) {
+                float currentHealth = this.getHealth();
+                this.setHealth(currentHealth + 1);
+            }
+        }
+        if (!this.isPhantasm() && this.isBaby()){
+            this.setAge(1);
+        }else if (this.isPhantasm() && !this.isBaby()){
+            this.setAge(-24000);
+        }else if (this.isPhantasm()){
+            int age = this.getAge();
+            this.setAge(age-1);
+            if (this.tickCount % 20 == 0)
+                this.addEffect(new MobEffectInstance(ModEffects.ETHEREAL.get(), 20));
         }
     }
 
     public void aiStep() {
-        if (this.level().isClientSide && this.isEidolon()) {
+        if (this.level().isClientSide && (this.isEidolon() || this.isPhantasm())) {
             for (int i = 0; i < 2; ++i) {
                 this.level().addParticle(ModParticles.JADE_OMEN.get(), this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
             }
@@ -277,11 +354,6 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
     @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return null;
-    }
-
-    @Override
-    public boolean isBaby() {
-        return false;
     }
 
     @Override
@@ -427,13 +499,18 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
     }
 
     @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return this.isOriChalcos() ? ModSounds.ORI_CHALCOS_IDLE.get() : super.getAmbientSound();
+    }
+
+    @Override
     protected @Nullable SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.IRON_GOLEM_HURT;
+        return this.isOriChalcos() ? ModSounds.ORI_CHALCOS_EUGH.get() : SoundEvents.IRON_GOLEM_HURT;
     }
 
     @Override
     protected @Nullable SoundEvent getDeathSound() {
-        return SoundEvents.IRON_GOLEM_DEATH;
+        return this.isOriChalcos() ? ModSounds.ORI_CHALCOS_EUGH.get() : SoundEvents.IRON_GOLEM_DEATH;
     }
 
 }

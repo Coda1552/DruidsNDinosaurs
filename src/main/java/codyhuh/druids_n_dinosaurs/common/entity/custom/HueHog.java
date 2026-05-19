@@ -38,6 +38,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -58,6 +59,25 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
     public int collectAnimationTimeout;
     int wantsToCollectTicks = 20*60;
     int wantsToChangeColorTicks = 20*4;
+
+    public static final Map<DyeColor, Block> BLOCK_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (p_29841_) -> {
+        p_29841_.put(DyeColor.WHITE, Blocks.WHITE_WOOL);
+        p_29841_.put(DyeColor.ORANGE, Blocks.ORANGE_WOOL);
+        p_29841_.put(DyeColor.MAGENTA, Blocks.MAGENTA_WOOL);
+        p_29841_.put(DyeColor.LIGHT_BLUE, Blocks.LIGHT_BLUE_WOOL);
+        p_29841_.put(DyeColor.YELLOW, Blocks.YELLOW_WOOL);
+        p_29841_.put(DyeColor.LIME, Blocks.LIME_WOOL);
+        p_29841_.put(DyeColor.PINK, Blocks.PINK_WOOL);
+        p_29841_.put(DyeColor.GRAY, Blocks.GRAY_WOOL);
+        p_29841_.put(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_WOOL);
+        p_29841_.put(DyeColor.CYAN, Blocks.CYAN_WOOL);
+        p_29841_.put(DyeColor.PURPLE, Blocks.PURPLE_WOOL);
+        p_29841_.put(DyeColor.BLUE, Blocks.BLUE_WOOL);
+        p_29841_.put(DyeColor.BROWN, Blocks.BROWN_WOOL);
+        p_29841_.put(DyeColor.GREEN, Blocks.GREEN_WOOL);
+        p_29841_.put(DyeColor.RED, Blocks.RED_WOOL);
+        p_29841_.put(DyeColor.BLACK, Blocks.BLACK_WOOL);
+    });
 
     private static final Map<DyeColor, ItemLike> ITEM_BY_DYE = Util.make(Maps.newEnumMap(DyeColor.class), (p_29841_) -> {
         p_29841_.put(DyeColor.WHITE, Items.WHITE_DYE);
@@ -467,7 +487,8 @@ public class HueHog extends Animal implements Shearable, net.minecraftforge.comm
 
         @Override
         protected boolean isValidTarget(LevelReader pLevel, BlockPos pPos) {
-            return pLevel.getBlockState(pPos).is(BlockTags.WOOL);
+            BlockState state = pLevel.getBlockState(pPos);
+            return state.is(BlockTags.WOOL) && !state.is(this.hog.BLOCK_BY_DYE.get(this.hog.getColor()));
         }
 
         @Override

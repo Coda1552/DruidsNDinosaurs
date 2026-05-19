@@ -51,7 +51,28 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.RUSTLING_SHERD);
 
+        simpleItem(ModItems.HART_SHERD);
+        simpleItem(ModItems.GAZE_SHERD);
+        simpleItem(ModItems.RUSTMUNCHER_SHERD);
+        simpleItem(ModItems.CRACKLE_SHERD);
+
+        simpleItem(ModItems.BLOOM_SHERD);
+        simpleItem(ModItems.CROWN_SHERD);
+        simpleItem(ModItems.LUNAR_SHERD);
+        simpleItem(ModItems.STELLAR_SHERD);
+
+        simpleItem(ModItems.WHISP_SHERD);
+        simpleItem(ModItems.TRUNK_SHERD);
+        simpleItem(ModItems.REBIRTH_SHERD);
+        simpleItem(ModItems.WAYFIND_UP_SHERD);
+
+        simpleItem(ModItems.WAYFIND_DOWN_SHERD);
+        simpleItem(ModItems.WAYFIND_LEFT_SHERD);
+        simpleItem(ModItems.WAYFIND_RIGHT_SHERD);
+        simpleItem(ModItems.MONKE_SHERD);
+
         simpleItem(ModItems.BOTTLE_O_SOUL);
+        simpleItem(ModItems.BOTTLE_O_ETHEREAL);
 
         withExistingParent(ModItems.WHISP_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         simpleItem(ModItems.AMBER_WHISPER_PEARL);
@@ -70,6 +91,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.JADE_ELEPHANT_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.TUFF_TOTEM_POLE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.HART_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.GILDED_GALLUMPHER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.CHISELCHIRP_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.TERRA_THUNK_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         simpleItem(ModItems.JADE_SHARD);
         simpleItem(ModItems.JADE_BRICK);
@@ -96,6 +120,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ANTLER);
         simpleItem(ModItems.VENISON);
         simpleItem(ModItems.COOKED_VENISON);
+
+        simpleBlockItem(ModBlocks.BRAMBLERUST);;
+        simpleItem(ModItems.PALEO_MEAT);
+        simpleItem(ModItems.COOKED_PALEO_MEAT);
+
+        simpleItem(ModItems.FLOWER_CROWN);
+        simpleItem(ModItems.BLUE_FLOWER_CROWN);
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {

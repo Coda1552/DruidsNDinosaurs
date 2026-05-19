@@ -13,6 +13,7 @@ public class ModParticles {
             DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, DruidsNDinosaurs.MOD_ID);
 
     public static final RegistryObject<SimpleParticleType> JADE_OMEN = register("jade_omen", false);
+    public static final RegistryObject<SimpleParticleType> SEEDLING = register("seedling", false);
 
     private static RegistryObject<SimpleParticleType> register(String id, boolean flag) {
         return PARTICLES.register(id, () -> new SimpleParticleType(flag));

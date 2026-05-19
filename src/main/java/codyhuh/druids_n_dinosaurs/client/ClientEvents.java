@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.client;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.client.particles.JadeOmenParticle;
+import codyhuh.druids_n_dinosaurs.client.particles.SeedlingParticle;
 import codyhuh.druids_n_dinosaurs.client.renders.ModBoatRenderer;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;
@@ -9,6 +10,7 @@ import codyhuh.druids_n_dinosaurs.registry.ModEntities;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
 import codyhuh.druids_n_dinosaurs.registry.ModParticles;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.EnchantmentTableParticle;
 import net.minecraft.client.particle.PortalParticle;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -66,5 +68,6 @@ public class ClientEvents {
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.JADE_OMEN.get(), JadeOmenParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.SEEDLING.get(), SeedlingParticle.Provider::new);
     }
 }

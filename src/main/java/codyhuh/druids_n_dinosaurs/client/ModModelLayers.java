@@ -28,9 +28,14 @@ public class ModModelLayers {
     public static final ModelLayerLocation HUE_HOG_PUFF_LAYER = create("hue_hog_puff");
 
     public static final ModelLayerLocation JADE_AUTOMATON_LAYER = create("jade_automaton");
+    public static final ModelLayerLocation JADE_AUTOMATON_LAYER_INNER = create("jade_automaton_inner_armor");
+    public static final ModelLayerLocation JADE_AUTOMATON_LAYER_OUTER = create("jade_automaton_outer_armor");
     public static final ModelLayerLocation JADE_ELEPHANT = create("jade_elephant");
     public static final ModelLayerLocation TUFF_TOTEM_POLE = create("tuff_totem_pole");
     public static final ModelLayerLocation HART_LAYER = create("hart_layer");
+    public static final ModelLayerLocation GILDED_GALLUMPHER = create("gilded_gallumpher_layer");
+    public static final ModelLayerLocation CHISELCHIRP = create("chiselchirp_layer");
+    public static final ModelLayerLocation TERRA_THUNK = create("terra_thunk_layer");
 
     private static ModelLayerLocation create(String name) {
         return new ModelLayerLocation(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name), "main");

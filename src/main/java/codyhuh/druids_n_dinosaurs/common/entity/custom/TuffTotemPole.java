@@ -202,7 +202,7 @@ public class TuffTotemPole extends Animal {
             if (!this.level().isClientSide){
                 ItemStack copy = this.getEggItem();
                 if (this.getEggPhase() == 3 && copy.getItem() instanceof OrnateEgg egg){
-                    egg.setEntityType(this.getRandom().nextInt(0, 4), copy);
+                    egg.setEntityType(this.getRandom().nextInt(0, 7), copy);
                 }
                 this.setEggItem(ItemStack.EMPTY);
                 this.spawnAtLocation(copy);

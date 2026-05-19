@@ -78,11 +78,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SHATTERED_JADE);
         blockWithItem(ModBlocks.CHISELED_POLISHED_JADE);
         blockWithItem(ModBlocks.JADE_BRICKS);
+        blockWithItem(ModBlocks.ANTLER_BLOCK);
         wallBlock((WallBlock) ModBlocks.CHISELED_POLISHED_JADE_WALL.get(), blockTexture(ModBlocks.CHISELED_POLISHED_JADE.get()));
         stairsBlock((StairBlock) ModBlocks.JADE_BRICK_STAIRS.get(), blockTexture(ModBlocks.JADE_BRICKS.get()));
         slabBlock((SlabBlock) ModBlocks.JADE_BRICK_SLAB.get(), blockTexture(ModBlocks.JADE_BRICKS.get()), blockTexture(ModBlocks.JADE_BRICKS.get()));
         stairsBlock((StairBlock) ModBlocks.POLISHED_JADE_STAIRS.get(), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()));
         slabBlock((SlabBlock) ModBlocks.POLISHED_JADE_SLAB.get(), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_JADE_BLOCK.get()));
+
+        simpleBlockWithItem(ModBlocks.BRAMBLERUST.get(), models().cross(blockTexture(ModBlocks.BRAMBLERUST.get()).getPath(),
+                blockTexture(ModBlocks.BRAMBLERUST.get())).renderType("cutout"));
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

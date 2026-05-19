@@ -62,6 +62,9 @@ public class OrnateEgg extends Item {
                         case 1 -> ModEntities.GOURD_RAPTOR.get().create(pLevel);
                         case 2 -> ModEntities.EGG_RAPTOR.get().create(pLevel);
                         case 3 -> ModEntities.HART.get().create(pLevel);
+                        case 4 -> ModEntities.GILDED_GALLUMPHER.get().create(pLevel);
+                        case 5 -> ModEntities.CHISELCHIRP.get().create(pLevel);
+                        case 6 -> ModEntities.TERRA_THUNK.get().create(pLevel);
                         default -> ModEntities.HUE_HOG.get().create(pLevel);
                     };
 
@@ -123,6 +126,9 @@ public class OrnateEgg extends Item {
                 case 1 -> "entity.druids_n_dinosaurs.gourd_raptor";
                 case 2 -> "entity.druids_n_dinosaurs.egg_raptor";
                 case 3 -> "entity.druids_n_dinosaurs.hart";
+                case 4 -> "entity.druids_n_dinosaurs.gilded_gallumpher";
+                case 5 -> "entity.druids_n_dinosaurs.chiselchirp";
+                case 6 -> "entity.druids_n_dinosaurs.terra_thunk";
                 default -> "entity.druids_n_dinosaurs.hue_hog";
             };
 

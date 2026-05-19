@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.client.models;
 
 import codyhuh.druids_n_dinosaurs.common.entity.custom.JadeAutomaton;
 import net.minecraft.client.model.AnimationUtils;
+import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -9,8 +10,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.util.Mth;
 
 public class JadeAutomatonModel<T extends JadeAutomaton> extends PlayerModel<T> {
+
     public JadeAutomatonModel(ModelPart pRoot) {
         super(pRoot, false);
+        this.scaleHead = true;
     }
 
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
@@ -44,4 +47,16 @@ public class JadeAutomatonModel<T extends JadeAutomaton> extends PlayerModel<T> 
     public static LayerDefinition createBodyLayer() {
         return LayerDefinition.create(createMesh(CubeDeformation.NONE, false), 64, 64);
     }
+    public static final CubeDeformation INNER_ARMOR_DEFORMATION = new CubeDeformation(0.5F);
+    public static final CubeDeformation OUTER_ARMOR_DEFORMATION = new CubeDeformation(1.0F);
+
+    public static LayerDefinition createInnerArmorLayer() {
+        return LayerDefinition.create(createMesh(INNER_ARMOR_DEFORMATION, false), 64, 32);
+    }
+
+    public static LayerDefinition createOuterArmorLayer() {
+        return LayerDefinition.create(createMesh(OUTER_ARMOR_DEFORMATION, false), 64, 32);
+    }
+
+
 }

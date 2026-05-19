@@ -7,6 +7,7 @@ import codyhuh.druids_n_dinosaurs.registry.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -36,6 +37,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         this.stonecutting(Blocks.TUFF, ModBlocks.RIGHT_WING_TUFF_TOTEM.get()).save(consumer);
         this.stonecutting(Blocks.TUFF, ModBlocks.LEFT_WING_TUFF_TOTEM.get()).save(consumer);
         this.stonecutting(Blocks.TUFF, ModBlocks.BIRD_TUFF_TOTEM.get()).save(consumer);
+        this.stonecutting(Blocks.TUFF, ModBlocks.TUFF_BONE.get()).save(consumer);
         this.stonecutting(ModBlocks.LEFT_WING_TUFF_TOTEM.get(), ModBlocks.RIGHT_WING_TUFF_TOTEM.get()).save(consumer, "left_wing_tuff_totem_mirror");
         this.stonecutting(ModBlocks.RIGHT_WING_TUFF_TOTEM.get(), ModBlocks.LEFT_WING_TUFF_TOTEM.get()).save(consumer, "right_wing_tuff_totem_mirror");
 
@@ -80,6 +82,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.JADE_BRICK.get())
                 .unlockedBy(getHasName(ModItems.JADE_SHARD.get()), has(ModItems.JADE_SHARD.get()))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE, 1)
+                .requires(ModBlocks.BRIGHT_BLOOMS.get())
+                .unlockedBy(getHasName(ModBlocks.BRIGHT_BLOOMS.get()), has(ModBlocks.BRIGHT_BLOOMS.get()))
+                .save(consumer, this.name("light_blue_dye_from_bright_blooms"));
 
         makeIngotToBlock(ModItems.JADE_BRICK, ModBlocks.JADE_BLOCK).save(consumer);
 
@@ -273,6 +280,57 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.SLIME_BALL)
                 .define('M', Tags.Items.MUSHROOMS)
                 .unlockedBy(getHasName(Items.SLIME_BALL), has(Items.SLIME_BALL))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ANTLER_BLOCK.get(), 1)
+                .pattern("JJJ")
+                .pattern("JJJ")
+                .pattern("JJJ")
+                .define('J', ModItems.ANTLER.get())
+                .unlockedBy(getHasName(ModItems.ANTLER.get()), has(ModItems.ANTLER.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ANTLER.get(), 9)
+                .requires(ModBlocks.ANTLER_BLOCK.get())
+                .unlockedBy(getHasName(ModItems.ANTLER.get()), has(ModItems.ANTLER.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BRAMBLERUST.get(), 1)
+                .pattern("rr")
+                .define('r', ModItems.RUST.get())
+                .unlockedBy(getHasName(ModItems.RUST.get()), has(ModItems.RUST.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.FLOWER_CROWN.get(), 1)
+                .pattern("fff")
+                .pattern("f f")
+                .pattern("fff")
+                .define('f', ItemTags.FLOWERS)
+                .unlockedBy("has_flowers", has(ItemTags.FLOWERS))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.BLUE_FLOWER_CROWN.get(), 1)
+                .requires(ModItems.FLOWER_CROWN.get())
+                .requires(Items.BLUE_DYE)
+                .unlockedBy("has_flowers", has(ItemTags.FLOWERS))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.BOTTLE_O_ETHEREAL.get(), 1)
+                .pattern("BBB")
+                .pattern("BEB")
+                .pattern("BBB")
+                .define('B', ModBlocks.BRIGHT_BLOOMS.get())
+                .define('E', Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(ModBlocks.BRIGHT_BLOOMS.get()), has(ModBlocks.BRIGHT_BLOOMS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLOOM_BEACON.get(), 1)
+                .pattern("TTT")
+                .pattern("TST")
+                .pattern("TTT")
+                .define('T', Blocks.TORCHFLOWER)
+                .define('S', Items.NETHER_STAR)
+                .unlockedBy(getHasName(Blocks.TORCHFLOWER), has(Blocks.TORCHFLOWER))
                 .save(consumer);
     }
     public ShapelessRecipeBuilder makePlanks(Supplier<? extends Block> plankOut, TagKey<Item> logIn) {

@@ -78,6 +78,7 @@ public class DruidsNDinosaurs {
             ComposterBlock.COMPOSTABLES.put(ModBlocks.ALOEWOOD_LEAVES.get().asItem(), 0.4F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.BOUNCESHROOM.get().asItem(), 0.65F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.YELLOW_IRONWEED.get().asItem(), 0.65F);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BRIGHT_BLOOMS.get().asItem(), 0.3F);
 
             BrewingRecipeRegistry.addRecipe(new RustlingBrewingRecipe(Potions.AWKWARD,
                     ModItems.RUST.get(), ModPotions.TETANUS_POTION.get()));
@@ -107,6 +108,9 @@ public class DruidsNDinosaurs {
         e.put(ModEntities.JADE_ELEPHANT.get(), JadeElephant.createAttributes().build());
         e.put(ModEntities.TUFF_TOTEM_POLE.get(), TuffTotemPole.createAttributes().build());
         e.put(ModEntities.HART.get(), Hart.createAttributes().build());
+        e.put(ModEntities.GILDED_GALLUMPHER.get(), GildedGallumpher.createAttributes().build());
+        e.put(ModEntities.CHISELCHIRP.get(), Chiselchirp.createAttributes().build());
+        e.put(ModEntities.TERRA_THUNK.get(), TerraThunk.createAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
@@ -117,6 +121,26 @@ public class DruidsNDinosaurs {
         ImmutableMap.Builder<Item, ResourceKey<String>> map = ImmutableMap.builder();
         map.putAll(DecoratedPotPatterns.ITEM_TO_POT_TEXTURE);
         map.put(ModItems.RUSTLING_SHERD.get(), ModDecoratedPotPatterns.RUSTLING.getKey());
+
+        map.put(ModItems.HART_SHERD.get(), ModDecoratedPotPatterns.HART.getKey());
+        map.put(ModItems.GAZE_SHERD.get(), ModDecoratedPotPatterns.GAZE.getKey());
+        map.put(ModItems.CRACKLE_SHERD.get(), ModDecoratedPotPatterns.CRACKLE.getKey());
+        map.put(ModItems.BLOOM_SHERD.get(), ModDecoratedPotPatterns.BLOOM.getKey());
+
+        map.put(ModItems.CROWN_SHERD.get(), ModDecoratedPotPatterns.CROWN.getKey());
+        map.put(ModItems.RUSTMUNCHER_SHERD.get(), ModDecoratedPotPatterns.RUSTMUNCHER.getKey());
+        map.put(ModItems.LUNAR_SHERD.get(), ModDecoratedPotPatterns.LUNAR.getKey());
+        map.put(ModItems.STELLAR_SHERD.get(), ModDecoratedPotPatterns.STELLAR.getKey());
+
+        map.put(ModItems.WHISP_SHERD.get(), ModDecoratedPotPatterns.WHISP.getKey());
+        map.put(ModItems.TRUNK_SHERD.get(), ModDecoratedPotPatterns.TRUNK.getKey());
+        map.put(ModItems.REBIRTH_SHERD.get(), ModDecoratedPotPatterns.REBIRTH.getKey());
+        map.put(ModItems.WAYFIND_DOWN_SHERD.get(), ModDecoratedPotPatterns.WAYFIND_DOWN.getKey());
+
+        map.put(ModItems.WAYFIND_UP_SHERD.get(), ModDecoratedPotPatterns.WAYFIND_UP.getKey());
+        map.put(ModItems.WAYFIND_LEFT_SHERD.get(), ModDecoratedPotPatterns.WAYFIND_LEFT.getKey());
+        map.put(ModItems.WAYFIND_RIGHT_SHERD.get(), ModDecoratedPotPatterns.WAYFIND_RIGHT.getKey());
+        map.put(ModItems.MONKE_SHERD.get(), ModDecoratedPotPatterns.MONKE.getKey());
         DecoratedPotPatterns.ITEM_TO_POT_TEXTURE = map.build();
     }
 }

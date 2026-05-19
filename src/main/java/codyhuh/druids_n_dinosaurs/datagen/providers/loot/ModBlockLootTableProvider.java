@@ -2,18 +2,24 @@ package codyhuh.druids_n_dinosaurs.datagen.providers.loot;
 
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
+import java.util.stream.IntStream;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
@@ -79,6 +85,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LEFT_WING_TUFF_TOTEM.get());
         this.dropSelf(ModBlocks.RIGHT_WING_TUFF_TOTEM.get());
         this.dropSelf(ModBlocks.BIRD_TUFF_TOTEM.get());
+        this.dropSelf(ModBlocks.TUFF_BONE.get());
 
         this.dropSelf(ModBlocks.JADE_BLOCK.get());
         this.dropSelf(ModBlocks.SHATTERED_JADE.get());
@@ -102,6 +109,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createJadeOreDrops(ModBlocks.JADE_ORE.get()));
         this.add(ModBlocks.DEEPSLATE_JADE_ORE.get(),
                 block -> createJadeOreDrops(ModBlocks.DEEPSLATE_JADE_ORE.get()));
+
+        this.dropSelf(ModBlocks.ANTLER_BLOCK.get());
+        this.add(ModBlocks.BRIGHT_BLOOMS.get(),
+                block -> createBrightBloomDrops(ModBlocks.BRIGHT_BLOOMS.get()));
+
+        this.dropSelf(ModBlocks.BRAMBLERUST.get());
+        this.dropSelf(ModBlocks.BLOOM_BEACON.get());
+    }
+
+    public LootTable.Builder createBrightBloomDrops(Block brightBlooms) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(brightBlooms, LootItem.lootTableItem(brightBlooms).apply(IntStream.rangeClosed(1, 4).boxed().toList(), (integer) -> {
+            return SetItemCountFunction.setCount(ConstantValue.exactly((float) integer.intValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(brightBlooms).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PinkPetalsBlock.AMOUNT, integer)));
+        }))));
     }
 
     protected LootTable.Builder createJadeOreDrops(Block pBlock) {

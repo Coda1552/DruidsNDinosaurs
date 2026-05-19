@@ -4,6 +4,8 @@ import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.client.ModModelLayers;
 import codyhuh.druids_n_dinosaurs.client.models.*;
 import codyhuh.druids_n_dinosaurs.client.renders.*;
+import codyhuh.druids_n_dinosaurs.client.renders.blockentity.BloomBeaconRenderer;
+import codyhuh.druids_n_dinosaurs.common.blocks.BloomBeaconBlock;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.ModBlockEntities;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;
@@ -50,18 +52,27 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.HUE_HOG_LAYER, HueHogModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.HUE_HOG_PUFF_LAYER, HueHogModel::createBodyLayer);
 
+
         event.registerLayerDefinition(ModModelLayers.JADE_AUTOMATON_LAYER, JadeAutomatonModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.JADE_AUTOMATON_LAYER_INNER, JadeAutomatonModel::createInnerArmorLayer);
+        event.registerLayerDefinition(ModModelLayers.JADE_AUTOMATON_LAYER_OUTER, JadeAutomatonModel::createOuterArmorLayer);
 
         event.registerLayerDefinition(ModModelLayers.JADE_ELEPHANT, JadeElephantModel::createBodyLayer);
 
         event.registerLayerDefinition(ModModelLayers.TUFF_TOTEM_POLE, TotemPoleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.HART_LAYER, HartModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.GILDED_GALLUMPHER, GildedGallumpherModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CHISELCHIRP, ChiselchirpModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.TERRA_THUNK, TerraThunkModel::createBodyLayer);
     }
 
     @SubscribeEvent
     public static void registerRender(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
+
+        event.registerBlockEntityRenderer(ModBlockEntities.BLOOM_BEACON.get(), BloomBeaconRenderer::new);
 
         EntityRenderers.register(ModEntities.MOD_BOAT.get(), p_174010_ -> new ModBoatRenderer(p_174010_, false));
         EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), p_174010_ -> new ModBoatRenderer(p_174010_, true));
@@ -85,6 +96,10 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntities.JADE_ELEPHANT.get(), JadeElephantRenderer::new);
         event.registerEntityRenderer(ModEntities.TUFF_TOTEM_POLE.get(), TuffTotemPoleRenderer::new);
         event.registerEntityRenderer(ModEntities.HART.get(), HartRenderer::new);
-    }
 
+        event.registerEntityRenderer(ModEntities.GILDED_GALLUMPHER.get(), GildedGallumpherRenderer::new);
+        event.registerEntityRenderer(ModEntities.CHISELCHIRP.get(), ChiselchirpRenderer::new);
+
+        event.registerEntityRenderer(ModEntities.TERRA_THUNK.get(), TerraThunkRenderer::new);
+    }
 }

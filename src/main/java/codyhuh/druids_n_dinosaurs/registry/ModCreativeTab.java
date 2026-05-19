@@ -21,12 +21,16 @@ public class ModCreativeTab {
 
                         output.accept(ModItems.WICKER_IDOL.get());
 
+                        output.accept(ModBlocks.BLOOM_BEACON.get());
+
+                        output.accept(ModItems.BOTTLE_O_ETHEREAL.get());
+                        output.accept(ModItems.BOTTLE_O_SOUL.get());
+
                         output.accept(ModItems.EGG_SHARDS.get());
                         output.accept(ModBlocks.CRACKLE_EGG.get());
 
                         output.accept(ModItems.GOURD_EGG.get());
 
-                        output.accept(ModItems.BOTTLE_O_SOUL.get());
 
                         output.accept(ModItems.AMBER_WHISPER_PEARL.get());
                         output.accept(ModItems.AZURE_WHISPER_PEARL.get());
@@ -35,18 +39,25 @@ public class ModCreativeTab {
                         output.accept(ModItems.VERDANT_WHISPER_PEARL.get());
                         output.accept(ModItems.VERMILLION_WHISPER_PEARL.get());
 
+                        output.accept(ModBlocks.BRAMBLERUST.get());
                         output.accept(ModItems.RUST.get());
                         output.accept(ModBlocks.RUST_BLOCK.get());
                         output.accept(ModBlocks.RUSTICLE.get());
-                        output.accept(ModItems.RUSTLING_SHERD.get());
 
                         output.accept(ModItems.COPPER_ORNATE_EGG.get());
                         output.accept(ModItems.GOLD_ORNATE_EGG.get());
                         output.accept(ModItems.DIAMOND_ORNATE_EGG.get());
 
                         output.accept(ModItems.ANTLER.get());
+                        output.accept(ModBlocks.ANTLER_BLOCK.get());
                         output.accept(ModItems.VENISON.get());
                         output.accept(ModItems.COOKED_VENISON.get());
+
+                        output.accept(ModItems.PALEO_MEAT.get());
+                        output.accept(ModItems.COOKED_PALEO_MEAT.get());
+
+                        output.accept(ModItems.FLOWER_CROWN.get());
+                        output.accept(ModItems.BLUE_FLOWER_CROWN.get());
 
                         output.accept(ModBlocks.YELLOW_IRONWEED.get());
                         output.accept(ModBlocks.BOUNCESHROOM.get());
@@ -75,6 +86,8 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.ALOEWOOD_LEAVES.get());
                         output.accept(ModBlocks.ALOEWOOD_SAPLING.get());
 
+                        output.accept(ModBlocks.BRIGHT_BLOOMS.get());
+
                         output.accept(ModBlocks.CUT_GOLD.get());
                         output.accept(ModBlocks.CUT_GOLD_SLAB.get());
                         output.accept(ModBlocks.CUT_GOLD_STAIRS.get());
@@ -88,6 +101,7 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.HART_TUFF_TOTEM.get());
                         output.accept(ModBlocks.LEFT_WING_TUFF_TOTEM.get());
                         output.accept(ModBlocks.RIGHT_WING_TUFF_TOTEM.get());
+                        output.accept(ModBlocks.TUFF_BONE.get());
 
                         output.accept(ModItems.JADE_SHARD.get());
                         output.accept(ModItems.JADE_BRICK.get());
@@ -110,8 +124,28 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.JADE_HUMMINGBIRD_BULB.get());
                         output.accept(ModBlocks.JADE_KINDRED_BULB.get());
 
+                        output.accept(ModItems.BLOOM_SHERD.get());
+                        output.accept(ModItems.CRACKLE_SHERD.get());
+                        output.accept(ModItems.CROWN_SHERD.get());
+                        output.accept(ModItems.GAZE_SHERD.get());
+                        output.accept(ModItems.HART_SHERD.get());
+                        output.accept(ModItems.LUNAR_SHERD.get());
+                        output.accept(ModItems.MONKE_SHERD.get());
+                        output.accept(ModItems.REBIRTH_SHERD.get());
+                        output.accept(ModItems.RUSTLING_SHERD.get());
+                        output.accept(ModItems.RUSTMUNCHER_SHERD.get());
+                        output.accept(ModItems.STELLAR_SHERD.get());
+                        output.accept(ModItems.TRUNK_SHERD.get());
+                        output.accept(ModItems.WAYFIND_DOWN_SHERD.get());
+                        output.accept(ModItems.WAYFIND_LEFT_SHERD.get());
+                        output.accept(ModItems.WAYFIND_RIGHT_SHERD.get());
+                        output.accept(ModItems.WAYFIND_UP_SHERD.get());
+                        output.accept(ModItems.WHISP_SHERD.get());
+
+                        output.accept(ModItems.CHISELCHIRP_SPAWN_EGG.get());
                         output.accept(ModItems.CRACKLE_SPAWN_EGG.get());
                         output.accept(ModItems.EGG_RAPTOR_SPAWN_EGG.get());
+                        output.accept(ModItems.GILDED_GALLUMPHER_SPAWN_EGG.get());
                         output.accept(ModItems.GOURD_RAPTOR_SPAWN_EGG.get());
                         output.accept(ModItems.HART_SPAWN_EGG.get());
                         output.accept(ModItems.HUE_HOG_SPAWN_EGG.get());
@@ -119,6 +153,7 @@ public class ModCreativeTab {
                         output.accept(ModItems.JADE_ELEPHANT_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
+                        output.accept(ModItems.TERRA_THUNK_SPAWN_EGG.get());
                         output.accept(ModItems.TUFF_TOTEM_POLE_SPAWN_EGG.get());
                         output.accept(ModItems.WHISP_SPAWN_EGG.get());
                     })
