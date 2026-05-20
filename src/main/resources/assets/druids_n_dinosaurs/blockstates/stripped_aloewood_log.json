@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "druids_n_dinosaurs:block/stripped_aloewood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "druids_n_dinosaurs:block/stripped_aloewood_log"
+    },
+    "axis=z": {
+      "model": "druids_n_dinosaurs:block/stripped_aloewood_log_horizontal",
+      "x": 90
+    }
+  }
+}

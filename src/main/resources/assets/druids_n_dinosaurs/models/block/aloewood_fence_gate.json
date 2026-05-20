@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate",
+  "textures": {
+    "texture": "druids_n_dinosaurs:block/aloewood_planks"
+  }
+}

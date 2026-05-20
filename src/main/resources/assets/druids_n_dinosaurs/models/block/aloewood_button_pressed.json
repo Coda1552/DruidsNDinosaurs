@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "druids_n_dinosaurs:block/aloewood_planks"
+  }
+}
