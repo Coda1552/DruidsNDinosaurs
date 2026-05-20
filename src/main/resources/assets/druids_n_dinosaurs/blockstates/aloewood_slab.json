@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "druids_n_dinosaurs:block/aloewood_slab"
+    },
+    "type=double": {
+      "model": "druids_n_dinosaurs:block/aloewood_planks"
+    },
+    "type=top": {
+      "model": "druids_n_dinosaurs:block/aloewood_slab_top"
+    }
+  }
+}

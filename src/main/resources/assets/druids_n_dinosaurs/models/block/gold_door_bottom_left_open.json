@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "druids_n_dinosaurs:block/gold_door_bottom",
+    "top": "druids_n_dinosaurs:block/gold_door_top"
+  }
+}

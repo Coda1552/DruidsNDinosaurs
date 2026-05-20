@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "druids_n_dinosaurs:block/bright_blooms"
-  }
-}

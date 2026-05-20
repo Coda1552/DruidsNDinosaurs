@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "druids_n_dinosaurs:block/cut_gold_slab"
+    },
+    "type=double": {
+      "model": "druids_n_dinosaurs:block/cut_gold"
+    },
+    "type=top": {
+      "model": "druids_n_dinosaurs:block/cut_gold_slab_top"
+    }
+  }
+}

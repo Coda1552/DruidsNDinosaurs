@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "druids_n_dinosaurs:block/aloewood_planks"
+  }
+}

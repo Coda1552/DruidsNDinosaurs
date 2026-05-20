@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "druids_n_dinosaurs:block/aloewood_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "druids_n_dinosaurs:block/aloewood_planks",
+    "side": "druids_n_dinosaurs:block/aloewood_planks",
+    "top": "druids_n_dinosaurs:block/aloewood_planks"
+  }
+}

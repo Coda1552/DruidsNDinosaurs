@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "druids_n_dinosaurs:cut_gold"
-  },
-  "result": "druids_n_dinosaurs:cut_gold_slab",
-  "count": 2
-}

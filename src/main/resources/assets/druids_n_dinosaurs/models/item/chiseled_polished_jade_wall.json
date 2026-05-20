@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "druids_n_dinosaurs:block/chiseled_polished_jade"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "druids_n_dinosaurs:block/cut_gold",
+    "side": "druids_n_dinosaurs:block/cut_gold",
+    "top": "druids_n_dinosaurs:block/cut_gold"
+  }
+}

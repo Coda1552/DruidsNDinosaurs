@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "druids_n_dinosaurs:item/fools_scepter"
+  }
+}

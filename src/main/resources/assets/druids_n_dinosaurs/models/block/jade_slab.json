@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "druids_n_dinosaurs:block/jade_block",
+    "side": "druids_n_dinosaurs:block/jade_block",
+    "top": "druids_n_dinosaurs:block/jade_block"
+  }
+}

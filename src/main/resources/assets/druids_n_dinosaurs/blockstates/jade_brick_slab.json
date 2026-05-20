@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "druids_n_dinosaurs:block/jade_brick_slab"
+    },
+    "type=double": {
+      "model": "druids_n_dinosaurs:block/jade_bricks"
+    },
+    "type=top": {
+      "model": "druids_n_dinosaurs:block/jade_brick_slab_top"
+    }
+  }
+}
