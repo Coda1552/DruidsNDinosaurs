@@ -26,7 +26,8 @@ public abstract class MobMixin extends LivingEntity {
         super(p_21368_, p_21369_);
     }
 
-    @Inject(method = "Lnet/minecraft/world/entity/Mob;interact(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "Lnet/minecraft/world/entity/Mob;interact(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;",
+            at = @At("HEAD"), cancellable = true)
     public void druids_n_dinosaurs_interact(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
          ItemStack stack = player.getItemInHand(hand);
 

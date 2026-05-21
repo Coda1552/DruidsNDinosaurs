@@ -171,9 +171,9 @@ public class JadeAutomaton extends TamableAnimal implements NeutralMob {
             this.setHealth(50);
             this.setAge(-24000);
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.35F+(0.35F*0.3));
-            this.getAttribute(Attributes.ARMOR).setBaseValue(7);
-            this.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(10);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(40);
+            this.getAttribute(Attributes.ARMOR).setBaseValue(5);
+            this.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(5);
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(5);
             this.addEffect(new MobEffectInstance(ModEffects.ETHEREAL.get(), 20));
         } else if (!this.isOriChalcos() && pName != null && pName.getString().equals("Ori Chalcos")) {
             this.setVariant(3);

@@ -8,6 +8,7 @@
     "BegGoalMixin",
     "EntityMixin",
     "FallingBlockEntityMixin",
+    "LivingEntityMixin",
     "MobMixin",
     "WolfMixin"
   ],
