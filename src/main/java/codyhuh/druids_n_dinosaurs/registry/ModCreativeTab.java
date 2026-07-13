@@ -56,6 +56,9 @@ public class ModCreativeTab {
                         output.accept(ModItems.PALEO_MEAT.get());
                         output.accept(ModItems.COOKED_PALEO_MEAT.get());
 
+                        output.accept(ModItems.SLUDGE_BALL.get());
+                        output.accept(ModBlocks.OOZE_TRAIL.get());
+
                         output.accept(ModItems.FLOWER_CROWN.get());
                         output.accept(ModItems.BLUE_FLOWER_CROWN.get());
 
@@ -84,9 +87,12 @@ public class ModCreativeTab {
                         output.accept(ModItems.ALOEWOOD_CHEST_BOAT.get());
 
                         output.accept(ModBlocks.ALOEWOOD_LEAVES.get());
+                        output.accept(ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get());
                         output.accept(ModBlocks.ALOEWOOD_SAPLING.get());
 
                         output.accept(ModBlocks.BRIGHT_BLOOMS.get());
+
+                        output.accept(ModBlocks.GILDED_FORGET_ME_NOTS.get());
 
                         output.accept(ModBlocks.CUT_GOLD.get());
                         output.accept(ModBlocks.CUT_GOLD_SLAB.get());
@@ -153,6 +159,7 @@ public class ModCreativeTab {
                         output.accept(ModItems.JADE_ELEPHANT_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
+                        output.accept(ModItems.SLUDGER_SPAWN_EGG.get());
                         output.accept(ModItems.TERRA_THUNK_SPAWN_EGG.get());
                         output.accept(ModItems.TUFF_TOTEM_POLE_SPAWN_EGG.get());
                         output.accept(ModItems.WHISP_SPAWN_EGG.get());

@@ -332,6 +332,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.NETHER_STAR)
                 .unlockedBy(getHasName(Blocks.TORCHFLOWER), has(Blocks.TORCHFLOWER))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.YELLOW_DYE, 1)
+                .requires(ModBlocks.GILDED_FORGET_ME_NOTS.get())
+                .unlockedBy("has_flower", has(ModBlocks.GILDED_FORGET_ME_NOTS.get()))
+                .save(consumer, this.name("yellow_dye_from_gilded_forget_me_nots"));
+
+
     }
     public ShapelessRecipeBuilder makePlanks(Supplier<? extends Block> plankOut, TagKey<Item> logIn) {
         return ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, (ItemLike)plankOut.get(), 4).requires(logIn).group("planks").unlockedBy("has_log", has(logIn));

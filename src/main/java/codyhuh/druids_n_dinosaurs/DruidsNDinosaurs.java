@@ -12,6 +12,8 @@ import net.minecraft.Util;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -76,6 +78,8 @@ public class DruidsNDinosaurs {
 
             ComposterBlock.COMPOSTABLES.put(ModBlocks.ALOEWOOD_SAPLING.get().asItem(), 0.4F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.ALOEWOOD_LEAVES.get().asItem(), 0.4F);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.GILDED_FORGET_ME_NOTS.get().asItem(), 0.65F);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get().asItem(), 0.4F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.BOUNCESHROOM.get().asItem(), 0.65F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.YELLOW_IRONWEED.get().asItem(), 0.65F);
             ComposterBlock.COMPOSTABLES.put(ModBlocks.BRIGHT_BLOOMS.get().asItem(), 0.3F);
@@ -111,6 +115,7 @@ public class DruidsNDinosaurs {
         e.put(ModEntities.GILDED_GALLUMPHER.get(), GildedGallumpher.createAttributes().build());
         e.put(ModEntities.CHISELCHIRP.get(), Chiselchirp.createAttributes().build());
         e.put(ModEntities.TERRA_THUNK.get(), TerraThunk.createAttributes().build());
+        e.put(ModEntities.SLUDGER.get(), Monster.createMonsterAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

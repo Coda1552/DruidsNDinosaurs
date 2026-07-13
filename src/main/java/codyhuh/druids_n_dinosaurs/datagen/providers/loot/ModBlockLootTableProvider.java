@@ -73,6 +73,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.ALOEWOOD_LEAVES.get(),
                 block -> createLeavesDrops(ModBlocks.ALOEWOOD_LEAVES.get(), ModBlocks.ALOEWOOD_SAPLING.get(), 0.05F, 0.0625F, 0.083333336F, 0.1F));
+        this.add(ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get(),
+                block -> createLeavesDrops(ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get(), ModBlocks.ALOEWOOD_SAPLING.get(), 0.05F, 0.0625F, 0.083333336F, 0.1F));
 
         this.dropSelf(ModBlocks.RUST_BLOCK.get());
         this.dropSelf(ModBlocks.RUSTICLE.get());
@@ -111,10 +113,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createJadeOreDrops(ModBlocks.DEEPSLATE_JADE_ORE.get()));
 
         this.dropSelf(ModBlocks.ANTLER_BLOCK.get());
+        this.dropSelf(ModBlocks.OOZE_TRAIL.get());
         this.add(ModBlocks.BRIGHT_BLOOMS.get(),
                 block -> createBrightBloomDrops(ModBlocks.BRIGHT_BLOOMS.get()));
 
         this.dropSelf(ModBlocks.BRAMBLERUST.get());
+        this.dropSelf(ModBlocks.GILDED_FORGET_ME_NOTS.get());
         this.dropSelf(ModBlocks.BLOOM_BEACON.get());
     }
 

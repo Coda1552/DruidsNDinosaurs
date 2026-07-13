@@ -290,9 +290,9 @@ public class TerraThunk extends TamableAnimal {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        if (!this.isVehicle()){
+        if (!this.isVehicle() && !this.isBaby()){
             if (!this.isBouncing()){
-                if (hand == InteractionHand.MAIN_HAND && itemstack.is(Items.MOSS_BLOCK) && !this.isTame() && !this.isBaby()) {
+                if (hand == InteractionHand.MAIN_HAND && itemstack.is(Items.MOSS_BLOCK) && !this.isTame()) {
 
                     if (!player.getAbilities().instabuild) {
                         itemstack.shrink(1);

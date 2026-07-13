@@ -27,8 +27,8 @@ public class ModEntityTagGenerator extends EntityTypeTagsProvider {
     }
 
     protected void addTags(){
-        this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(ModEntities.JADE_AUTOMATON.get()).add(ModEntities.CHISELCHIRP.get()).add(ModEntities.TERRA_THUNK.get());
-        this.tag(EntityTypeTags.FREEZE_IMMUNE_ENTITY_TYPES).add(ModEntities.TUFF_TOTEM_POLE.get());
+        this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(ModEntities.SLUDGER.get()).add(ModEntities.JADE_AUTOMATON.get()).add(ModEntities.CHISELCHIRP.get()).add(ModEntities.TERRA_THUNK.get());
+        this.tag(EntityTypeTags.FREEZE_IMMUNE_ENTITY_TYPES).add(ModEntities.SLUDGER.get()).add(ModEntities.TUFF_TOTEM_POLE.get());
         this.tag(ModTags.EntityTypes.WICKER_IDOL_BLACKLIST).add(EntityType.ENDER_DRAGON).add(EntityType.WARDEN).add(EntityType.WITHER);
         this.tag(EntityTypeTags.DISMOUNTS_UNDERWATER).add(ModEntities.HART.get()).add(ModEntities.GILDED_GALLUMPHER.get()).add(ModEntities.TERRA_THUNK.get());
         this.tag(ModTags.EntityTypes.BLOOM_ENTITIES).add(ModEntities.RUSTLING.get());

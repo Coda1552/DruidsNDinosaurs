@@ -3,6 +3,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.effects.BloomEffect;
 import codyhuh.druids_n_dinosaurs.common.effects.ModNormalEffect;
+import codyhuh.druids_n_dinosaurs.common.effects.SludgedEffect;
 import codyhuh.druids_n_dinosaurs.common.effects.TetanusEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -27,6 +28,11 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> BLOOM = MOB_EFFECTS.register("bloom",
             ()-> new BloomEffect(MobEffectCategory.BENEFICIAL, 0xf2bb4e));
+
+    public static final RegistryObject<MobEffect> SLUDGED = MOB_EFFECTS.register("sludged",
+            ()->{ return (new SludgedEffect(MobEffectCategory.HARMFUL, 0x3a223f))
+                .addAttributeModifier(Attributes.MOVEMENT_SPEED, UUID.randomUUID().toString(), -0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL)
+                .addAttributeModifier(Attributes.JUMP_STRENGTH, UUID.randomUUID().toString(), -0.05F, AttributeModifier.Operation.MULTIPLY_TOTAL);});
 
     public static void register(IEventBus eventBus){
         MOB_EFFECTS.register(eventBus);

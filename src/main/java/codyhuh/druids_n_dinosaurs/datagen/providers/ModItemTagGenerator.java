@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -40,6 +41,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         );
 
         this.tag(ItemTags.LEAVES).add(
+                ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get().asItem(),
                 ModBlocks.ALOEWOOD_LEAVES.get().asItem()
         );
 
@@ -100,5 +102,12 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
 
         this.tag(Tags.Items.ARMORS_HELMETS).add(ModItems.FLOWER_CROWN.get()).add(ModItems.BLUE_FLOWER_CROWN.get());
+
+        this.tag(ItemTags.SMALL_FLOWERS)
+                .add(ModBlocks.GILDED_FORGET_ME_NOTS.get().asItem())
+                .add(ModBlocks.BRIGHT_BLOOMS.get().asItem());
+
+        this.tag(ItemTags.FLOWERS)
+                .add(ModBlocks.BLOOM_BEACON.get().asItem());
     }
 }

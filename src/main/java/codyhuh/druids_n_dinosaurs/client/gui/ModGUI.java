@@ -26,6 +26,12 @@ public class ModGUI extends ForgeGui {
         if (tetanus != null) {
             this.renderTextureOverlay(guiGraphics, PUMPKIN_BLUR_LOCATION, 1.0F);
         }
+
+        var sludged = this.minecraft.player.getEffect(ModEffects.SLUDGED.get());
+        if (sludged != null){
+            this.renderTextureOverlay(guiGraphics, new ResourceLocation(DruidsNDinosaurs.MOD_ID, "textures/misc/sludged_outline.png"),
+                    Math.min(1, (sludged.getAmplifier()+1)/3));
+        }
     }
 
 }

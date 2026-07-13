@@ -15,10 +15,6 @@ public class BloomEffect extends MobEffect {
 
     public BloomEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
-
-        this.addAttributeModifier(Attributes.ATTACK_DAMAGE, UUID.randomUUID().toString(), 0.1D, AttributeModifier.Operation.ADDITION);
-        this.addAttributeModifier(Attributes.JUMP_STRENGTH, UUID.randomUUID().toString(), 0.5D, AttributeModifier.Operation.ADDITION);
-        this.addAttributeModifier(Attributes.MOVEMENT_SPEED, UUID.randomUUID().toString(), 0.2D, AttributeModifier.Operation.MULTIPLY_BASE);
     }
 
     @Override
@@ -40,6 +36,10 @@ public class BloomEffect extends MobEffect {
 
     public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
         pLivingEntity.setAbsorptionAmount(pLivingEntity.getAbsorptionAmount() + (float)(4 * (pAmplifier + 2)));
+
+        this.addAttributeModifier(Attributes.ATTACK_DAMAGE, UUID.randomUUID().toString(), 0.1D, AttributeModifier.Operation.ADDITION);
+        this.addAttributeModifier(Attributes.JUMP_STRENGTH, UUID.randomUUID().toString(), 0.5D, AttributeModifier.Operation.ADDITION);
+        this.addAttributeModifier(Attributes.MOVEMENT_SPEED, UUID.randomUUID().toString(), 0.2D, AttributeModifier.Operation.MULTIPLY_BASE);
         super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
     }
 

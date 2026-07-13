@@ -36,6 +36,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation GILDED_GALLUMPHER = create("gilded_gallumpher_layer");
     public static final ModelLayerLocation CHISELCHIRP = create("chiselchirp_layer");
     public static final ModelLayerLocation TERRA_THUNK = create("terra_thunk_layer");
+    public static final ModelLayerLocation SLUDGER = create("sludger_layer");
 
     private static ModelLayerLocation create(String name) {
         return new ModelLayerLocation(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name), "main");

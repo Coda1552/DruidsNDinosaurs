@@ -14,6 +14,8 @@ public class ModParticles {
 
     public static final RegistryObject<SimpleParticleType> JADE_OMEN = register("jade_omen", false);
     public static final RegistryObject<SimpleParticleType> SEEDLING = register("seedling", false);
+    public static final RegistryObject<SimpleParticleType> SLUDGER = register("sludger", false);
+    public static final RegistryObject<SimpleParticleType> SLUDGED = register("sludged", false);
 
     private static RegistryObject<SimpleParticleType> register(String id, boolean flag) {
         return PARTICLES.register(id, () -> new SimpleParticleType(flag));

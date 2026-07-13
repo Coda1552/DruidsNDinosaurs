@@ -94,10 +94,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.GILDED_GALLUMPHER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.CHISELCHIRP_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.TERRA_THUNK_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.SLUDGER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         simpleItem(ModItems.JADE_SHARD);
         simpleItem(ModItems.JADE_BRICK);
         simpleItem(ModItems.JADE_DOLL);
+//        simpleItem(ModItems.GOUDA);
 
         simpleTool(ModItems.JADE_AXE);
         simpleTool(ModItems.FOOLS_SCEPTER);
@@ -121,12 +123,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.VENISON);
         simpleItem(ModItems.COOKED_VENISON);
 
-        simpleBlockItem(ModBlocks.BRAMBLERUST);;
+        simpleBlockItem(ModBlocks.BRAMBLERUST);
+        simpleBlockItem(ModBlocks.GILDED_FORGET_ME_NOTS);
         simpleItem(ModItems.PALEO_MEAT);
         simpleItem(ModItems.COOKED_PALEO_MEAT);
 
         simpleItem(ModItems.FLOWER_CROWN);
         simpleItem(ModItems.BLUE_FLOWER_CROWN);
+        simpleItem(ModItems.SLUDGE_BALL);
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {

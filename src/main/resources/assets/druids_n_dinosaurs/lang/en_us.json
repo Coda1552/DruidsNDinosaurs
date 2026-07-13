@@ -40,6 +40,7 @@
   "block.druids_n_dinosaurs.aloewood_hanging_sign": "Aloewood Hanging Sign",
 
   "block.druids_n_dinosaurs.aloewood_leaves": "Aloewood Leaves",
+  "block.druids_n_dinosaurs.bloomed_aloewood_leaves": "Bloomed Aloewood Leaves",
   "block.druids_n_dinosaurs.aloewood_sapling": "Aloewood Sapling",
   "block.druids_n_dinosaurs.potted_aloewood_sapling": "Potted Aloewood Sapling",
 
@@ -193,5 +194,14 @@
   "effect.druids_n_dinosaurs.bloom": "Bloom",
 
   "item.druids_n_dinosaurs.bottle_o_ethereal": "Bottle o' Ethereal",
-  "effect.druids_n_dinosaurs.ethereal": "Ethereal"
+  "effect.druids_n_dinosaurs.ethereal": "Ethereal",
+
+  "block.druids_n_dinosaurs.gilded_forget_me_nots": "Gilded Forget Me Nots",
+
+  "item.druids_n_dinosaurs.sludge_ball": "Sludge Ball",
+  "entity.druids_n_dinosaurs.sludge_ball": "Thrown Sludge Ball",
+  "item.druids_n_dinosaurs.sludger_spawn_egg": "Sludger Spawn Egg",
+  "entity.druids_n_dinosaurs.sludger": "Sludger",
+  "block.druids_n_dinosaurs.ooze_trail": "Ooze Trail",
+  "effect.druids_n_dinosaurs.sludged": "Sludged"
 }

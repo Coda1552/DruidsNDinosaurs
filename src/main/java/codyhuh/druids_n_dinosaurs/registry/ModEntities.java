@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.*;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.item.SludgeBallEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -66,6 +67,15 @@ public class ModEntities {
     public static final RegistryObject<EntityType<TerraThunk>> TERRA_THUNK =
             ENTITY_TYPES.register("terra_thunk", () -> EntityType.Builder.of(TerraThunk::new, MobCategory.CREATURE)
                     .sized(2.75f, 3.2f).build("terra_thunk"));
+
+    public static final RegistryObject<EntityType<Sludger>> SLUDGER =
+            ENTITY_TYPES.register("sludger", () -> EntityType.Builder.of(Sludger::new, MobCategory.CREATURE)
+                    .sized(2.04F, 2.04F).build("sludger"));
+
+
+    public static final RegistryObject<EntityType<SludgeBallEntity>> SLUDGE_BALL =
+            ENTITY_TYPES.register("sludge_ball", () -> EntityType.Builder.<SludgeBallEntity>of(SludgeBallEntity::new, MobCategory.MISC)
+                    .sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("sludge_ball"));
 
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =
             ENTITY_TYPES.register("mod_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)

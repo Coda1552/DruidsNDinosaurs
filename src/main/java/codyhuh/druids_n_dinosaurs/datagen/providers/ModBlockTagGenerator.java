@@ -154,10 +154,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ModBlocks.ALOEWOOD_LEAVES.get(),
+                ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get(),
                 ModBlocks.BOUNCESHROOM.get()
         );
 
         this.tag(BlockTags.LEAVES).add(
+                ModBlocks.BLOOMED_ALOEWOOD_LEAVES.get(),
                 ModBlocks.ALOEWOOD_LEAVES.get()
         );
         this.tag(BlockTags.WOODEN_FENCES).add(
@@ -209,8 +211,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.ALOEWOOD_WALL_HANGING_SIGN.get()
         );
 
-        this.tag(BlockTags.FLOWERS)
-                .add(ModBlocks.BLOOM_BEACON.get())
+        this.tag(BlockTags.SMALL_FLOWERS)
+                .add(ModBlocks.GILDED_FORGET_ME_NOTS.get())
                 .add(ModBlocks.BRIGHT_BLOOMS.get());
+
+        this.tag(BlockTags.FLOWERS)
+                .add(ModBlocks.BLOOM_BEACON.get());
     }
 }

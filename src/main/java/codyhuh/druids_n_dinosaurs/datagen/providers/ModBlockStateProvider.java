@@ -26,6 +26,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // misc
         blockItem(ModBlocks.BOUNCESHROOM);
 
+//        blockWithItem(ModBlocks.SULPHUR_BLOCK);
+
         // gold
         doorBlockWithRenderType(((DoorBlock) ModBlocks.GOLD_DOOR.get()), modLoc("block/gold_door_bottom"), modLoc("block/gold_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.GOLD_TRAPDOOR.get()), modLoc("block/gold_trapdoor"), true, "cutout");
@@ -62,6 +64,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.STRIPPED_ALOEWOOD_WOOD);
 
         leavesBlock(ModBlocks.ALOEWOOD_LEAVES);
+        leavesBlock(ModBlocks.BLOOMED_ALOEWOOD_LEAVES);
 
         simpleBlockWithItem(ModBlocks.ALOEWOOD_SAPLING.get(), models().cross(blockTexture(ModBlocks.ALOEWOOD_SAPLING.get()).getPath(),
                 blockTexture(ModBlocks.ALOEWOOD_SAPLING.get())).renderType("cutout"));
@@ -87,6 +90,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(ModBlocks.BRAMBLERUST.get(), models().cross(blockTexture(ModBlocks.BRAMBLERUST.get()).getPath(),
                 blockTexture(ModBlocks.BRAMBLERUST.get())).renderType("cutout"));
+
+        simpleBlockWithItem(ModBlocks.GILDED_FORGET_ME_NOTS.get(), models().cross(blockTexture(ModBlocks.GILDED_FORGET_ME_NOTS.get()).getPath(),
+                blockTexture(ModBlocks.GILDED_FORGET_ME_NOTS.get())).renderType("cutout"));
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

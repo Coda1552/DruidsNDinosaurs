@@ -309,4 +309,9 @@ public class JadeElephant extends Animal implements IAnimatedAttacker, Inventory
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
         this.playSound(SoundEvents.IRON_GOLEM_STEP, 1.0F, 1.0F);
     }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return false;
+    }
 }

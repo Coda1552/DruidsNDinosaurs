@@ -11,6 +11,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DruidsNDinosaurs.MOD_ID);
 
@@ -44,9 +46,9 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.RUSTMUNCHER, 0x725b59, 0x4e9067, new Item.Properties()));
 
     public static final RegistryObject<Item> BOTTLE_O_SOUL = ITEMS.register("bottle_o_soul",
-            () -> new BottleOSoulItem(new Item.Properties().food(ModFoods.SOUL_BOTTLE).craftRemainder(Items.GLASS_BOTTLE)));
+            () -> new BottleOSomethingItem(new Item.Properties().food(ModFoods.BOTTLE_O_SOUL).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> BOTTLE_O_ETHEREAL = ITEMS.register("bottle_o_ethereal",
-            () -> new BottleOEtherealItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE)));
+            () -> new BottleOSomethingItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(ModFoods.BOTTLE_O_ETHEREAL)));
 
     public static final RegistryObject<Item> WHISP_SPAWN_EGG = ITEMS.register("whisp_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WHISP, 0xf4a8ef, 0xb1619c, new Item.Properties()));
@@ -109,6 +111,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.BEEF)));
     public static final RegistryObject<Item> COOKED_VENISON = ITEMS.register("cooked_venison",
             () -> new Item(new Item.Properties().food(Foods.COOKED_BEEF)));
+
+    public static final RegistryObject<Item> SLUDGE_BALL = ITEMS.register("sludge_ball", () ->
+            new SludgeBallItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> SLUDGER_SPAWN_EGG = ITEMS.register("sludger_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SLUDGER, 0x4b304c, 0x261529, new Item.Properties()));
 
 
     public static final RegistryObject<Item> RUSTLING_SHERD = ITEMS.register("rustling_pottery_sherd",

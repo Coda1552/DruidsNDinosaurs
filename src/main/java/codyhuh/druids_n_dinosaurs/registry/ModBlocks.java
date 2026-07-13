@@ -5,7 +5,9 @@ import codyhuh.druids_n_dinosaurs.common.blocks.*;
 import codyhuh.druids_n_dinosaurs.common.blocks.RusticleBlock;
 import codyhuh.druids_n_dinosaurs.common.worldgen.tree.AloewoodTreeGrower;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
@@ -36,6 +38,9 @@ public class ModBlocks {
                     .pushReaction(PushReaction.BLOCK).randomTicks().lightLevel((state) -> {
                         return 15;
                     })));
+
+//    public static final RegistryObject<Block> SULFUR_BLOCK = registerBlock("sulfur_block",
+//            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
 
     // GOLD
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
@@ -100,7 +105,9 @@ public class ModBlocks {
 
     //Aloewood Leaves
     public static final RegistryObject<Block> ALOEWOOD_LEAVES = registerBlock("aloewood_leaves",
-            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+            () -> new AloewoodLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> BLOOMED_ALOEWOOD_LEAVES = registerBlock("bloomed_aloewood_leaves",
+            () -> new BloomedAloewoodLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).lightLevel((pState)-> 14)));
 
     //Aloewood Sapling Blocks
     public static final RegistryObject<Block> ALOEWOOD_SAPLING = registerBlock("aloewood_sapling",
@@ -114,6 +121,9 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
     public static final RegistryObject<Block> RUSTICLE = registerBlock("rusticle",
             () -> new RusticleBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE)));
+    public static final RegistryObject<Block> BRAMBLERUST = registerBlock("bramblerust",
+            () -> new BramblerustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission()
+                    .sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
 
     //Crackle
     public static final RegistryObject<Block> CRACKLE_EGG = registerBlock("crackle_egg",
@@ -174,6 +184,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHATTERED_JADE = registerBlock("shattered_jade",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    //Flowers
     public static final RegistryObject<Block> BRIGHT_BLOOMS = registerBlock("bright_blooms",
             () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT)
                     .noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel((state) -> {
@@ -185,11 +196,17 @@ public class ModBlocks {
                         };
                     })));
 
+    public static final RegistryObject<Block> GILDED_FORGET_ME_NOTS = registerBlock("gilded_forget_me_nots",
+            () -> new BonemealableFlowerBlock(MobEffects.SATURATION, 7, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT)
+                    .noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+    //Antler
     public static final RegistryObject<Block> ANTLER_BLOCK = registerBlock("antler_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)));
 
-    public static final RegistryObject<Block> BRAMBLERUST = registerBlock("bramblerust",
-            () -> new BramblerustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+    //Ooze
+    public static final RegistryObject<Block> OOZE_TRAIL = registerBlock("ooze_trail",
+            () -> new OozeTrailBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).lightLevel((state)->0)
+                    .sound(SoundType.SLIME_BLOCK).mapColor(DyeColor.BLACK)));
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);

@@ -65,6 +65,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.GILDED_GALLUMPHER, GildedGallumpherModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CHISELCHIRP, ChiselchirpModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.TERRA_THUNK, TerraThunkModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.SLUDGER, SludgerModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -101,5 +102,8 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntities.CHISELCHIRP.get(), ChiselchirpRenderer::new);
 
         event.registerEntityRenderer(ModEntities.TERRA_THUNK.get(), TerraThunkRenderer::new);
+        event.registerEntityRenderer(ModEntities.SLUDGER.get(), SludgerRenderer::new);
+
+        event.registerEntityRenderer(ModEntities.SLUDGE_BALL.get(), ThrownItemRenderer::new);
     }
 }
