@@ -203,5 +203,9 @@
   "item.druids_n_dinosaurs.sludger_spawn_egg": "Sludger Spawn Egg",
   "entity.druids_n_dinosaurs.sludger": "Sludger",
   "block.druids_n_dinosaurs.ooze_trail": "Ooze Trail",
-  "effect.druids_n_dinosaurs.sludged": "Sludged"
+  "effect.druids_n_dinosaurs.sludged": "Sludged",
+
+  "item.druids_n_dinosaurs.sulfur": "Sulfur",
+  "block.druids_n_dinosaurs.sulfur_block": "Sulfur Block",
+  "block.druids_n_dinosaurs.gouda_cheese": " Gouda Cheese"
 }

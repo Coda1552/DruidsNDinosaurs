@@ -83,7 +83,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.MINEABLE_WITH_HOE)
-                .add(ModBlocks.BLOOM_BEACON.get());
+                .add(ModBlocks.BLOOM_BEACON.get(),
+                    ModBlocks.GOUDA_CHEESE.get());
 
         this.tag(BlockTags.STAIRS).add(
                 ModBlocks.POLISHED_JADE_STAIRS.get(),

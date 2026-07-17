@@ -39,8 +39,8 @@ public class ModBlocks {
                         return 15;
                     })));
 
-//    public static final RegistryObject<Block> SULFUR_BLOCK = registerBlock("sulfur_block",
-//            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<Block> SULFUR_BLOCK = registerBlock("sulfur_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
 
     // GOLD
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
@@ -207,6 +207,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> OOZE_TRAIL = registerBlock("ooze_trail",
             () -> new OozeTrailBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).lightLevel((state)->0)
                     .sound(SoundType.SLIME_BLOCK).mapColor(DyeColor.BLACK)));
+
+    //Gouda
+    public static final RegistryObject<Block> GOUDA_CHEESE = registerBlock("gouda_cheese",
+            () -> new GoudaCheeseBlock(BlockBehaviour.Properties.copy(Blocks.CAKE).mapColor(DyeColor.YELLOW)));
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);

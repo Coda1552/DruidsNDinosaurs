@@ -283,11 +283,32 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ANTLER_BLOCK.get(), 1)
-                .pattern("JJJ")
-                .pattern("JJJ")
-                .pattern("JJJ")
-                .define('J', ModItems.ANTLER.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .define('A', ModItems.ANTLER.get())
                 .unlockedBy(getHasName(ModItems.ANTLER.get()), has(ModItems.ANTLER.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModBlocks.GOUDA_CHEESE.get(), 9)
+                .pattern("GGG")
+                .pattern("GMG")
+                .pattern("GGG")
+                .define('M', Items.MILK_BUCKET)
+                .define('G', Items.GOLD_INGOT)
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SULFUR.get(), 4)
+                .requires(ModBlocks.SULFUR_BLOCK.get())
+                .unlockedBy(getHasName(ModItems.SULFUR.get()), has(ModItems.SULFUR.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SULFUR_BLOCK.get(), 1)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', ModItems.SULFUR.get())
+                .unlockedBy(getHasName(ModItems.SULFUR.get()), has(ModItems.SULFUR.get()))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ANTLER.get(), 9)

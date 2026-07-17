@@ -20,17 +20,19 @@ public class ModGUI extends ForgeGui {
     public void render(GuiGraphics guiGraphics, float partialTick) {
         this.screenWidth = this.minecraft.getWindow().getGuiScaledWidth();
         this.screenHeight = this.minecraft.getWindow().getGuiScaledHeight();
-        RenderSystem.enableBlend();
 
         var tetanus = this.minecraft.player.getEffect(ModEffects.TETANUS.get());
         if (tetanus != null) {
+            RenderSystem.enableBlend();
             this.renderTextureOverlay(guiGraphics, PUMPKIN_BLUR_LOCATION, 1.0F);
+            RenderSystem.disableBlend();
         }
 
         var sludged = this.minecraft.player.getEffect(ModEffects.SLUDGED.get());
         if (sludged != null){
-            this.renderTextureOverlay(guiGraphics, new ResourceLocation(DruidsNDinosaurs.MOD_ID, "textures/misc/sludged_outline.png"),
-                    Math.min(1, (sludged.getAmplifier()+1)/3));
+            RenderSystem.enableBlend();
+            this.renderTextureOverlay(guiGraphics, new ResourceLocation(DruidsNDinosaurs.MOD_ID, "textures/misc/sludged_outline.png"), 1);
+            RenderSystem.disableBlend();
         }
     }
 

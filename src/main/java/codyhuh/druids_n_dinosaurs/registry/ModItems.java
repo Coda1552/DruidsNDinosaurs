@@ -172,4 +172,7 @@ public class ModItems {
             ()-> new ArmorItem(ModArmorMaterials.FLOWER_CROWN, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> BLUE_FLOWER_CROWN = ITEMS.register("blue_flower_crown",
             ()-> new ArmorItem(ModArmorMaterials.BLUE_FLOWER_CROWN, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur",
+            () -> new Item(new Item.Properties()));
 }

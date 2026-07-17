@@ -93,6 +93,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(ModBlocks.GILDED_FORGET_ME_NOTS.get(), models().cross(blockTexture(ModBlocks.GILDED_FORGET_ME_NOTS.get()).getPath(),
                 blockTexture(ModBlocks.GILDED_FORGET_ME_NOTS.get())).renderType("cutout"));
+
+        blockWithItem(ModBlocks.SULFUR_BLOCK);
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

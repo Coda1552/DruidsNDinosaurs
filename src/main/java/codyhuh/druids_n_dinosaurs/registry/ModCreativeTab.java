@@ -28,9 +28,10 @@ public class ModCreativeTab {
 
                         output.accept(ModItems.EGG_SHARDS.get());
                         output.accept(ModBlocks.CRACKLE_EGG.get());
+                        output.accept(ModItems.SULFUR.get());
+                        output.accept(ModBlocks.SULFUR_BLOCK.get());
 
                         output.accept(ModItems.GOURD_EGG.get());
-
 
                         output.accept(ModItems.AMBER_WHISPER_PEARL.get());
                         output.accept(ModItems.AZURE_WHISPER_PEARL.get());
@@ -58,6 +59,8 @@ public class ModCreativeTab {
 
                         output.accept(ModItems.SLUDGE_BALL.get());
                         output.accept(ModBlocks.OOZE_TRAIL.get());
+
+                        output.accept(ModBlocks.GOUDA_CHEESE.get());
 
                         output.accept(ModItems.FLOWER_CROWN.get());
                         output.accept(ModItems.BLUE_FLOWER_CROWN.get());

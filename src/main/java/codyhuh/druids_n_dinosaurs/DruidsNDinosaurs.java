@@ -7,6 +7,8 @@ import codyhuh.druids_n_dinosaurs.event.CommonEvents;
 import codyhuh.druids_n_dinosaurs.event.ModEvents;
 import codyhuh.druids_n_dinosaurs.registry.*;
 import codyhuh.druids_n_dinosaurs.util.RustlingBrewingRecipe;
+import codyhuh.druids_n_dinosaurs.util.proxy.ClientProxy;
+import codyhuh.druids_n_dinosaurs.util.proxy.CommonProxy;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.Util;
 import net.minecraft.core.Position;
@@ -29,6 +31,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -40,6 +43,7 @@ import org.apache.logging.log4j.Logger;
 public class DruidsNDinosaurs {
     public static final String MOD_ID = "druids_n_dinosaurs";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static CommonProxy PROXY = (CommonProxy) DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public DruidsNDinosaurs() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -59,6 +63,8 @@ public class DruidsNDinosaurs {
         ModParticles.register(bus);
 
         bus.addListener(this::createAttributes);
+
+        PROXY.init();
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
@@ -119,6 +125,9 @@ public class DruidsNDinosaurs {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            PROXY.clientInit();
+        });
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
     }
 

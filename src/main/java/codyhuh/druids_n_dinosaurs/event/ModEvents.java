@@ -1,7 +1,9 @@
 package codyhuh.druids_n_dinosaurs.event;
 
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
+import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEnchantments;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -87,6 +89,12 @@ public class ModEvents {
 
                 healingValue = 0;
             }
+        }
+
+        if (player.hasEffect(ModEffects.SLUDGED.get())){
+            DruidsNDinosaurs.PROXY.setSludgedAmplifier(player.getEffect(ModEffects.SLUDGED.get()).getAmplifier()+1);
+        }else {
+            DruidsNDinosaurs.PROXY.setSludgedAmplifier(0);
         }
     }
 

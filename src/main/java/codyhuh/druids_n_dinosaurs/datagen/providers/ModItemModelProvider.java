@@ -99,7 +99,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.JADE_SHARD);
         simpleItem(ModItems.JADE_BRICK);
         simpleItem(ModItems.JADE_DOLL);
-//        simpleItem(ModItems.GOUDA);
 
         simpleTool(ModItems.JADE_AXE);
         simpleTool(ModItems.FOOLS_SCEPTER);
@@ -131,6 +130,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLOWER_CROWN);
         simpleItem(ModItems.BLUE_FLOWER_CROWN);
         simpleItem(ModItems.SLUDGE_BALL);
+
+        simpleItem(ModItems.SULFUR);
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {

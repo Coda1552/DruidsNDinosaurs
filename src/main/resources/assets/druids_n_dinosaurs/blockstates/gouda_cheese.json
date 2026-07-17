@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese"
+    },
+
+    "bites=1,facing=north": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_1",
+      "y": 90
+    },
+    "bites=2,facing=north": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_2",
+      "y": 90
+    },
+    "bites=3,facing=north": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_3"
+    },
+
+    "bites=1,facing=south": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_1",
+      "y": 270
+    },
+    "bites=2,facing=south": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_2",
+      "y": 270
+    },
+    "bites=3,facing=south": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_3",
+      "y": 180
+    },
+
+    "bites=1,facing=east": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_1",
+      "y": 180
+    },
+    "bites=2,facing=east": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_2",
+      "y": 180
+    },
+    "bites=3,facing=east": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_3",
+      "y": 90
+    },
+
+    "bites=1,facing=west": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_1"
+    },
+    "bites=2,facing=west": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_2"
+    },
+    "bites=3,facing=west": {
+      "model": "druids_n_dinosaurs:block/gouda_cheese_3",
+      "y": 270
+    }
+  }
+}

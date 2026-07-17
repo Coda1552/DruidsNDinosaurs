@@ -8,8 +8,10 @@ import codyhuh.druids_n_dinosaurs.client.renders.blockentity.BloomBeaconRenderer
 import codyhuh.druids_n_dinosaurs.common.blocks.BloomBeaconBlock;
 import codyhuh.druids_n_dinosaurs.common.items.WickerIdolItem;
 import codyhuh.druids_n_dinosaurs.registry.ModBlockEntities;
+import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
@@ -18,8 +20,10 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -105,5 +109,19 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntities.SLUDGER.get(), SludgerRenderer::new);
 
         event.registerEntityRenderer(ModEntities.SLUDGE_BALL.get(), ThrownItemRenderer::new);
+    }
+
+    @SubscribeEvent
+    public void onClientTick(TickEvent.ClientTickEvent event) {
+        Player player = Minecraft.getInstance().player;
+
+        if (player != null){
+            if (player.hasEffect(ModEffects.SLUDGED.get())){
+                DruidsNDinosaurs.PROXY.setSludgedAmplifier(player.getEffect(ModEffects.SLUDGED.get()).getAmplifier()+1);
+            }else {
+                DruidsNDinosaurs.PROXY.setSludgedAmplifier(0);
+            }
+        }
+
     }
 }
