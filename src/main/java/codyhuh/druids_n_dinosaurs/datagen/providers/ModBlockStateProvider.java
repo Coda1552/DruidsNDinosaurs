@@ -95,6 +95,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 blockTexture(ModBlocks.GILDED_FORGET_ME_NOTS.get())).renderType("cutout"));
 
         blockWithItem(ModBlocks.SULFUR_BLOCK);
+
+        blockWithItem(ModBlocks.GOUDA_CHEESE);
+        stairsBlock((StairBlock)ModBlocks.GOUDA_CHEESE_STAIRS.get(), blockTexture(ModBlocks.GOUDA_CHEESE.get()));
+        slabBlock(((SlabBlock) ModBlocks.GOUDA_CHEESE_SLAB.get()), blockTexture(ModBlocks.GOUDA_CHEESE.get()), blockTexture(ModBlocks.GOUDA_CHEESE.get()));
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

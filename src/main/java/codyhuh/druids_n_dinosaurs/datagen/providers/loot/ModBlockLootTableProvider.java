@@ -120,8 +120,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BRAMBLERUST.get());
         this.dropSelf(ModBlocks.GILDED_FORGET_ME_NOTS.get());
         this.dropSelf(ModBlocks.BLOOM_BEACON.get());
-        this.add(ModBlocks.GOUDA_CHEESE.get(), noDrop());
+
         this.dropSelf(ModBlocks.SULFUR_BLOCK.get());
+
+        this.dropSelf(ModBlocks.GOUDA_CHEESE.get());
+        this.dropSelf(ModBlocks.GOUDA_CHEESE_STAIRS.get());
+        this.dropSelf(ModBlocks.GOUDA_CHEESE_SLAB.get());
     }
 
     public LootTable.Builder createBrightBloomDrops(Block brightBlooms) {

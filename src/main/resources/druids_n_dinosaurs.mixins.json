@@ -10,6 +10,7 @@
     "FallingBlockEntityMixin",
     "LivingEntityMixin",
     "MobMixin",
+    "ThrownPotionMixin",
     "WolfMixin"
   ],
   "client": [

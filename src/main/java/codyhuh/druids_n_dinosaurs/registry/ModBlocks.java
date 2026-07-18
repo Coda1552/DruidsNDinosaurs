@@ -211,6 +211,10 @@ public class ModBlocks {
     //Gouda
     public static final RegistryObject<Block> GOUDA_CHEESE = registerBlock("gouda_cheese",
             () -> new GoudaCheeseBlock(BlockBehaviour.Properties.copy(Blocks.CAKE).mapColor(DyeColor.YELLOW)));
+    public static final RegistryObject<Block> GOUDA_CHEESE_SLAB = registerBlock("gouda_cheese_slab",
+            () -> new GoudaCheeseSlab(BlockBehaviour.Properties.copy(Blocks.CAKE).mapColor(DyeColor.YELLOW)));
+    public static final RegistryObject<Block> GOUDA_CHEESE_STAIRS = registerBlock("gouda_cheese_stairs",
+            () -> new GoudaStairsBlock(() -> GOUDA_CHEESE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CAKE).mapColor(DyeColor.YELLOW)));
 
     private static <T extends Block> Supplier<T> create(String key, Supplier<T> block) {
         return BLOCKS.register(key, block);

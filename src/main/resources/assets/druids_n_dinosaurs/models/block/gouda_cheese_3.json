@@ -1,6 +1,0 @@
-{
-  "parent": "druids_n_dinosaurs:block/half_slab",
-  "textures": {
-    "side": "druids_n_dinosaurs:block/gouda_cheese"
-  }
-}

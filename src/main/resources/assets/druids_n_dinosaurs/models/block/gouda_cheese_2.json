@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "druids_n_dinosaurs:block/gouda_cheese",
-    "side": "druids_n_dinosaurs:block/gouda_cheese",
-    "top": "druids_n_dinosaurs:block/gouda_cheese"
-  }
-}

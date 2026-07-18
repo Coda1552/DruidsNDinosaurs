@@ -207,5 +207,7 @@
 
   "item.druids_n_dinosaurs.sulfur": "Sulfur",
   "block.druids_n_dinosaurs.sulfur_block": "Sulfur Block",
-  "block.druids_n_dinosaurs.gouda_cheese": " Gouda Cheese"
+  "block.druids_n_dinosaurs.gouda_cheese": "Gouda Cheese",
+  "block.druids_n_dinosaurs.gouda_cheese_stairs": "Gouda Cheese Stairs",
+  "block.druids_n_dinosaurs.gouda_cheese_slab": "Gouda Cheese Slab"
 }

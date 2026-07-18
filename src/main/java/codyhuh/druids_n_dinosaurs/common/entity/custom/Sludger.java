@@ -2,6 +2,7 @@ package codyhuh.druids_n_dinosaurs.common.entity.custom;
 
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModParticles;
+import codyhuh.druids_n_dinosaurs.registry.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
@@ -52,9 +53,22 @@ public class Sludger extends Slime {
     }
 
     @Override
+    public boolean canAttack(LivingEntity pTarget) {
+        if (pTarget instanceof IronGolem)
+            return false;
+        if (pTarget instanceof Player player)
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModTags.Items.FLOWER_CROWNS))
+                return false;
+        return super.canAttack(pTarget);
+    }
+
+    @Override
     public boolean canAttack(LivingEntity pLivingentity, TargetingConditions pCondition) {
         if (pLivingentity instanceof IronGolem)
             return false;
+        if (pLivingentity instanceof Player player)
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModTags.Items.FLOWER_CROWNS))
+                return false;
         return super.canAttack(pLivingentity, pCondition);
     }
 
@@ -176,11 +190,7 @@ public class Sludger extends Slime {
         }
 
         public boolean canContinueToUse() {
-            return !this.pathNav.isDone();
-        }
-
-        public void start() {
-            this.pathNav.moveTo(this.path, this.walkSpeedModifier);
+            return this.canUse();
         }
 
         public void stop() {
@@ -199,11 +209,6 @@ public class Sludger extends Slime {
             double d0 = this.toAvoid.getX() - this.mob.getX();
             double d2 = this.toAvoid.getZ() - this.mob.getZ();
             float f = (float)(Mth.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F - 180;
-
-//            if (f<0)
-//                f += -f*2;
-//            if (f>360)
-//                f -= 360;
 
             if (movecontrol instanceof Slime.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(f, false);

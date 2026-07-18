@@ -61,6 +61,8 @@ public class ModCreativeTab {
                         output.accept(ModBlocks.OOZE_TRAIL.get());
 
                         output.accept(ModBlocks.GOUDA_CHEESE.get());
+                        output.accept(ModBlocks.GOUDA_CHEESE_STAIRS.get());
+                        output.accept(ModBlocks.GOUDA_CHEESE_SLAB.get());
 
                         output.accept(ModItems.FLOWER_CROWN.get());
                         output.accept(ModItems.BLUE_FLOWER_CROWN.get());

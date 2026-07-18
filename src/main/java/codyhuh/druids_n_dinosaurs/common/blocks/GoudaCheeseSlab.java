@@ -12,14 +12,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class GoudaCheeseBlock extends Block {
-
-    public GoudaCheeseBlock(Properties pProperties) {
+public class GoudaCheeseSlab extends SlabBlock {
+    public GoudaCheeseSlab(Properties pProperties) {
         super(pProperties);
     }
 
@@ -52,13 +55,20 @@ public class GoudaCheeseBlock extends Block {
             pLevel.playSound(pPlayer, pPlayer.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS);
             pLevel.levelEvent(2001, pPos, Block.getId((ModBlocks.GOUDA_CHEESE.get().defaultBlockState())));
 
-            Direction direction = pPlayer.getDirection();
+            if (pState.getValue(TYPE)== SlabType.DOUBLE){
+                pPlayer.getFoodData().eat(2, 0.1F);
+                Direction direction = pPlayer.getDirection();
 
-            if (!direction.getAxis().isHorizontal())
-                direction = Direction.NORTH;
+                if (!direction.getAxis().isHorizontal())
+                    direction = Direction.NORTH;
 
-            BlockState state = ModBlocks.GOUDA_CHEESE_STAIRS.get().defaultBlockState().setValue(StairBlock.FACING, direction);
-            pLevel.setBlock(pPos, state, 1);
+                BlockState state = ModBlocks.GOUDA_CHEESE_STAIRS.get().defaultBlockState().setValue(StairBlock.FACING, direction);
+                pLevel.setBlock(pPos, state, 1);
+            } else {
+                pPlayer.getFoodData().eat(4, 0.2F);
+                pLevel.removeBlock(pPos, false);
+                pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+            }
 
             return InteractionResult.SUCCESS;
         }

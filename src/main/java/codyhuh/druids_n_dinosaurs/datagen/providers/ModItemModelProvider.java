@@ -132,6 +132,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SLUDGE_BALL);
 
         simpleItem(ModItems.SULFUR);
+
+        evenSimplerBlockItem(ModBlocks.GOUDA_CHEESE_SLAB);
+        evenSimplerBlockItem(ModBlocks.GOUDA_CHEESE_STAIRS);
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
