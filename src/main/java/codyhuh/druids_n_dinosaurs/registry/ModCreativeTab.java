@@ -162,6 +162,8 @@ public class ModCreativeTab {
                         output.accept(ModItems.HUE_HOG_SPAWN_EGG.get());
                         output.accept(ModItems.JADE_AUTOMATON_SPAWN_EGG.get());
                         output.accept(ModItems.JADE_ELEPHANT_SPAWN_EGG.get());
+                        output.accept(ModItems.MUDSPITTER_SPAWN_EGG.get());
+                        output.accept(ModItems.MUDLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTLING_SPAWN_EGG.get());
                         output.accept(ModItems.RUSTMUNCHER_SPAWN_EGG.get());
                         output.accept(ModItems.SLUDGER_SPAWN_EGG.get());

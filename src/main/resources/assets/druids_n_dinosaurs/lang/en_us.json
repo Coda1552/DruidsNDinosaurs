@@ -186,6 +186,9 @@
 
   "entity.druids_n_dinosaurs.terra_thunk": "Terra Thunk",
   "item.druids_n_dinosaurs.terra_thunk_spawn_egg": "Terra Thunk Spawn Egg",
+  "druids_n_dinosaurs.sound.subtitle.terra_thunk_ambient": "Terra Thunk idles",
+  "druids_n_dinosaurs.sound.subtitle.terra_thunk_hurt": "Terra Thunk hurts",
+  "druids_n_dinosaurs.sound.subtitle.terra_thunk_death": "Terra Thunk dies",
 
   "item.druids_n_dinosaurs.paleo_meat": "Raw Paleo Meat",
   "item.druids_n_dinosaurs.cooked_paleo_meat": "Cooked Paleo Meat",
@@ -200,6 +203,7 @@
 
   "item.druids_n_dinosaurs.sludge_ball": "Sludge Ball",
   "entity.druids_n_dinosaurs.sludge_ball": "Thrown Sludge Ball",
+  "entity.druids_n_dinosaurs.tar_ball": "Thrown Tar Ball",
   "item.druids_n_dinosaurs.sludger_spawn_egg": "Sludger Spawn Egg",
   "entity.druids_n_dinosaurs.sludger": "Sludger",
   "block.druids_n_dinosaurs.ooze_trail": "Ooze Trail",
@@ -209,5 +213,11 @@
   "block.druids_n_dinosaurs.sulfur_block": "Sulfur Block",
   "block.druids_n_dinosaurs.gouda_cheese": "Gouda Cheese",
   "block.druids_n_dinosaurs.gouda_cheese_stairs": "Gouda Cheese Stairs",
-  "block.druids_n_dinosaurs.gouda_cheese_slab": "Gouda Cheese Slab"
+  "block.druids_n_dinosaurs.gouda_cheese_slab": "Gouda Cheese Slab",
+
+  "item.druids_n_dinosaurs.mudling_spawn_egg": "Mudling Spawn Egg",
+  "entity.druids_n_dinosaurs.mudling": "Mudling",
+
+  "item.druids_n_dinosaurs.mudspitter_spawn_egg": "Mudspitter Spawn Egg",
+  "entity.druids_n_dinosaurs.mudspitter": "Mudspitter"
 }

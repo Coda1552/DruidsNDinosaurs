@@ -148,5 +148,45 @@
       }
     ],
     "subtitle": "rustling.sound.subtitle.ori_chalcos_eugh"
+  },
+
+
+
+
+  "terra_thunk_ambient": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_idle1"
+      },
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_idle2"
+      },
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_idle3"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.terra_thunk_ambient"
+  },
+  "terra_thunk_hurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_hurt1"
+      },
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_hurt2"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.terra_thunk_hurt"
+  },
+  "terra_thunk_death": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "druids_n_dinosaurs:terra_thunk/terra_thunk_death"
+      }
+    ],
+    "subtitle": "rustling.sound.subtitle.terra_thunk_death"
   }
 }

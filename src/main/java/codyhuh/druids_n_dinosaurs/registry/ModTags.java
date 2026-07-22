@@ -57,6 +57,7 @@ public class ModTags {
     public static class EntityTypes {
         public static final TagKey<EntityType<?>> WICKER_IDOL_BLACKLIST = tag("wicker_idol_blacklist");
         public static final TagKey<EntityType<?>> BLOOM_ENTITIES = tag("bloom_entities");
+        public static final TagKey<EntityType<?>> OOZE_TRAIL_NO_STUCK = tag("ooze_trail_no_stuck");
 
         private static TagKey<net.minecraft.world.entity.EntityType<?>> tag(String name){
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DruidsNDinosaurs.MOD_ID, name));

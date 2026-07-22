@@ -118,6 +118,12 @@ public class ModItems {
     public static final RegistryObject<Item> SLUDGER_SPAWN_EGG = ITEMS.register("sludger_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SLUDGER, 0x4b304c, 0x261529, new Item.Properties()));
 
+    public static final RegistryObject<Item> MUDLING_SPAWN_EGG = ITEMS.register("mudling_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MUDLING, 0x443937, 0x3c6e70, new Item.Properties()));
+
+    public static final RegistryObject<Item> MUDSPITTER_SPAWN_EGG = ITEMS.register("mudspitter_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MUDSPITTER, 0x281e1d, 0x7cfb92, new Item.Properties()));
+
 
     public static final RegistryObject<Item> RUSTLING_SHERD = ITEMS.register("rustling_pottery_sherd",
             () -> new Item(new Item.Properties()));

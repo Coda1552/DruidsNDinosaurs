@@ -122,6 +122,8 @@ public class DruidsNDinosaurs {
         e.put(ModEntities.CHISELCHIRP.get(), Chiselchirp.createAttributes().build());
         e.put(ModEntities.TERRA_THUNK.get(), TerraThunk.createAttributes().build());
         e.put(ModEntities.SLUDGER.get(), Monster.createMonsterAttributes().build());
+        e.put(ModEntities.MUDLING.get(), Mudling.createAttributes().build());
+        e.put(ModEntities.MUDSPITTER.get(), MudSpitter.createAttributes().build());
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

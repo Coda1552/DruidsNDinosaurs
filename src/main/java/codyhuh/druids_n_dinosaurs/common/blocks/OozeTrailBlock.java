@@ -1,7 +1,9 @@
 package codyhuh.druids_n_dinosaurs.common.blocks;
 
+import codyhuh.druids_n_dinosaurs.common.entity.custom.Mudling;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.Sludger;
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
+import codyhuh.druids_n_dinosaurs.registry.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -38,7 +40,7 @@ public class OozeTrailBlock extends MultifaceBlock implements SimpleWaterloggedB
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (!(pEntity instanceof Sludger))
+        if (!pEntity.getType().is(ModTags.EntityTypes.OOZE_TRAIL_NO_STUCK))
             pEntity.makeStuckInBlock(pState, new Vec3(0.5D, 0.125D, 0.5D));
     }
 

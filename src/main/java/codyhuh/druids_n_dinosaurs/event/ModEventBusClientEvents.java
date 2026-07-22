@@ -70,6 +70,9 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.CHISELCHIRP, ChiselchirpModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.TERRA_THUNK, TerraThunkModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.SLUDGER, SludgerModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.MUDLING, MudlingModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.MUDSPITTER, MudSpitterModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -109,6 +112,10 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntities.SLUDGER.get(), SludgerRenderer::new);
 
         event.registerEntityRenderer(ModEntities.SLUDGE_BALL.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ModEntities.TAR_BALL.get(), ThrownItemRenderer::new);
+
+        event.registerEntityRenderer(ModEntities.MUDLING.get(), MudlingRenderer::new);
+        event.registerEntityRenderer(ModEntities.MUDSPITTER.get(), MudspitterRenderer::new);
     }
 
     @SubscribeEvent

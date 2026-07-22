@@ -3,6 +3,7 @@ package codyhuh.druids_n_dinosaurs.registry;
 import codyhuh.druids_n_dinosaurs.DruidsNDinosaurs;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.*;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.SludgeBallEntity;
+import codyhuh.druids_n_dinosaurs.common.entity.custom.item.TarBallProjectileEntity;
 import codyhuh.druids_n_dinosaurs.common.entity.custom.item.ThrownGourdEgg;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -72,10 +73,22 @@ public class ModEntities {
             ENTITY_TYPES.register("sludger", () -> EntityType.Builder.of(Sludger::new, MobCategory.CREATURE)
                     .sized(2.04F, 2.04F).build("sludger"));
 
+    public static final RegistryObject<EntityType<Mudling>> MUDLING =
+            ENTITY_TYPES.register("mudling", () -> EntityType.Builder.of(Mudling::new, MobCategory.CREATURE)
+                    .sized(0.9f, 0.5f).build("mudling"));
+
+    public static final RegistryObject<EntityType<MudSpitter>> MUDSPITTER =
+            ENTITY_TYPES.register("mudspitter", () -> EntityType.Builder.of(MudSpitter::new, MobCategory.CREATURE)
+                    .sized(1.2f, 2).build("mudspitter"));
+
 
     public static final RegistryObject<EntityType<SludgeBallEntity>> SLUDGE_BALL =
             ENTITY_TYPES.register("sludge_ball", () -> EntityType.Builder.<SludgeBallEntity>of(SludgeBallEntity::new, MobCategory.MISC)
                     .sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("sludge_ball"));
+
+    public static final RegistryObject<EntityType<TarBallProjectileEntity>> TAR_BALL =
+            ENTITY_TYPES.register("tar_ball", () -> EntityType.Builder.<TarBallProjectileEntity>of(TarBallProjectileEntity::new, MobCategory.MISC)
+                    .sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10).build("tar_ball"));
 
     public static final RegistryObject<EntityType<ModBoatEntity>> MOD_BOAT =
             ENTITY_TYPES.register("mod_boat", () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)

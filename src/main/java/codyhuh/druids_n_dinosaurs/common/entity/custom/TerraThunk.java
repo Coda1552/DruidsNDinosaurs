@@ -3,6 +3,7 @@ package codyhuh.druids_n_dinosaurs.common.entity.custom;
 import codyhuh.druids_n_dinosaurs.common.entity.ai.CustomRideGoal;
 import codyhuh.druids_n_dinosaurs.registry.ModBlocks;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;
+import codyhuh.druids_n_dinosaurs.registry.ModSounds;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
@@ -348,17 +349,17 @@ public class TerraThunk extends TamableAnimal {
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
-        return SoundEvents.SNIFFER_IDLE;
+        return ModSounds.TERRA_THUNK_IDLE.get();
     }
 
     @Override
     protected @Nullable SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.SNIFFER_HURT;
+        return ModSounds.TERRA_THUNK_HURT.get();
     }
 
     @Override
     protected @Nullable SoundEvent getDeathSound() {
-        return SoundEvents.SNIFFER_DEATH;
+        return ModSounds.TERRA_THUNK_DEATH.get();
     }
 
     @javax.annotation.Nullable
@@ -531,4 +532,5 @@ public class TerraThunk extends TamableAnimal {
 
         }
     }
+
 }

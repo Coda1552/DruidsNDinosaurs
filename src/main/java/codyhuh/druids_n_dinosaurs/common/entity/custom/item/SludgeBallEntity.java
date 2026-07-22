@@ -1,6 +1,5 @@
 package codyhuh.druids_n_dinosaurs.common.entity.custom.item;
 
-import codyhuh.druids_n_dinosaurs.common.entity.custom.GourdRaptorEntity;
 import codyhuh.druids_n_dinosaurs.registry.ModEffects;
 import codyhuh.druids_n_dinosaurs.registry.ModEntities;
 import codyhuh.druids_n_dinosaurs.registry.ModItems;

@@ -24,6 +24,10 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> ORI_CHALCOS_IDLE = create("ori_chalcos_idle");
     public static final RegistryObject<SoundEvent> ORI_CHALCOS_EUGH = create("ori_chalcos_eugh");
 
+    public static final RegistryObject<SoundEvent> TERRA_THUNK_IDLE = create("terra_thunk_ambient");
+    public static final RegistryObject<SoundEvent> TERRA_THUNK_HURT = create("terra_thunk_hurt");
+    public static final RegistryObject<SoundEvent> TERRA_THUNK_DEATH = create("terra_thunk_death");
+
     private static RegistryObject<SoundEvent> create(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DruidsNDinosaurs.MOD_ID, name)));
     }

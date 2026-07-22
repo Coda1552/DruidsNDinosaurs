@@ -32,5 +32,7 @@ public class ModEntityTagGenerator extends EntityTypeTagsProvider {
         this.tag(ModTags.EntityTypes.WICKER_IDOL_BLACKLIST).add(EntityType.ENDER_DRAGON).add(EntityType.WARDEN).add(EntityType.WITHER);
         this.tag(EntityTypeTags.DISMOUNTS_UNDERWATER).add(ModEntities.HART.get()).add(ModEntities.GILDED_GALLUMPHER.get()).add(ModEntities.TERRA_THUNK.get());
         this.tag(ModTags.EntityTypes.BLOOM_ENTITIES).add(ModEntities.RUSTLING.get());
+        this.tag(ModTags.EntityTypes.OOZE_TRAIL_NO_STUCK).add(ModEntities.SLUDGER.get()).add(ModEntities.MUDLING.get()).add(ModEntities.MUDSPITTER.get());
+
     }
 }
